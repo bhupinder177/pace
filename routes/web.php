@@ -184,6 +184,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('/password', 'DashboardController@password');
         Route::post('/passwordUpdate', 'DashboardController@passwordUpdate');
 
+        Route::get('settings','SettingsController@index')->name("settings.index");
+        Route::post('settings-save','SettingsController@save')->name("settings.save");
 
     });
   });

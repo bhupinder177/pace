@@ -103,8 +103,12 @@
 
 
 
-
-  </ul>
+        <li <?php if(request()->segment(2) == "settings" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('settings.index')}}">
+                <span><i class="fa fa-cog" aria-hidden="true"></i><span class="lbl">Settings</span></span>
+            </a>
+        </li>
+    </ul>
 </nav>
 
 <!--.side-menu-->
