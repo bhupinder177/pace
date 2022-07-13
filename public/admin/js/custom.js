@@ -1287,3 +1287,16 @@ $("#addsettings").validate({
         formSubmit(form);
     }
 });
+
+$("#addCommon").validate({
+    errorClass: "has-error",
+    highlight: function(element, errorClass) {
+        //$(element).parents('.form-group').addClass(errorClass);
+    },
+    unhighlight: function(element, errorClass, validClass) {
+        //  $(element).parents('.form-group').removeClass(errorClass);
+    },
+    submitHandler: function (form) {
+        formSubmit(form);
+    }
+});

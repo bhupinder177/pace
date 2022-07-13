@@ -187,6 +187,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('settings','SettingsController@index')->name("settings.index");
         Route::post('settings-save','SettingsController@save')->name("settings.save");
 
+        Route::get('investors','InvestorsController@index')->name("investor.index");
+        Route::get('investor-add','InvestorsController@add')->name("investor.add");
+        Route::post('investor-save','InvestorsController@save')->name("investor.save");
+        Route::get('investor-edit/{id}','InvestorsController@edit')->name("investor.edit");
+        Route::post('investor-update','InvestorsController@update')->name("investor.update");
+        Route::post('investor-delete','InvestorsController@delete')->name("investor.delete");
+
     });
   });
 // ******************************Admin routes**********

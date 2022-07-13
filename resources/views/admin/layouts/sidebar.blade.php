@@ -108,6 +108,11 @@
                 <span><i class="fa fa-cog" aria-hidden="true"></i><span class="lbl">General Settings</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "investors" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('investor.index')}}">
+                <span><i class="fa fa-user" aria-hidden="true"></i><span class="lbl">Investors</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 
