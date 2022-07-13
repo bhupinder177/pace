@@ -113,6 +113,11 @@
                 <span><i class="fa fa-user" aria-hidden="true"></i><span class="lbl">Investors</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "product" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('product.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Products</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 

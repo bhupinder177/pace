@@ -194,6 +194,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('investor-update','InvestorsController@update')->name("investor.update");
         Route::post('investor-delete','InvestorsController@delete')->name("investor.delete");
 
+        Route::get('product','ProductsController@index')->name("product.index");
+        Route::get('product-add','ProductsController@add')->name("product.add");
+        Route::post('product-save','ProductsController@save')->name("product.save");
+        Route::get('product-edit/{id}','ProductsController@edit')->name("product.edit");
+        Route::post('product-update','ProductsController@update')->name("product.update");
+        Route::post('product-delete','ProductsController@delete')->name("product.delete");
+
     });
   });
 // ******************************Admin routes**********

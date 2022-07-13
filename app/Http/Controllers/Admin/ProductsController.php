@@ -1,17 +1,17 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Model\Investors;
+use App\Model\Products;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Crypt;
 
-class InvestorsController extends Controller
+class ProductsController extends Controller
 {
     public function index(Request $request) {
         $this->prefix = request()->route()->getPrefix();
         $perpage = 10;
-        $query = Investors::query();
+        $query = Products::query();
         if($request->ajax()){
             if(isset($request->peritem)) {
                 $perpage = $request->peritem;
@@ -65,7 +65,7 @@ class InvestorsController extends Controller
 
             if($request->hasFile('investor_image')) {
                 $getUniqueNo = time();
-                $saveStorePath = "public/investors";
+                $saveStorePath = "public/products";
                 $attachmentDoc = $request->file('investor_image');
                 $attachmentDocFilenameWithExt = $attachmentDoc->getClientOriginalName();
                 $attachmentDocFilename = pathinfo($attachmentDocFilenameWithExt, PATHINFO_FILENAME);
@@ -79,9 +79,9 @@ class InvestorsController extends Controller
 
             if ($request->has('id')) {
                 $id = Crypt::decrypt($request->id);
-                $res = Investors::where('id',$id)->update($saveData);
+                $res = Products::where('id',$id)->update($saveData);
             } else {
-                $user = new Investors($saveData);
+                $user = new Products($saveData);
                 $res =  $user->save();
             }
 
@@ -104,7 +104,7 @@ class InvestorsController extends Controller
     public function edit($id) {
         $id = Crypt::decrypt($id);
         $this->prefix = request()->route()->getPrefix();
-        $result = Investors::whereKey($id)->first();
+        $result = Products::whereKey($id)->first();
         return view('admin.investor.edit',['result'=>$result,'prefix'=>$this->prefix]);
    }
 
@@ -139,7 +139,7 @@ class InvestorsController extends Controller
 
             if($request->hasFile('investor_image')) {
                 $getUniqueNo = time();
-                $saveStorePath = "public/investors";
+                $saveStorePath = "public/Products";
                 $attachmentDoc = $request->file('investor_image');
                 $attachmentDocFilenameWithExt = $attachmentDoc->getClientOriginalName();
                 $attachmentDocFilename = pathinfo($attachmentDocFilenameWithExt, PATHINFO_FILENAME);
@@ -153,9 +153,9 @@ class InvestorsController extends Controller
 
             if ($request->has('id')) {
                 $id = Crypt::decrypt($request->id);
-                $res = Investors::where('id',$id)->update($saveData);
+                $res = Products::where('id',$id)->update($saveData);
             } else {
-                $user = new Investors($saveData);
+                $user = new Products($saveData);
                 $res =  $user->save();
             }
 
@@ -176,7 +176,7 @@ class InvestorsController extends Controller
     }
 
     public function delete(Request $request) {
-        $res = Investors::destroy($request['id']);
+        $res = Products::destroy($request['id']);
         if($res) {
             $response['success']         = true;
             $response['delayTime']       = '2000';
