@@ -19,54 +19,54 @@
       </a>
     </li>
 
-    <li <?php if(request()->segment(2) == "home" ){ ?>class="active" <?php } ?>>
+    <!-- <li <?php if(request()->segment(2) == "home" ){ ?>class="active" <?php } ?>>
       <a href="{{URL::to($getprefix.'/home')}}">
         <span><i class="fa fa-home"></i><span class="lbl">Home</span></span>
       </a>
 
-    </li>
+    </li> -->
 
-    <li <?php if(request()->segment(2) == "userlist" || request()->segment(1) == "user-add" || request()->segment(1) == "user-edit"){ ?>class="active" <?php } ?>>
+    <!-- <li <?php if(request()->segment(2) == "userlist" || request()->segment(1) == "user-add" || request()->segment(1) == "user-edit"){ ?>class="active" <?php } ?>>
       <a href="{{URL::to($getprefix.'/userlist')}}">
         <span><i class="fa fa-user" aria-hidden="true"></i><span class="lbl">Users</span></span>
       </a>
 
-    </li>
+    </li> -->
 
 
-        <li <?php if(request()->segment(2) == "packages" || request()->segment(1) == "packages-add" || request()->segment(1) == "packages-edit"){ ?>class="active" <?php } ?>>
+        <!-- <li <?php if(request()->segment(2) == "packages" || request()->segment(1) == "packages-add" || request()->segment(1) == "packages-edit"){ ?>class="active" <?php } ?>>
           <a href="{{URL::to($getprefix.'/packages')}}">
             <span><i class="fa fa-tasks"></i><span class="lbl">Packages</span></span>
           </a>
 
-        </li>
-        <li <?php if(request()->segment(2) == "coupon" || request()->segment(1) == "coupon-add" || request()->segment(1) == "coupon-edit"){ ?>class="active" <?php } ?>>
+        </li> -->
+        <!-- <li <?php if(request()->segment(2) == "coupon" || request()->segment(1) == "coupon-add" || request()->segment(1) == "coupon-edit"){ ?>class="active" <?php } ?>>
           <a href="{{URL::to($getprefix.'/coupon')}}">
             <span><i class="fa fa-gift"></i><span class="lbl">Coupon</span></span>
           </a>
 
-        </li>
+        </li> -->
 
-        <li <?php if(request()->segment(2) == "country" ){ ?>class="active" <?php } ?>>
+        <!-- <li <?php if(request()->segment(2) == "country" ){ ?>class="active" <?php } ?>>
           <a href="{{URL::to($getprefix.'/country')}}">
             <span><i class="fa fa-flag"></i><span class="lbl">Countries</span></span>
           </a>
 
-        </li>
+        </li> -->
 
-        <li <?php if(request()->segment(2) == "stories" ){ ?>class="active" <?php } ?>>
+        <!-- <li <?php if(request()->segment(2) == "stories" ){ ?>class="active" <?php } ?>>
           <a href="{{URL::to($getprefix.'/stories')}}">
             <span><i class="fa fa-history"></i><span class="lbl">Stories</span></span>
           </a>
 
-        </li>
+        </li> -->
         <li <?php if(request()->segment(2) == "categories" ){ ?>class="active" <?php } ?>>
           <a href="{{URL::to($getprefix.'/categories')}}">
             <span><i class="fa fa-tasks"></i><span class="lbl">Categories</span></span>
           </a>
 
         </li>
-        <li <?php if(request()->segment(2) == "community" ){ ?>class="active" <?php } ?>>
+        <!-- <li <?php if(request()->segment(2) == "community" ){ ?>class="active" <?php } ?>>
           <a href="{{URL::to($getprefix.'/community')}}">
             <span><i class="fa fa-tasks"></i><span class="lbl">Community</span></span>
           </a>
@@ -97,7 +97,7 @@
             <span><i class="fa fa-credit-card" aria-hidden="true"></i><span class="lbl">Payments</span></span>
           </a>
 
-        </li>
+        </li> -->
 
 
 
@@ -105,7 +105,7 @@
 
         <li <?php if(request()->segment(2) == "settings" ){ ?>class="active" <?php } ?>>
             <a href="{{route('settings.index')}}">
-                <span><i class="fa fa-cog" aria-hidden="true"></i><span class="lbl">Settings</span></span>
+                <span><i class="fa fa-cog" aria-hidden="true"></i><span class="lbl">General Settings</span></span>
             </a>
         </li>
     </ul>

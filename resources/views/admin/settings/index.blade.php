@@ -5,7 +5,7 @@
 <div class="page-content">
     <section class="content-header">
         <ol class="breadcrumb">
-            <li class="active">Settings</li>
+            <li class="active">General Settings</li>
         </ol>
     </section>
     <div class="container-fluid">
