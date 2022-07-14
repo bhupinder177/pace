@@ -4,7 +4,7 @@
 <div class="page-content">
     <section class="content-header">
         <ol class="breadcrumb">
-            <li class="active">Add Media</li>
+            <li class="active">Add Media Center</li>
         </ol>
     </section>
     <div class="container-fluid">
