@@ -118,6 +118,11 @@
                 <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Products</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "gallary" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('gallary.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Gallary</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 
