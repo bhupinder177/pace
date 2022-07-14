@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Model\User;
 use App\Model\Package;
 use App\Model\Coupon;
-use App\Model\Stories;
 use App\Model\Payments;
 use App\Model\Home;
 use Str, DB, Auth;
@@ -25,9 +24,9 @@ class DashboardController extends Controller
         $user = User::where('type',2)->count();
         $package = Package::count();
         $coupon = Coupon::count();
-        $stories = Stories::count();
+
         $payment = Payments::sum('amount');
-        return view('admin.dashboard.dashboard',['payment'=>$payment,'stories'=>$stories,'user'=>$user,'coupon'=>$coupon,'package'=>$package,'prefix'=>$this->prefix]);
+        return view('admin.dashboard.dashboard',['payment'=>$payment,'user'=>$user,'coupon'=>$coupon,'package'=>$package,'prefix'=>$this->prefix]);
 
     }
 

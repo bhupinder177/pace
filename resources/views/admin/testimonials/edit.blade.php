@@ -6,7 +6,7 @@
 <div class="page-content">
   <section class="content-header">
     <ol class="breadcrumb">
-      <li class="active">Edit Story</li>
+      <li class="active">Edit Testimonial</li>
     </ol>
   </section>
       <div class="container-fluid">
@@ -14,16 +14,21 @@
 
           <div class="">
 
-            <form action="{{ url($prefix.'/stories-update') }}" method="post" enctype="multipart/form-data" class="reset" id="updatestories">
+            <form action="{{ url($prefix.'/testimonials-update') }}" method="post" enctype="multipart/form-data" class="reset" id="addtestimonials">
 
                     <div class="row">
 
                       <div class="col-sm-6">
                           <div class="form-group">
-                            <label>Image <span class="red">*</span></label>
-      <input type="file"  class="form-control " name="image"   id="image">
-      <img src="{{ asset('stories/'.$result->image) }}" height="100" width="100" >
-        <input type="hidden" name="id" value="{{Crypt::encrypt($result->id)}}">
+                              <input type="hidden" value="{{Crypt::encrypt($result->id)}}" name="id">
+                            <label>Name <span class="red">*</span></label>
+      <input type="text" placeholder="Please enter name"  class="form-control " value="{{ $result->name }}" name="name"   id="name">
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Designation <span class="red">*</span></label>
+      <input type="text"  class="form-control " placeholder="Please enter designation" value="{{ $result->designation }}" name="designation"   id="designation">
                           </div>
                       </div>
                       <div class="col-sm-6">

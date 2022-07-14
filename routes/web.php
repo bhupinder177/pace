@@ -144,12 +144,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('city-update','CityController@update');
         Route::post('city-delete','CityController@delete');
 
-        Route::get('stories','StoriesController@index');
-        Route::get('stories-add','StoriesController@add');
-        Route::post('storiesSave','StoriesController@save');
-        Route::get('stories-edit/{id}','StoriesController@edit');
-        Route::post('stories-update','StoriesController@update');
-        Route::post('stories-delete','StoriesController@delete');
+        Route::get('testimonials','TestimonialsController@index');
+        Route::get('testimonials-add','TestimonialsController@add');
+        Route::post('testimonialsSave','TestimonialsController@save');
+        Route::get('testimonials-edit/{id}','TestimonialsController@edit');
+        Route::post('testimonials-update','TestimonialsController@update');
+        Route::post('testimonials-delete','TestimonialsController@delete');
 
         Route::get('community','CommunityController@index');
         Route::get('community-add','CommunityController@add');
@@ -193,6 +193,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('investor-edit/{id}','InvestorsController@edit')->name("investor.edit");
         Route::post('investor-update','InvestorsController@update')->name("investor.update");
         Route::post('investor-delete','InvestorsController@delete')->name("investor.delete");
+
+        Route::get('media','MediaController@index')->name("media.index");
+        Route::get('media-add','MediaController@add')->name("media.add");
+        Route::post('media-save','MediaController@save')->name("media.save");
+        Route::get('media-edit/{id}','MediaController@edit')->name("media.edit");
+        Route::post('media-update','MediaController@update')->name("media.update");
+        Route::post('media-delete','MediaController@delete')->name("media.delete");
 
         Route::get('product','ProductsController@index')->name("product.index");
         Route::get('product-add','ProductsController@add')->name("product.add");

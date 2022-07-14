@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Model\Stories;
+use App\Model\Testimonials;
 use Illuminate\Http\Request;
 use App\Helpers\GlobalFunctions as CommonHelper;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Crypt;
 
 
 
-class StoriesController extends Controller
+class TestimonialsController extends Controller
 {
     //
 
@@ -23,11 +23,11 @@ class StoriesController extends Controller
     {
         $this->prefix = request()->route()->getPrefix();
         $perpage = 10;
-        $query = Stories::query();
+        $query = Testimonials::query();
 
 
         if($request->ajax()){
-            $query = Stories::query();
+            $query = Testimonials::query();
             if(isset($request->peritem))
             {
               $perpage = $request->peritem;
@@ -46,26 +46,27 @@ class StoriesController extends Controller
 
             $users = $query->orderby('id','DESC')->paginate($perpage);
 
-            $html =  view('admin.stories.storiesajax',['prefix'=>$this->prefix,'users'=>$users,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage])->render();
+            $html =  view('admin.testimonials.testimonialsajax',['prefix'=>$this->prefix,'users'=>$users,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage])->render();
             return response()->json(['html' => $html]);
         }
         else
         {
           $users = $query->orderby('id','DESC')->paginate($perpage);
-          return view('admin.stories.stories',['prefix'=>$this->prefix,'users'=>$users,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage]);
+          return view('admin.testimonials.testimonials',['prefix'=>$this->prefix,'users'=>$users,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage]);
          }
     }
 
     public function add()
   {
     $this->prefix = request()->route()->getPrefix();
-    return view('admin.stories.add',['prefix'=>$this->prefix]);
+    return view('admin.testimonials.add',['prefix'=>$this->prefix]);
   }
 
   public function save(Request $request)
   {
     $validator = Validator::make($request->all(),[
-          'image' => 'required|mimes:jpeg,jpg,png',
+          'name' => 'required|string',
+          'designation' => 'required|string',
           'description' => 'required|string',
 
         ]);
@@ -81,22 +82,11 @@ class StoriesController extends Controller
      {
 
        $this->prefix = request()->route()->getPrefix();
-       $image = '';
-       if ($request->hasFile('image'))
-       {
-         $request->file('data_name');
-         $imgRef     = 'stories-'.time();
-         $files        = $request->file('image');
-         $name         = $files->getClientOriginalName();
-         $extension2    = $files->extension();
-         $type         = explode('.',$name);
-         $files->move(public_path().'/stories/', $imgRef.'.'.$extension2);
-         $image = $imgRef.'.'.$extension2;
 
-       }
-       $user = new Stories([
+       $user = new Testimonials([
            'description' => $request->description,
-           'image'=>$image,
+           'name'=>$request->name,
+           'designation'=>$request->designation,
 
        ]);
 
@@ -107,8 +97,8 @@ class StoriesController extends Controller
      {
        $response['success']         = true;
        $response['delayTime']       = '3000';
-       $response['success_message'] = 'Story Added Successfully.';
-       $response['url'] = url($this->prefix.'/stories');
+       $response['success_message'] = 'Testimonial Added Successfully.';
+       $response['url'] = url($this->prefix.'/testimonials');
        $response['resetform'] ='true';
        return response($response);
      }
@@ -116,7 +106,7 @@ class StoriesController extends Controller
      {
        $response['formErrors'] = true;
        $response['delayTime']     = '3000';
-       $response['errors'] = 'Story Not Added.';
+       $response['errors'] = 'Testimonial Not Added.';
        return response($response);
      }
    }
@@ -126,7 +116,9 @@ class StoriesController extends Controller
   public function update(Request $request)
   {
     $validator = Validator::make($request->all(),[
-          'description' => 'required|string',
+      'name' => 'required|string',
+      'designation' => 'required|string',
+      'description' => 'required|string',
         ]);
 
       if ($validator->fails())
@@ -140,29 +132,20 @@ class StoriesController extends Controller
       else
      {
        $this->prefix = request()->route()->getPrefix();
-       if ($request->hasFile('image'))
-       {
-         $request->file('data_name');
-         $imgRef     = 'stories-'.time();
-         $files        = $request->file('image');
-         $name         = $files->getClientOriginalName();
-         $extension2    = $files->extension();
-         $type         = explode('.',$name);
-         $files->move(public_path().'/stories/', $imgRef.'.'.$extension2);
-         $data1['image'] = $imgRef.'.'.$extension2;
 
-       }
        $id = Crypt::decrypt($request['id']);
 
        $data1['description'] = $request['description'];
+       $data1['name'] = $request['name'];
+       $data1['designation'] = $request['designation'];
 
-       $res = Stories::where('id',$id)->update($data1);
+       $res = Testimonials::where('id',$id)->update($data1);
         if($res)
         {
            $response['success']         = true;
            $response['delayTime']       = '3000';
-           $response['success_message'] = 'Story Updated Successfully.';
-           $response['url'] = url($this->prefix.'/stories');
+           $response['success_message'] = 'Testimonial Updated Successfully.';
+           $response['url'] = url($this->prefix.'/testimonials');
 
            return response($response);
          }
@@ -170,7 +153,7 @@ class StoriesController extends Controller
          {
            $response['formErrors'] = true;
            $response['delayTime']     = '3000';
-           $response['errors'] = 'Story Not Update.';
+           $response['errors'] = 'Testimonial Not Update.';
            return response($response);
          }
      }
@@ -182,8 +165,8 @@ class StoriesController extends Controller
      $id = Crypt::decrypt($id);
      $this->prefix = request()->route()->getPrefix();
 
-     $result = Stories::where(array("id"=>$id))->first();
-     return view('admin.stories.edit',['result'=>$result,'prefix'=>$this->prefix]);
+     $result = Testimonials::where(array("id"=>$id))->first();
+     return view('admin.testimonials.edit',['result'=>$result,'prefix'=>$this->prefix]);
    }
 
 
@@ -192,14 +175,14 @@ class StoriesController extends Controller
     public function delete(Request $request)
     {
 
-      $res = Stories::destroy($request['id']);
+      $res = Testimonials::destroy($request['id']);
 
 
       if($res)
       {
         $response['success']         = true;
         $response['delayTime']       = '2000';
-        $response['success_message'] = 'Country Deleted successfully.';
+        $response['success_message'] = 'Testimonial Deleted successfully.';
 
         return response($response);
       }
@@ -207,7 +190,7 @@ class StoriesController extends Controller
       {
         $response['formErrors'] = true;
         $response['delayTime']     = '2000';
-        $response['errors'] = 'Country Not Deleted.';
+        $response['errors'] = 'Testimonials Not Deleted.';
         return response($response);
     }
   }

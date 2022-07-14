@@ -220,8 +220,9 @@ submitHandler: function (form)
 }
 });
 // vehicle add
-// stories add
-$("#addstories").validate({
+
+// addtestimonials add
+$("#addtestimonials").validate({
   errorClass: "has-error",
     highlight: function(element, errorClass) {
         //$(element).parents('.form-group').addClass(errorClass);
@@ -231,7 +232,10 @@ $("#addstories").validate({
     },
 rules:
 {
- image: {
+ name: {
+   required: true
+ },
+ designation: {
    required: true
  },
  description: {
@@ -240,8 +244,11 @@ rules:
 },
 messages:
 {
- image: {
-   required: "Please select image",
+ name: {
+   required: "Please enter name",
+ },
+ designation: {
+   required: "Please enter designation",
  },
  description: {
    required: "Please enter description",
@@ -252,34 +259,9 @@ submitHandler: function (form)
  formSubmit(form);
 }
 });
-// Stories add
-// stories add
-$("#updatestories").validate({
-  errorClass: "has-error",
-    highlight: function(element, errorClass) {
-        //$(element).parents('.form-group').addClass(errorClass);
-    },
-    unhighlight: function(element, errorClass, validClass) {
-      //  $(element).parents('.form-group').removeClass(errorClass);
-    },
-rules:
-{
- description: {
-   required: true,
- },
-},
-messages:
-{
- description: {
-   required: "Please enter description",
- },
-},
-submitHandler: function (form)
-{
- formSubmit(form);
-}
-});
-// Stories add
+// addtestimonials add
+
+
 
 // country
 $("#addcountry").validate({

@@ -4,7 +4,7 @@
     <div class="page-content">
       <section class="content-header">
         <ol class="breadcrumb">
-          <li class="active">Stories</li>
+          <li class="active">Testimonials</li>
         </ol>
       </section>
 
@@ -15,7 +15,7 @@
           </div>
           <div class="col-md-6">
             <div class="refer-btn">
-                <a class="btn btn-rounded"  href="{{ url($prefix.'/stories-add')}}">Add Stories</a>
+                <a class="btn btn-rounded"  href="{{ url($prefix.'/testimonials-add')}}">Add Testimonial</a>
             </div>
          </div>
        </div>
@@ -25,8 +25,9 @@
                     <thead>
                         <tr>
                             <th style="width: 5%">S. No</th>
-                            <th style="width: 10%">Image</th>
-                            <th style="width: 8%">Description</th>
+                            <th style="width: 10%">Name</th>
+                            <th style="width: 8%">Designation</th>
+                            <th style="width: 10%">Description</th>
                             <th style="width: 8%">Actions</th>
                         </tr>
                     </thead>
@@ -37,18 +38,19 @@
                           @foreach($users as $u)
                         <tr class="data">
                             <td>{{ ++$srNo }}</td>
-                            <td><img src="{{ asset('stories/'.$u->image) }}" height="100" width="100" ></td>
+                            <td>{{ $u->name }}</td>
+                            <td>{{ $u->designation }}</td>
                             <td>{{ $u->description }}</td>
                             <td >
-                             <a href="{{url($prefix.'/stories-edit/'.Crypt::encrypt($u->id))}}"><i class="fa fa-edit"></i></a>
-                             <a class="deleterecord" data-link="{{url($prefix.'/stories-delete')}}" data-id="{{ $u->id }}"><i class="fa fa-trash deleterecord"  data-link="{{url($prefix.'/stories-delete')}}"  data-id="{{ $u->id }}" aria-hidden="true"></i></a>
+                             <a href="{{url($prefix.'/testimonials-edit/'.Crypt::encrypt($u->id))}}"><i class="fa fa-edit"></i></a>
+                             <a class="deleterecord" data-link="{{url($prefix.'/testimonials-delete')}}" data-id="{{ $u->id }}"><i class="fa fa-trash deleterecord"  data-link="{{url($prefix.'/testimonials-delete')}}"  data-id="{{ $u->id }}" aria-hidden="true"></i></a>
                              </td>
                         </tr>
                         @endforeach
                             <?php
                           }
                           else {?>
-                            <tr><td colspan="3"><center>No Record Found</center></td></tr>
+                            <tr><td colspan="5"><center>No Record Found</center></td></tr>
                           <?php }?>
 
                     </tbody>

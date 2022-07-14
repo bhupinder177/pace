@@ -19,6 +19,8 @@
       </a>
     </li>
 
+
+
     <!-- <li <?php if(request()->segment(2) == "home" ){ ?>class="active" <?php } ?>>
       <a href="{{URL::to($getprefix.'/home')}}">
         <span><i class="fa fa-home"></i><span class="lbl">Home</span></span>
@@ -116,6 +118,16 @@
         <li <?php if(request()->segment(2) == "product" ){ ?>class="active" <?php } ?>>
             <a href="{{route('product.index')}}">
                 <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Products</span></span>
+            </a>
+        </li>
+        <li <?php if(request()->segment(2) == "testimonials" ){ ?>class="active" <?php } ?>>
+          <a href="{{URL::to($getprefix.'/testimonials')}}">
+            <span><i class="fa fa-history"></i><span class="lbl">Testimonials</span></span>
+          </a>
+        </li>
+        <li <?php if(request()->segment(2) == "media" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('media.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Media</span></span>
             </a>
         </li>
     </ul>
