@@ -208,6 +208,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('product-update','ProductsController@update')->name("product.update");
         Route::post('product-delete','ProductsController@delete')->name("product.delete");
 
+        Route::get('gallary','GallaryController@index')->name("gallary.index");
+        Route::get('gallary-add','GallaryController@add')->name("gallary.add");
+        Route::post('gallary-save','GallaryController@save')->name("gallary.save");
+        Route::get('gallary-edit/{id}','GallaryController@edit')->name("gallary.edit");
+        Route::post('gallary-update','GallaryController@update')->name("gallary.update");
+        Route::post('gallary-delete','GallaryController@delete')->name("gallary.delete");
+
+        Route::get('career','CareerController@index')->name("career.index");
+        Route::get('career-add','CareerController@add')->name("career.add");
+        Route::post('career-save','CareerController@save')->name("career.save");
+        Route::get('career-edit/{id}','CareerController@edit')->name("career.edit");
+        Route::post('career-update','CareerController@update')->name("career.update");
+        Route::post('career-delete','CareerController@delete')->name("career.delete");
+
     });
   });
 // ******************************Admin routes**********
