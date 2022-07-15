@@ -226,9 +226,9 @@
         <div class="gallery_grid row">
           <div class="col-md-6">
             <div class="grid-item">
-              <a href="assets/images/application1.jpg" class="view">
+              <a href="{{ asset('front/images/application1.jpg')}}" class="view">
                 <div class="grid_img">
-                  <img src="assets/images/application1.jpg" alt="project-img">
+                  <img src="{{ asset('front/images/application1.jpg')}}" alt="project-img">
                 </div>
                 <div class="bottom_content">
                   <h3>Kitchens</h3>
@@ -244,9 +244,9 @@
           </div>
           <div class="col-md-3">
             <div class="grid-item">
-              <a href="assets/images/application2.jpg" class="view">
+              <a href="{{ asset('assets/images/application2.jpg')}}" class="view">
                 <div class="grid_img">
-                  <img src="assets/images/application2.jpg" alt="project-img">
+                  <img src="{{ asset('front/images/application2.jpg')}}" alt="project-img">
                 </div>
                 <div class="bottom_content">
                   <h3>Bathroom</h3>
@@ -262,9 +262,9 @@
           </div>
           <div class="col-md-3">
             <div class="grid-item">
-              <a href="assets/images/application3.jpg" class="view">
+              <a href="{{ asset('front/images/application3.jpg')}}" class="view">
                 <div class="grid_img">
-                  <img src="assets/images/application3.jpg" alt="project-img">
+                  <img src="{{ asset('front/images/application3.jpg')}}" alt="project-img">
                 </div>
                 <div class="bottom_content">
                   <h3>Interiors</h3>
@@ -280,9 +280,9 @@
           </div>
           <div class="col-md-3">
             <div class="grid-item design">
-              <a href="assets/images/application5.jpg" class="view">
+              <a href="{{ asset('front/images/application5.jpg')}}" class="view">
                 <div class="grid_img">
-                  <img src="assets/images/application5.jpg" alt="project-img">
+                  <img src="{{ asset('front/images/application5.jpg')}}" alt="project-img">
                 </div>
                 <div class="bottom_content">
                   <h3>Furniture</h3>
@@ -298,9 +298,9 @@
           </div>
           <div class="col-md-3">
             <div class="grid-item">
-              <a href="assets/images/application2.jpg" class="view">
+              <a href="{{ asset('front/images/application2.jpg')}}" class="view">
                 <div class="grid_img">
-                  <img src="assets/images/application2.jpg" alt="project-img">
+                  <img src="{{ asset('front/images/application2.jpg')}}" alt="project-img">
                 </div>
                 <div class="bottom_content">
                   <h3>Facades or Exterior</h3>
@@ -316,9 +316,9 @@
           </div>
           <div class="col-md-6">
             <div class="grid-item">
-              <a href="assets/images/application4.jpg" class="view">
+              <a href="{{ asset('front/images/application4.jpg')}}" class="view">
                 <div class="grid_img">
-                  <img src="assets/images/application4.jpg" alt="project-img">
+                  <img src="{{ asset('front/images/application4.jpg')}}" alt="project-img">
                 </div>
                 <div class="bottom_content">
                   <h3>Office</h3>
@@ -387,7 +387,7 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="swi_user">
-                <img src="assets/images/int_v1_testimonial01.jpg" class="img-fluid"
+                <img src="{{ asset('front/images/int_v1_testimonial01.jpg')}}" class="img-fluid"
                   alt="images" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="39px" height="26px">
                   <path fill-rule="evenodd" fill="#1F86C7"
@@ -397,7 +397,7 @@
             </div>
             <div class="swiper-slide">
               <div class="swi_user">
-                <img src="assets/images/int_v1_testimonial02.jpg" class="img-fluid"
+                <img src="{{ asset('front/images/int_v1_testimonial02.jpg')}}" class="img-fluid"
                   alt="images" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="39px" height="26px">
                   <path fill-rule="evenodd" fill="#1F86C7"
@@ -407,7 +407,7 @@
             </div>
             <div class="swiper-slide">
               <div class="swi_user">
-                <img src="assets/images/int_v1_testimonial03.jpg" class="img-fluid"
+                <img src="{{ asset('front/images/int_v1_testimonial03.jpg')}}" class="img-fluid"
                   alt="images" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="39px" height="26px">
                   <path fill-rule="evenodd" fill="#1F86C7"
@@ -417,7 +417,7 @@
             </div>
             <div class="swiper-slide">
               <div class="swi_user">
-                <img src="assets/images/int_v1_testimonial01.jpg" class="img-fluid"
+                <img src="{{ asset('front/images/int_v1_testimonial01.jpg')}}" class="img-fluid"
                   alt="images" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="39px" height="26px">
                   <path fill-rule="evenodd" fill="#1F86C7"
@@ -504,12 +504,12 @@
   </div>
   <div class="int_client_logo_section_style2">
     <ul>
-      <li><img src="assets/images/nema-1-1.png" class="img-fluid" alt="image"></li>
-      <li><img src="assets/images/iso-1.png" class="img-fluid" alt="image"></li>
-      <li><img src="assets/images/fsc-1.png" class="img-fluid" alt="image"></li>
-      <li><img src="assets/images/nema-1-1.png" class="img-fluid" alt="image"></li>
-      <li><img src="assets/images/iso-1.png" class="img-fluid" alt="image"></li>
-      <li><img src="assets/images/fsc-1.png" class="img-fluid" alt="image"></li>
+      <li><img src="{{ asset('front/images/nema-1-1.png')}}" class="img-fluid" alt="image"></li>
+      <li><img src="{{ asset('front/images/iso-1.png')}}" class="img-fluid" alt="image"></li>
+      <li><img src="{{ asset('front/images/fsc-1.png')}}" class="img-fluid" alt="image"></li>
+      <li><img src="{{ asset('front/images/nema-1-1.png')}}" class="img-fluid" alt="image"></li>
+      <li><img src="{{ asset('front/images/iso-1.png')}}" class="img-fluid" alt="image"></li>
+      <li><img src="{{ asset('front/images/fsc-1.png')}}" class="img-fluid" alt="image"></li>
     </ul>
   </div>
 </div>

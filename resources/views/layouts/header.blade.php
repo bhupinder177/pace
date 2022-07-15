@@ -107,13 +107,13 @@
 												</svg>
 											</span>
 											<ul>
-												<li><a href="index.html">Home</a></li>
+												<li><a href="#">Home</a></li>
 												<li class="int_home_dropdown"><a href="javascript:;">About us</a>
 													<ul>
-														<li><a href="about-us.html">About Airolam</a></li>
-														<li><a href="media-center.html">Media Center</a></li>
-														<li><a href="testimonial.html">Testimonials</a></li>
-														<li><a href="career.html">Career</a></li>
+														<li><a href="#">About Airolam</a></li>
+														<li><a href="#">Media Center</a></li>
+														<li><a href="#">Testimonials</a></li>
+														<li><a href="#">Career</a></li>
 													</ul>
 												</li>
 												<li class="int_home_dropdown megamenu"><a href="#">Products</a>
@@ -206,12 +206,12 @@
 													</ul>
 
 												</li>
-												<li><a href="inspiration.html">Inspiration</a></li>
-												<li><a href="resources.html">Resources</a></li>
-												<li><a href="visualizer.html">Visualizer</a></li>
-												<li><a href="investor.html">Investors</a></li>
-												<li><a href="where-buy.html">Where to buy</a></li>
-												<li><a href="contact-us.html">Contact Us</a></li>
+												<li><a href="#">Inspiration</a></li>
+												<li><a href="#">Resources</a></li>
+												<li><a href="#">Visualizer</a></li>
+												<li><a href="#">Investors</a></li>
+												<li><a href="#">Where to buy</a></li>
+												<li><a href="#">Contact Us</a></li>
 											</ul>
 										</div>
 										<div class="int_toggle">
