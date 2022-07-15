@@ -6,7 +6,7 @@
       <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="footer_box">
           <div class="int_logo">
-            <a href="index.html"><img src="assets/images/logo.png" class="img-fluid"
+            <a href="#"><img src="{{asset('front/images/logo.png')}}" class="img-fluid"
                 alt="logo" /></a>
           </div>
         </div>
@@ -14,7 +14,7 @@
       <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="footer_box">
           <div class="footer_hours">
-            <img src="assets/images/Icon material-location-on.svg" />
+            <img src="{{asset('front/images/Icon material-location-on.svg')}}" />
             <p> Dalpur Village, Nananpur Approach Road,
               <br /> Ta. : Prantij, Dist. : S.K.,<br />
               Gujarat + 383120, India.
@@ -25,7 +25,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="footer_box">
           <div class="footer_hours">
-            <img src="assets/images/Icon ionic-ios-call.svg" />
+            <img src="{{ asset('front/images/Icon ionic-ios-call.svg')}}" />
             <p>Phone : <a href="tel:+91 2770-240572/73">+91 2770-240572/73</a> </p>
             <p>Fax : +91 2770 240574 </p>
             <p>Mobile : <a href="tel:+91 99099 54411">+91 99099 54411</a></p>
@@ -35,7 +35,7 @@
       <div class="col-xl-3 col-md-6 col-sm-6 col-12">
         <div class="footer_box">
           <div class="footer_hours">
-            <img src="assets/images/Icon material-email-1.svg" />
+            <img src="{{asset('front/images/Icon material-email-1.svg')}}" />
             <a href="mailto:marketing@airolam.com">marketing@airolam.com</a>
           </div>
         </div>
