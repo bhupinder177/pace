@@ -14,7 +14,7 @@
 
                    <!-- users -->
                    <div class="col-md-4">
-                     <a href="{{URL::to($prefix.'/payments')}}">
+                     <a href="{{URL::to($prefix.'/gallary')}}">
                          <div class="emp wow bounceInDown  animated" style="visibility: visible; animation-name: bounceInDown;">
                              <ul class="ul-list unstyle mb-0">
                                  <li>
@@ -36,7 +36,7 @@
 
                      <!-- users -->
                      <div class="col-md-4">
-                       <a href="{{URL::to($prefix.'/payments')}}">
+                       <a href="{{URL::to($prefix.'/investors')}}">
                            <div class="emp wow bounceInDown  animated" style="visibility: visible; animation-name: bounceInDown;">
                                <ul class="ul-list unstyle mb-0">
                                    <li>
@@ -57,7 +57,7 @@
                        <!-- users -->
                      <!-- users -->
                      <div class="col-md-4">
-                       <a href="{{URL::to($prefix.'/payments')}}">
+                       <a href="{{URL::to($prefix.'/testimonials')}}">
                            <div class="emp wow bounceInDown  animated" style="visibility: visible; animation-name: bounceInDown;">
                                <ul class="ul-list unstyle mb-0">
                                    <li>
