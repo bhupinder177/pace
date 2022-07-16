@@ -35,7 +35,7 @@ class ContactController extends Controller
     public function contactSave(Request $request)
     {
         $mailData = array('email'=>$request->email,'name'=>$request->name,'message'=>$request->message);
-        $res = CommonHelper::sendmail('saadijodi@gmail.com', 'Sadi jodi','Gurwinderskhokhar@gmail.com',$request->firstName, 'Contact us' , ['data'=>$mailData], 'emails.contact','',$attachment=null);
+        $res = CommonHelper::sendmail('test@gmail.com', 'test','test@gmail.com',$request->firstName, 'Contact us' , ['data'=>$mailData], 'emails.contact','',$attachment=null);
         if($res)
         {
         $output['success'] ="true";
@@ -53,27 +53,22 @@ class ContactController extends Controller
 
     public function about()
     {
-        return view('front.contact.about');
+        return view('front.about.about');
     }
 
-    public function faq()
+    public function mediaCenter()
     {
-        return view('front.contact.faq');
+        return view('front.media-center.media-center');
     }
 
-    public function privacy()
+    public function testimonials()
     {
-        return view('front.contact.privacy');
+        return view('front.testimonials.testimonials');
     }
 
-    public function refund()
+    public function careers()
     {
-        return view('front.contact.refund');
-    }
-
-    public function term()
-    {
-        return view('front.contact.term_condition');
+        return view('front.career.career');
     }
 
 

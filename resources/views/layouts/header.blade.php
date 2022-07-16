@@ -80,7 +80,7 @@
 							<div class="row">
 								<div class="col-lg-3 col-md-4 col-sm-4 col-12">
 									<div class="int_logo">
-										<a href="#"><img src="{{ asset('front/images/logo.png')}}" class="img-fluid"
+										<a href="{{URL::to('/')}}"><img src="{{ asset('front/images/logo.png')}}" class="img-fluid"
 												alt="logo" /></a>
 									</div>
 								</div>
@@ -107,30 +107,30 @@
 												</svg>
 											</span>
 											<ul>
-												<li><a href="#">Home</a></li>
-												<li class="int_home_dropdown"><a href="javascript:;">About us</a>
+												<li><a href="{{URL::to('/')}}">Home</a></li>
+												<li class="int_home_dropdown"><a href="{{URL::to('/about-us')}}">About us</a>
 													<ul>
-														<li><a href="#">About Airolam</a></li>
-														<li><a href="#">Media Center</a></li>
-														<li><a href="#">Testimonials</a></li>
-														<li><a href="#">Career</a></li>
+														<li><a href="{{URL::to('/about-us')}}">About Airolam</a></li>
+														<li><a href="{{URL::to('/media-center')}}">Media Center</a></li>
+														<li><a href="{{URL::to('/testimonials')}}">Testimonials</a></li>
+														<li><a href="{{URL::to('/careers')}}">Career</a></li>
 													</ul>
 												</li>
 												<li class="int_home_dropdown megamenu"><a href="#">Products</a>
 													<ul class="sub-menu">
 														<li>
 															<div class="sub-menu-item">
-																<a href="#" class="ProductLink">
+																<a href="{{URL::to('/products')}}" class="ProductLink">
 																	<img src="https://www.merinolaminates.com/wp-content/uploads/2020/01/Laminates_small.jpg"
 																		class="NavThumbnail" alt="Kitchen Pannels">
 																	<h3>Laminates</h3>
 																</a>
 																<ol>
 																	<li id="Merinolam">
-																		<a href="#">Merinolam </a>
+																		<a href="{{URL::to('/products')}}">Merinolam </a>
 																	</li>
 																	<li id="Merinolam Postforming">
-																		<a href="#">Merinolam Postforming </a>
+																		<a href="{{URL::to('/products')}}">Merinolam Postforming </a>
 																	</li>
 																</ol>
 															</div>
@@ -206,12 +206,12 @@
 													</ul>
 
 												</li>
-												<li><a href="#">Inspiration</a></li>
-												<li><a href="#">Resources</a></li>
-												<li><a href="#">Visualizer</a></li>
-												<li><a href="#">Investors</a></li>
-												<li><a href="#">Where to buy</a></li>
-												<li><a href="#">Contact Us</a></li>
+												<li><a href="{{URL::to('/inspiration')}}">Inspiration</a></li>
+												<li><a href="{{URL::to('/resource')}}">Resources</a></li>
+												<li><a href="{{URL::to('/visualizers')}}">Visualizer</a></li>
+												<li><a href="{{URL::to('/investors')}}">Investors</a></li>
+												<li><a href="{{URL::to('/where-to-buy')}}">Where to buy</a></li>
+												<li><a href="{{URL::to('/contact-us')}}">Contact Us</a></li>
 											</ul>
 										</div>
 										<div class="int_toggle">
