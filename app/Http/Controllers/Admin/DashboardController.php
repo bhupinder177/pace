@@ -18,12 +18,9 @@ class DashboardController extends Controller
     {
             //redirect if not super admin
         $this->prefix = request()->route()->getPrefix();
-        $user = User::where('type',2)->count();
-        $package = Package::count();
-        $coupon = Coupon::count();
 
-        $payment = Payments::sum('amount');
-        return view('admin.dashboard.dashboard',['payment'=>$payment,'user'=>$user,'coupon'=>$coupon,'package'=>$package,'prefix'=>$this->prefix]);
+
+        return view('admin.dashboard.dashboard',['prefix'=>$this->prefix]);
 
     }
 
