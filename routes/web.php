@@ -222,6 +222,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('career-update','CareerController@update')->name("career.update");
         Route::post('career-delete','CareerController@delete')->name("career.delete");
 
+        Route::get('certification','CertificationController@index')->name("certification.index");
+        Route::get('certification-add','CertificationController@add')->name("certification.add");
+        Route::post('certification-save','CertificationController@save')->name("certification.save");
+        Route::get('certification-edit/{id}','CertificationController@edit')->name("certification.edit");
+        Route::post('certification-update','CertificationController@update')->name("certification.update");
+        Route::post('certification-delete','CertificationController@delete')->name("certification.delete");
+
     });
   });
 // ******************************Admin routes**********
