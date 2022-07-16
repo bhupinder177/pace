@@ -140,6 +140,11 @@
                 <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Career</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "certification" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('certification.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Certifications</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 
