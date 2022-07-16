@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\User;
 use App\Model\Home;
+use App\Model\Certification;
+use App\Model\Gallary;
+use App\Model\Investors;
+use App\Model\Testimonials;
 use Str, DB, Auth;
 use Validator;
 
@@ -19,8 +23,10 @@ class DashboardController extends Controller
             //redirect if not super admin
         $this->prefix = request()->route()->getPrefix();
 
-
-        return view('admin.dashboard.dashboard',['prefix'=>$this->prefix]);
+        $testimonials = Testimonials::count();
+        $gallery = Gallary::count();
+        $investor = Investors::count();
+        return view('admin.dashboard.dashboard',['testimonials'=>$testimonials,'gallery'=>$gallery,'investor'=>$investor,'prefix'=>$this->prefix]);
 
     }
 

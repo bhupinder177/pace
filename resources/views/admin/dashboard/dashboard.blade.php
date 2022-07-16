@@ -24,8 +24,8 @@
                                  </li>
                                  <li>
                                      <div class="content">
-                                         <p>Category</p>
-                                         <span>11</span>
+                                         <p>Galary</p>
+                                         <span>{{ $gallery }}</span>
                                      </div>
                                  </li>
                              </ul>
@@ -33,7 +33,50 @@
                          </a>
                      </div>
                      <!-- users -->
-              
+
+                     <!-- users -->
+                     <div class="col-md-4">
+                       <a href="{{URL::to($prefix.'/payments')}}">
+                           <div class="emp wow bounceInDown  animated" style="visibility: visible; animation-name: bounceInDown;">
+                               <ul class="ul-list unstyle mb-0">
+                                   <li>
+                                       <div class="bg-blue">
+                                           <img src="{{ asset('admin/images/driver.png')}}" class="image-fluid">
+                                       </div>
+                                   </li>
+                                   <li>
+                                       <div class="content">
+                                           <p>Investor</p>
+                                           <span>{{ $investor }}</span>
+                                       </div>
+                                   </li>
+                               </ul>
+                           </div>
+                           </a>
+                       </div>
+                       <!-- users -->
+                     <!-- users -->
+                     <div class="col-md-4">
+                       <a href="{{URL::to($prefix.'/payments')}}">
+                           <div class="emp wow bounceInDown  animated" style="visibility: visible; animation-name: bounceInDown;">
+                               <ul class="ul-list unstyle mb-0">
+                                   <li>
+                                       <div class="bg-blue">
+                                           <img src="{{ asset('admin/images/driver.png')}}" class="image-fluid">
+                                       </div>
+                                   </li>
+                                   <li>
+                                       <div class="content">
+                                           <p>Testimonials</p>
+                                           <span>{{ $testimonials }}</span>
+                                       </div>
+                                   </li>
+                               </ul>
+                           </div>
+                           </a>
+                       </div>
+                       <!-- users -->
+
 
 
 
