@@ -143,6 +143,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('certification-update','CertificationController@update')->name("certification.update");
         Route::post('certification-delete','CertificationController@delete')->name("certification.delete");
 
+        Route::get('filter','FilterController@index')->name("filter.index");
+        Route::get('filter-add','FilterController@add')->name("filter.add");
+        Route::post('filter-save','FilterController@save')->name("filter.save");
+        Route::get('filter-edit/{id}','FilterController@edit')->name("filter.edit");
+        Route::post('filter-update','FilterController@update')->name("filter.update");
+        Route::post('filter-delete','FilterController@delete')->name("filter.delete");
+
     });
   });
 // ******************************Admin routes**********

@@ -145,6 +145,11 @@
                 <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Certifications</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "filter" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('filter.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Filter</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 
