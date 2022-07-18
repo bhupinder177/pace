@@ -2,7 +2,9 @@
     <thead>
         <tr>
             <th style="width: 5%">S. No</th>
-            <th style="width: 10%">Image</th>
+            <th style="width: 10%">Category</th>
+            <th style="width: 10%">Structure</th>
+            <th style="width: 10%">Species</th>
             <th style="width: 10%">Status</th>
             <th style="width: 8%">Actions</th>
         </tr>
@@ -14,9 +16,9 @@
             @foreach($allData as $u)
                 <tr class="data">
                     <td>{{ ++$srNo }}</td>
-                    <td>
-                        <img src="{{url('storage/gallary/'.$u->image)}}" width="100px;" />
-                    </td>
+                    <td>{{ ($u->category) ?? "" }}</td>
+                    <td>{{ ($u->structure) ?? "" }}</td>
+                    <td>{{ ($u->species) ?? "" }}</td>
                     <td>
                         @if($u->status == 1)
                             Active
@@ -25,15 +27,15 @@
                         @endif
                     </td>
                     <td >
-                        <a href="{{route('gallary.edit', ['id' => Crypt::encrypt($u->id)])}}"><i class="fa fa-edit"></i></a>
-                        <a class="deleterecord" data-link="{{route('gallary.delete')}}" data-id="{{$u->id}}"><i class="fa fa-trash deleterecord"  data-link="{{route('gallary.delete')}}"  data-id="{{$u->id}}" aria-hidden="true"></i></a>
+                        <a href="{{route('filter.edit', ['id' => Crypt::encrypt($u->id)])}}"><i class="fa fa-edit"></i></a>
+                        <a class="deleterecord" data-link="{{route('filter.delete')}}" data-id="{{$u->id}}"><i class="fa fa-trash deleterecord"  data-link="{{route('filter.delete')}}"  data-id="{{$u->id}}" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach
             <?php
         } else {
             ?>
-                <tr><td colspan="4"><center>No Record Found</center></td></tr>
+                <tr><td colspan="6"><center>No Record Found</center></td></tr>
             <?php
         } ?>
     </tbody>
