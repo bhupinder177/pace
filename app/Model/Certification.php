@@ -10,5 +10,6 @@ class Certification extends Model
         'title',
         'image',
         'status',
+        'displayOrder'
     ];
 }

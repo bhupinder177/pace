@@ -17,6 +17,8 @@ class CreateMediaTable extends Migration
           $table->bigIncrements('id');
           $table->string('title')->nullable();
           $table->string('image')->nullable();
+          $table->integer('displayOrder')->nullable();
+          $table->integer('showOnHome')->nullable();
           $table->enum('type', ['1','2'])->default('1')->comment("1 = media, 2 = inspiration");
           $table->timestamps();
       });

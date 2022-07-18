@@ -39,6 +39,8 @@ class CertificationController extends Controller
         $validator = Validator::make($request->all(),[
                                         'certification_image' => 'required',
                                         'status' => 'required',
+                                        'title' => 'required',
+                                        'displayOrder' => 'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -49,6 +51,8 @@ class CertificationController extends Controller
         } else {
             $saveData = array();
             $saveData['status'] = (trim($request->status)) ?? "";
+            $saveData['title'] = (trim($request->title)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
             if($request->hasFile('certification_image')) {
                 $getUniqueNo = time();
@@ -97,8 +101,9 @@ class CertificationController extends Controller
 
    public function update(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        'certification_image' => 'required',
                                         'status' => 'required',
+                                        'title' => 'required',
+                                        'displayOrder' => 'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -109,6 +114,8 @@ class CertificationController extends Controller
         } else {
             $saveData = array();
             $saveData['status'] = (trim($request->status)) ?? "";
+            $saveData['title'] = (trim($request->title)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
             if($request->hasFile('certification_image')) {
                 $getUniqueNo = time();

@@ -39,6 +39,7 @@ class MediaController extends Controller
         $validator = Validator::make($request->all(),[
                                         'title' => 'required',
                                         'type' => 'required',
+                                        'displayOrder' => 'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -49,6 +50,8 @@ class MediaController extends Controller
         } else {
             $saveData = array();
             $saveData['title'] = (trim($request->title)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
+            $saveData['showOnHome'] = (trim($request->showOnHome)) ?? "";
 
             if($request->has('type')) {
                 $saveData['type'] = $request->type;
@@ -103,6 +106,7 @@ class MediaController extends Controller
         $validator = Validator::make($request->all(),[
                                         'title' => 'required',
                                         'type' => 'required',
+                                        'displayOrder'=>'required'
                                     ]);
 
         if ($validator->fails()) {
@@ -113,7 +117,8 @@ class MediaController extends Controller
         } else {
             $saveData = array();
             $saveData['title'] = (trim($request->title)) ?? "";
-
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
+            $saveData['showOnHome'] = (trim($request->showOnHome)) ?? "";
 
             if($request->has('type')) {
                 $saveData['type'] = $request->type;

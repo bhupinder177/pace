@@ -17,6 +17,7 @@ class CreateCertificationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->string('image')->nullable();
+            $table->integer('displayOrder')->nullable();
             $table->enum('status', ['0','1'])->default('0')->comment("1 = Active, 0 = In-Acive");
             $table->timestamps();
         });

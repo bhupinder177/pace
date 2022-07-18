@@ -10,5 +10,7 @@ class Media extends Model
         'title',
         'image',
         'type',
+        'showOnHome',
+        'displayOrder'
     ];
 }

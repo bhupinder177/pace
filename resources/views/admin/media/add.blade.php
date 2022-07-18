@@ -23,8 +23,10 @@
                             <label>Type <span class="red">*</span></label>
                             <select  class="form-control" name="type" id="type">
                               <option value="">Select Type</option>
-                              <option value="1">Media Center</option>
-                              <option value="2">inspiration</option>
+                              <option value="1">Media Center Top</option>
+                              <option value="2">Project Spotlight</option>
+                              <option value="3">Inspiration Latest Trends</option>
+                              <option value="4">Inspiration A;;lications</option>
                             </select>
                         </div>
                     </div>
@@ -33,6 +35,20 @@
                         <div class="form-group">
                             <label>Image <span class="red">*</span></label>
                             <input type="file" class="form-control" name="media_image" id="media_image">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Show On Home <span class="red">*</span></label>
+                            <input type="checkbox" class="form-control" value="1" name="showOnHome" id="showOnHome">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Display Order <span class="red">*</span></label>
+                            <input type="text" class="form-control" name="displayOrder" id="displayOrder">
                         </div>
                     </div>
 

@@ -24,8 +24,11 @@
                           <label>Type <span class="red">*</span></label>
                           <select  class="form-control" name="type" id="type">
                             <option value="">Select Type</option>
-                            <option @if($result->type == 1) selected @endif value="1">Media Center</option>
-                            <option @if($result->type == 2) selected @endif value="2">inspiration</option>
+
+                            <option @if($result->type == 1) selected @endif value="1">Media Center Top</option>
+                            <option @if($result->type == 2) selected @endif value="2">Project Spotlight</option>
+                            <option @if($result->type == 3) selected @endif value="3">Inspiration Latest Trends</option>
+                            <option @if($result->type == 4) selected @endif value="4">Inspiration A;;lications</option>
                           </select>
                       </div>
                   </div>
@@ -35,10 +38,23 @@
                             <input type="file" class="form-control" name="investor_image" id="investor_image">
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Show On Home <span class="red">*</span></label>
+                            <input type="checkbox" value="1" class="form-control" @if($result->showOnHome == 1) checked @endif name="showOnHome" id="showOnHome">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Display Order <span class="red">*</span></label>
+                            <input type="text" class="form-control" value="{{ $result->displayOrder }}" name="displayOrder" id="displayOrder">
+                        </div>
+                    </div>
 
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-rounded button-disabled" >Save</button>
+                    <button type="submit" class="btn btn-rounded button-disabled" >Update</button>
                     <button type="button" class="cancel btn btn-rounded btn-default button-disabled" >Cancel</button>
                 </div>
             </form>

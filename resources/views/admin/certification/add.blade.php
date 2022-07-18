@@ -12,18 +12,24 @@
             <form action="{{route('certification.save')}}" method="post" enctype="multipart/form-data" class="reset" id="addCommon">
                 @csrf
                 <div class="row">
-                    {{-- <div class="col-sm-6">
+                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Name <span class="red">*</span></label>
-                            <input type="text" class="form-control" name="name" id="name">
+                            <label>Title <span class="red">*</span></label>
+                            <input type="text" class="form-control" name="title" id="title">
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Image <span class="red">*</span></label>
                             <input type="file" class="form-control" name="certification_image" id="investor_image">
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                       <div class="form-group">
+                           <label>Display Order <span class="red">*</span></label>
+                           <input type="text" class="form-control" name="displayOrder" id="displayOrder">
+                       </div>
+                   </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Status <span class="red">*</span></label>

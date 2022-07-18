@@ -32,6 +32,19 @@
                       </div>
                       <div class="col-sm-6">
                           <div class="form-group">
+                              <label>Show On Home <span class="red">*</span></label>
+                              <input type="checkbox" class="form-control" value="1" name="showOnHome" id="showOnHome">
+                          </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                          <div class="form-group">
+                              <label>Display Order <span class="red">*</span></label>
+                              <input type="text" class="form-control" name="displayOrder" id="displayOrder">
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="form-group">
                             <label>Description <span class="red">*</span></label>
       <textarea type="text" placeholder="Please enter description" class="form-control " name="description"   id="description"></textarea>
                           </div>
