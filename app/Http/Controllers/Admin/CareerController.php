@@ -40,6 +40,10 @@ class CareerController extends Controller
                                         'title' => 'required',
                                         'description' => 'required',
                                         'status' => 'required',
+                                        'designation'=>'required',
+                                        'experience'=>'required',
+                                        'displayOrder'=>'required',
+                                        'postedOn'=>'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -52,6 +56,10 @@ class CareerController extends Controller
             $saveData['title'] = (trim($request->title)) ?? "";
             $saveData['description'] = (trim($request->description)) ?? "";
             $saveData['status'] = (trim($request->status)) ?? "";
+            $saveData['designation'] = (trim($request->designation)) ?? "";
+            $saveData['experience'] = (trim($request->experience)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
+            $saveData['postedOn'] = (trim($request->postedOn)) ?? "";
 
             if($request->hasFile('career_image')) {
                 $getUniqueNo = time();
@@ -103,6 +111,10 @@ class CareerController extends Controller
                                         'title' => 'required',
                                         'description' => 'required',
                                         'status' => 'required',
+                                        'designation'=>'required',
+                                        'experience'=>'required',
+                                        'displayOrder'=>'required',
+                                        'postedOn'=>'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -115,6 +127,10 @@ class CareerController extends Controller
             $saveData['title'] = (trim($request->title)) ?? "";
             $saveData['description'] = (trim($request->description)) ?? "";
             $saveData['status'] = (trim($request->status)) ?? "";
+            $saveData['designation'] = (trim($request->designation)) ?? "";
+            $saveData['experience'] = (trim($request->experience)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
+            $saveData['postedOn'] = (trim($request->postedOn)) ?? "";
 
             if($request->hasFile('career_image')) {
                 $getUniqueNo = time();

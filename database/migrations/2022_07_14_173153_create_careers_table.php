@@ -17,7 +17,11 @@ class CreateCareersTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->string('image')->nullable();
+            $table->string('designation')->nullable();
+            $table->string('experience')->nullable();
+            $table->string('displayOrder')->nullable();
             $table->text('description')->nullable();
+            $table->date('postedOn')->nullable();
             $table->enum('status', ['0','1'])->default('0')->comment("1 = Active, 0 = In-Acive");
             $table->timestamps();
         });

@@ -26,6 +26,25 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
+                            <label>Posted On <span class="red">*</span></label>
+                            <input type="text" class="form-control" name="postedOn" id="postedOn">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Designation<span class="red">*</span></label>
+                            <input type="text" class="form-control" name="designation" id="designation">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Experience<span class="red">*</span></label>
+                            <input type="text" class="form-control" name="experience" id="experience">
+                        </div>
+                    </div>
+                  
+                    <div class="col-sm-6">
+                        <div class="form-group">
                             <label>Description <span class="red">*</span></label>
                             <textarea class="form-control" name="description" id="description"></textarea>
                         </div>
@@ -38,6 +57,12 @@
                                 <option value="1">Active</option>
                                 <option value="0">In-Active</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Display Order<span class="red">*</span></label>
+                            <input type="text" class="form-control" name="displayOrder" id="displayOrder">
                         </div>
                     </div>
                 </div>

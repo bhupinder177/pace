@@ -11,5 +11,9 @@ class Career extends Model
         'image',
         'description',
         'status',
+        'designation',
+        'experience',
+        'displayOrder',
+        'postedOn'
     ];
 }

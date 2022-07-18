@@ -27,6 +27,24 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
+                            <label>Posted On <span class="red">*</span></label>
+                            <input type="text" class="form-control" name="postedOn" value="{{($result->postedOn) ?? ''}}" id="postedOn">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Designation<span class="red">*</span></label>
+                            <input type="text" class="form-control" value="{{($result->designation) ?? ''}}" name="designation" id="designation">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Experience<span class="red">*</span></label>
+                            <input type="text" class="form-control" value="{{($result->experience) ?? ''}}" name="experience" id="experience">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
                             <label>Description <span class="red">*</span></label>
                             <textarea class="form-control" name="description" id="description">{{($result->description) ?? ''}}</textarea>
                         </div>
@@ -39,6 +57,12 @@
                                 <option value="1" @if($result->status == 1) selected="selected" @endif>Active</option>
                                 <option value="0" @if($result->status == 0) selected="selected" @endif>In-Active</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Display Order<span class="red">*</span></label>
+                            <input type="text" class="form-control" value="{{($result->displayOrder) ?? ''}}" name="displayOrder" id="displayOrder">
                         </div>
                     </div>
                 </div>
