@@ -150,6 +150,11 @@
                 <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Filter</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "meta" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('meta.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Meta</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 
