@@ -59,7 +59,7 @@ class CareerController extends Controller
             $saveData['designation'] = (trim($request->designation)) ?? "";
             $saveData['experience'] = (trim($request->experience)) ?? "";
             $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
-            $saveData['postedOn'] = (trim($request->postedOn)) ?? "";
+            $saveData['postedOn'] = date("Y-m-d", strtotime($request->postedOn));
 
             if($request->hasFile('career_image')) {
                 $getUniqueNo = time();
@@ -130,7 +130,8 @@ class CareerController extends Controller
             $saveData['designation'] = (trim($request->designation)) ?? "";
             $saveData['experience'] = (trim($request->experience)) ?? "";
             $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
-            $saveData['postedOn'] = (trim($request->postedOn)) ?? "";
+            $saveData['postedOn'] = date("Y-m-d", strtotime($request->postedOn));
+
 
             if($request->hasFile('career_image')) {
                 $getUniqueNo = time();

@@ -27,7 +27,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Posted On <span class="red">*</span></label>
-                            <input type="text" class="form-control" name="postedOn" id="postedOn">
+                            <input type="text" class="form-control datepicker" name="postedOn" id="postedOn">
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -42,7 +42,7 @@
                             <input type="text" class="form-control" name="experience" id="experience">
                         </div>
                     </div>
-                  
+
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Description <span class="red">*</span></label>

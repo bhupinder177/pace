@@ -39,6 +39,7 @@ class MetaController extends Controller
         $validator = Validator::make($request->all(),[
                                         'title' => 'required',
                                         'description' => 'required',
+                                        'keyword' => 'required',
                                         'page_type' => 'required|unique:metas',
                                     ]);
 
@@ -52,6 +53,7 @@ class MetaController extends Controller
             $saveData['title'] = (trim($request->title)) ?? "";
             $saveData['description'] = (trim($request->description)) ?? "";
             $saveData['page_type'] = (trim($request->page_type)) ?? "";
+            $saveData['keyword'] = (trim($request->keyword)) ?? "";
 
             if ($request->has('id')) {
                 $id = Crypt::decrypt($request->id);
@@ -92,6 +94,7 @@ class MetaController extends Controller
         $validator = Validator::make($request->all(),[
                                         'title' => 'required',
                                         'description' => 'required',
+                                        'keyword' => 'required',
                                         'page_type' => 'required|unique:metas,page_type,'.$id,
                                     ]);
 
@@ -105,6 +108,8 @@ class MetaController extends Controller
             $saveData['title'] = (trim($request->title)) ?? "";
             $saveData['description'] = (trim($request->description)) ?? "";
             $saveData['page_type'] = (trim($request->page_type)) ?? "";
+            $saveData['keyword'] = (trim($request->keyword)) ?? "";
+
 
             if ($request->has('id')) {
                 $id = Crypt::decrypt($request->id);

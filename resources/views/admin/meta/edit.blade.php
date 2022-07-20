@@ -29,13 +29,19 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Title <span class="red">*</span></label>
+                            <label>Meta Title <span class="red">*</span></label>
                             <input type="text" class="form-control" name="title" id="title" value="{{($result->title) ?? ''}}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Description <span class="red">*</span></label>
+                            <label>Meta Keyword <span class="red">*</span></label>
+                            <input type="text" class="form-control" value="{{($result->keyword) ?? ''}}" name="keyword" id="keyword">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Meta Description <span class="red">*</span></label>
                             <input type="text" class="form-control" name="description" id="description" value="{{($result->description) ?? ''}}">
                         </div>
                     </div>

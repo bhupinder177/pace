@@ -261,7 +261,39 @@ class GlobalFunctions {
                             );
         $getData[4] = array(
                                 'id' => 4,
+                                'status' => 'Products'
+                            );
+        $getData[5] = array(
+                                'id' => 5,
+                                'status' => 'Media Center'
+                            );
+        $getData[6] = array(
+                                'id' => 6,
                                 'status' => 'Testimonials'
+                            );
+        $getData[7] = array(
+                                'id' => 7,
+                                'status' => 'Inspiration'
+                            );
+        $getData[8] = array(
+                                'id' => 8,
+                                'status' => 'Resources'
+                            );
+        $getData[9] = array(
+                                'id' => 9,
+                                'status' => 'Visualizers'
+                            );
+        $getData[10] = array(
+                                'id' => 10,
+                                'status' => 'Investors'
+                            );
+        $getData[11] = array(
+                                'id' => 11,
+                                'status' => 'Where to Buy'
+                            );
+        $getData[12] = array(
+                                'id' => 12,
+                                'status' => 'Contact Us'
                             );
 
         if (!empty(trim($pageTypes)) && "" != trim($pageTypes) && is_int($pageTypes)) {

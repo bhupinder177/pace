@@ -17,6 +17,7 @@ class CreateMetasTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->string('description')->nullable();
+            $table->string('keyword')->nullable();
             $table->integer('page_type')->unique()->nullable();
             $table->timestamps();
         });

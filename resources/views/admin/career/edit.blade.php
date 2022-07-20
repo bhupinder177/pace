@@ -28,7 +28,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Posted On <span class="red">*</span></label>
-                            <input type="text" class="form-control" name="postedOn" value="{{($result->postedOn) ?? ''}}" id="postedOn">
+                            <input type="text" class="form-control datepicker" name="postedOn" value="{{$a = date("d-m-Y", strtotime($result->postedOn)) }}" id="postedOn">
                         </div>
                     </div>
                     <div class="col-sm-6">

@@ -10,5 +10,6 @@ class Meta extends Model
         'title',
         'description',
         'page_type',
+        'keyword',
     ];
 }
