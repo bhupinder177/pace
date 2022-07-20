@@ -157,6 +157,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('meta-update','MetaController@update')->name("meta.update");
         Route::post('meta-delete','MetaController@delete')->name("meta.delete");
 
+        Route::get('commitee','CommiteeController@index')->name("commitee.index");
+        Route::get('commitee-add','CommiteeController@add')->name("commitee.add");
+        Route::post('commitee-save','CommiteeController@save')->name("commitee.save");
+        Route::get('commitee-edit/{id}','CommiteeController@edit')->name("commitee.edit");
+        Route::post('commitee-update','CommiteeController@update')->name("commitee.update");
+        Route::post('commitee-delete','CommiteeController@delete')->name("commitee.delete");
+
     });
   });
 // ******************************Admin routes**********

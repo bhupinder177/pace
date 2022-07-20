@@ -302,4 +302,23 @@ class GlobalFunctions {
 
         return $getData;
     }
+
+    public static function commiteeTypes($pageTypes = "") {
+        $getData = array();
+        $getData[1] = array(
+                                'id' => 1,
+                                'status' => 'Board of Directors'
+                            );
+        $getData[2] = array(
+                                'id' => 2,
+                                'status' => 'Committees of the Board'
+                            );
+
+
+        if (!empty(trim($pageTypes)) && "" != trim($pageTypes) && is_int($pageTypes)) {
+            $getData = ($getData[$pageTypes]) ?? "";
+        }
+
+        return $getData;
+    }
 }
