@@ -53,6 +53,9 @@
                         <div class="form-group">
                             <label>Image <span class="red">*</span></label>
                             <input type="file" class="form-control" name="investor_image" id="investor_image">
+                            @if(!empty($result->image) && "" != trim($result->image))
+                                <img src="{{url('storage/investors/'.$result->image)}}" width="150px;" />
+                            @endif
                         </div>
                     </div>
                     <div class="col-sm-6">
