@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th style="width: 5%">S. No</th>
-            <th style="width: 10%">Image</th>
+            <th style="width: 10%">Title</th>
             <th style="width: 10%">Status</th>
             <th style="width: 8%">Actions</th>
         </tr>
@@ -15,7 +15,7 @@
                 <tr class="data">
                     <td>{{ ++$srNo }}</td>
                     <td>
-                        <img src="{{url('storage/gallary/'.$u->image)}}" width="100px;" />
+                        {{$u->title}}
                     </td>
                     <td>
                         @if($u->status == 1)
@@ -25,8 +25,8 @@
                         @endif
                     </td>
                     <td >
-                        <a href="{{route('gallary.edit', ['id' => Crypt::encrypt($u->id)])}}"><i class="fa fa-edit"></i></a>
-                        <a class="deleterecord" data-link="{{route('gallary.delete')}}" data-id="{{$u->id}}"><i class="fa fa-trash deleterecord"  data-link="{{route('gallary.delete')}}"  data-id="{{$u->id}}" aria-hidden="true"></i></a>
+                        <a href="{{route('resources.edit', ['id' => Crypt::encrypt($u->id)])}}"><i class="fa fa-edit"></i></a>
+                        <a class="deleterecord" data-link="{{route('resources.delete')}}" data-id="{{$u->id}}"><i class="fa fa-trash deleterecord"  data-link="{{route('resources.delete')}}"  data-id="{{$u->id}}" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach

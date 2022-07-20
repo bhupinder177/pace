@@ -10,7 +10,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                {{-- <form action="{{route('resources.index')}}" method="get">
+                <form action="{{route('resources.index')}}" method="get">
                     <div class="row">
                         <div class="col-md-7">
                             <div class="form-group">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                     </div>
-                </form> --}}
+                </form>
             </div>
             <div class="col-md-6">
                 <div class="refer-btn">
@@ -42,7 +42,7 @@
                 <thead>
                     <tr>
                         <th style="width: 5%">S. No</th>
-                        <th style="width: 10%">Image</th>
+                        <th style="width: 10%">Title</th>
                         <th style="width: 10%">Status</th>
                         <th style="width: 8%">Actions</th>
                     </tr>
