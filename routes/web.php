@@ -150,6 +150,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('filter-update','FilterController@update')->name("filter.update");
         Route::post('filter-delete','FilterController@delete')->name("filter.delete");
 
+        Route::get('meta','MetaController@index')->name("meta.index");
+        Route::get('meta-add','MetaController@add')->name("meta.add");
+        Route::post('meta-save','MetaController@save')->name("meta.save");
+        Route::get('meta-edit/{id}','MetaController@edit')->name("meta.edit");
+        Route::post('meta-update','MetaController@update')->name("meta.update");
+        Route::post('meta-delete','MetaController@delete')->name("meta.delete");
+
     });
   });
 // ******************************Admin routes**********

@@ -245,5 +245,29 @@ class GlobalFunctions {
 
 
 
+    public static function pageTypes($pageTypes = "") {
+        $getData = array();
+        $getData[1] = array(
+                                'id' => 1,
+                                'status' => 'Home'
+                            );
+        $getData[2] = array(
+                                'id' => 2,
+                                'status' => 'About'
+                            );
+        $getData[3] = array(
+                                'id' => 3,
+                                'status' => 'Career'
+                            );
+        $getData[4] = array(
+                                'id' => 4,
+                                'status' => 'Testimonials'
+                            );
 
+        if (!empty(trim($pageTypes)) && "" != trim($pageTypes) && is_int($pageTypes)) {
+            $getData = ($getData[$pageTypes]) ?? "";
+        }
+
+        return $getData;
+    }
 }
