@@ -55,14 +55,7 @@
                             <input type="file" class="form-control" name="investor_image" id="investor_image">
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox" class="form-control" name="type" id="type" @if($result->type == "1") checked="checked" @endif>
-                                Committees of the Board
-                            </label>
-                        </div>
-                    </div>
+                  
                 </div>
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-rounded button-disabled" >Save</button>

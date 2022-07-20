@@ -304,10 +304,40 @@ rules:
  name: {
    required: true
  },
+ category_type: {
+   required: true
+ },
+ displayOrder: {
+   required: true
+ },
+ description: {
+   required: true
+ },
+ thumbnail_image: {
+   required: true
+ },
+ banner_image: {
+   required: true
+ },
 },
 messages:
 {
  name: {
+   required: "This is required",
+ },
+ category_type: {
+   required: "This is required",
+ },
+ displayOrder: {
+   required: "This is required",
+ },
+ description: {
+   required: "This is required",
+ },
+ thumbnail_image: {
+   required: "This is required",
+ },
+ banner_image: {
    required: "This is required",
  },
 },

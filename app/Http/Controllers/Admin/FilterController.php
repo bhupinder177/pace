@@ -18,7 +18,7 @@ class FilterController extends Controller
             }
             if(!empty($request->search)) {
                 $search = $request->search;
-                $query->where('category', 'like', '%' . $search . '%');
+                $query->where('filterValue', 'like', '%' . $search . '%');
             }
             $allData = $query->orderby('id','DESC')->paginate($perpage);
             $html =  view('admin.filter.filterajax',['prefix'=>$this->prefix,'allData'=>$allData,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage])->render();
@@ -37,10 +37,9 @@ class FilterController extends Controller
 
     public function save(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        'category' => 'required',
-                                        'structure' => 'required',
-                                        'species' => 'required',
-                                        'status' => 'required',
+                                        'filterType' => 'required',
+                                        'filterValue' => 'required',
+                                        'displayOrder' => 'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -50,10 +49,9 @@ class FilterController extends Controller
             return response($response);
         } else {
             $saveData = array();
-            $saveData['category'] = (trim($request->category)) ?? "";
-            $saveData['structure'] = (trim($request->structure)) ?? "";
-            $saveData['species'] = (trim($request->species)) ?? "";
-            $saveData['status'] = (trim($request->status)) ?? "";
+            $saveData['filterType'] = (trim($request->filterType)) ?? "";
+            $saveData['filterValue'] = (trim($request->filterValue)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
             if ($request->has('id')) {
                 $id = Crypt::decrypt($request->id);
@@ -88,10 +86,9 @@ class FilterController extends Controller
 
    public function update(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        'category' => 'required',
-                                        'structure' => 'required',
-                                        'species' => 'required',
-                                        'status' => 'required',
+                                        'filterType' => 'required',
+                                        'filterValue' => 'required',
+                                        'displayOrder' => 'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -101,10 +98,10 @@ class FilterController extends Controller
             return response($response);
         } else {
             $saveData = array();
-            $saveData['category'] = (trim($request->category)) ?? "";
-            $saveData['structure'] = (trim($request->structure)) ?? "";
-            $saveData['species'] = (trim($request->species)) ?? "";
-            $saveData['status'] = (trim($request->status)) ?? "";
+            $saveData['filterType'] = (trim($request->filterType)) ?? "";
+            $saveData['filterValue'] = (trim($request->filterValue)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
+
 
             if ($request->has('id')) {
                 $id = Crypt::decrypt($request->id);

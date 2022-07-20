@@ -39,7 +39,7 @@
                     <div class="col-sm-6">
                        <div class="form-group">
                            <label>Display Order <span class="red">*</span></label>
-                           <input type="text" class="form-control" value="{{ $result->displayOrder }}" name="displayOrder" id="displayOrder">
+                           <input type="text" class="form-control numberonly" value="{{ $result->displayOrder }}" name="displayOrder" id="displayOrder">
                        </div>
                    </div>
                 </div>

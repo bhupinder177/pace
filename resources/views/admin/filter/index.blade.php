@@ -42,10 +42,8 @@
                 <thead>
                     <tr>
                         <th style="width: 5%">S. No</th>
-                        <th style="width: 10%">Category</th>
-                        <th style="width: 10%">Structure</th>
-                        <th style="width: 10%">Species</th>
-                        <th style="width: 10%">Status</th>
+                        <th style="width: 10%">Filter Value</th>
+
                         <th style="width: 8%">Actions</th>
                     </tr>
                 </thead>
@@ -56,16 +54,8 @@
                         @foreach($allData as $u)
                             <tr class="data">
                                 <td>{{ ++$srNo }}</td>
-                                <td>{{ ($u->category) ?? "" }}</td>
-                                <td>{{ ($u->structure) ?? "" }}</td>
-                                <td>{{ ($u->species) ?? "" }}</td>
-                                <td>
-                                    @if($u->status == 1)
-                                        Active
-                                    @else
-                                        In-Active
-                                    @endif
-                                </td>
+                                <td>{{ ($u->filterValue) ?? "" }}</td>
+                          
                                 <td >
                                     <a href="{{route('filter.edit', ['id' => Crypt::encrypt($u->id)])}}"><i class="fa fa-edit"></i></a>
                                     <a class="deleterecord" data-link="{{route('filter.delete')}}" data-id="{{$u->id}}"><i class="fa fa-trash deleterecord"  data-link="{{route('filter.delete')}}"  data-id="{{$u->id}}" aria-hidden="true"></i></a>

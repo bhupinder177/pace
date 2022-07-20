@@ -16,6 +16,11 @@ class Categories extends Migration
       Schema::create('categories', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name')->nullable();
+          $table->integer('category_type')->nullable();
+          $table->string('thumbnail_image')->nullable();
+          $table->string('banner_image')->nullable();
+          $table->integer('displayOrder')->nullable();
+          $table->text('description')->nullable();
           $table->timestamps();
       });
     }

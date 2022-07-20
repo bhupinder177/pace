@@ -14,6 +14,6 @@ class Investors extends Model
         'instagram',
         'twitter',
         'image',
-        'type',
+        'type'
     ];
 }

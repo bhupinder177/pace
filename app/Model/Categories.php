@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Categories extends Model
 {
   protected $fillable = [
-  'name'
+  'name',
+  'category_type',
+  'thumbnail_image',
+  'banner_image',
+  'displayOrder',
+  'description',
   ];
 
 

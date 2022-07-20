@@ -321,4 +321,41 @@ class GlobalFunctions {
 
         return $getData;
     }
+
+    public static function categoryTypes($pageTypes = "") {
+        $getData = array();
+        $getData[1] = array(
+                                'id' => 1,
+                                'status' => 'Laminates'
+                            );
+        $getData[2] = array(
+                                'id' => 2,
+                                'status' => 'Composite Laminates'
+                            );
+
+
+        if (!empty(trim($pageTypes)) && "" != trim($pageTypes) && is_int($pageTypes)) {
+            $getData = ($getData[$pageTypes]) ?? "";
+        }
+
+        return $getData;
+    }
+    public static function filterTypes($pageTypes = "") {
+        $getData = array();
+        $getData[1] = array(
+                                'id' => 1,
+                                'status' => 'Laminates'
+                            );
+        $getData[2] = array(
+                                'id' => 2,
+                                'status' => 'Composite Laminates'
+                            );
+
+
+        if (!empty(trim($pageTypes)) && "" != trim($pageTypes) && is_int($pageTypes)) {
+            $getData = ($getData[$pageTypes]) ?? "";
+        }
+
+        return $getData;
+    }
 }

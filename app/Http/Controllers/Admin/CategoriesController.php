@@ -66,6 +66,11 @@ class CategoriesController extends Controller
   {
     $validator = Validator::make($request->all(),[
           'name' => 'required|string',
+          'category_type' => 'required|string',
+          'displayOrder' => 'required',
+          'description' => 'required',
+          'thumbnail_image' => 'required',
+          'banner_image' => 'required',
 
         ]);
 
@@ -83,6 +88,9 @@ class CategoriesController extends Controller
 
        $user = new Categories([
            'name' => $request->name,
+           'displayOrder' => $request->displayOrder,
+           'category_type' => $request->category_type,
+           'description' => $request->description,
 
        ]);
 
@@ -112,7 +120,11 @@ class CategoriesController extends Controller
   public function update(Request $request)
   {
     $validator = Validator::make($request->all(),[
-          'name' => 'required|string',
+      'name' => 'required|string',
+      'category_type' => 'required|string',
+      'displayOrder' => 'required',
+      'description' => 'required',
+
         ]);
 
       if ($validator->fails())
@@ -130,6 +142,9 @@ class CategoriesController extends Controller
        $id = Crypt::decrypt($request['id']);
 
        $data1['name'] = $request['name'];
+       $data1['displayOrder'] = $request['displayOrder'];
+       $data1['category_type'] = $request['category_type'];
+       $data1['description'] = $request['description'];
 
        $res = Categories::where('id',$id)->update($data1);
         if($res)

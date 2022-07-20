@@ -12,34 +12,35 @@
             <form action="{{route('filter.save')}}" method="post" enctype="multipart/form-data" class="reset" id="addCommon">
                 @csrf
                 <div class="row">
+
+                  <div class="col-sm-6">
+                      <div class="form-group">
+                          <label>Filter Name <span class="red">*</span></label>
+                          @php
+                          $getCType = Helper::filterTypes();
+                          @endphp
+                          <select class="form-control" name="filterType" id="filterType">
+                              <option value="">Select Filter</option>
+                              @foreach($getCType as $pageType)
+                                  <option value="{{$pageType['id']}}">{{$pageType['status']}}</option>
+                              @endforeach
+                          </select>
+                      </div>
+                  </div>
+
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Category <span class="red">*</span></label>
-                            <input type="text" class="form-control" name="category" id="category">
+                            <label>Filter Value <span class="red">*</span></label>
+                            <input type="text" class="form-control" name="filterValue" id="filterValue">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Structure <span class="red">*</span></label>
-                            <input type="text" class="form-control" name="structure" id="structure">
+                            <label>Display Order <span class="red">*</span></label>
+                            <input type="text" class="form-control" name="displayOrder" id="displayOrder">
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>Species <span class="red">*</span></label>
-                            <input type="text" class="form-control" name="species" id="species">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>Status <span class="red">*</span></label>
-                            <select class="form-control" name="status" id="status">
-                                <option value="">Select Status</option>
-                                <option value="1">Active</option>
-                                <option value="0">In-Active</option>
-                            </select>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-rounded button-disabled" >Save</button>

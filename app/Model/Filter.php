@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Filter extends Model
 {
     protected $fillable = [
-        'category',
-        'structure',
-        'species',
-        'status',
+        'filterType',
+        'filterValue',
+        'displayOrder',
     ];
 }
