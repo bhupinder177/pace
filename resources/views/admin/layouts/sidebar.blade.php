@@ -85,6 +85,11 @@
                 <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Bod & commitees</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "resources" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('resources.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Resources</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 
