@@ -24,9 +24,9 @@ class DashboardController extends Controller
         $this->prefix = request()->route()->getPrefix();
 
         $testimonials = Testimonials::count();
-        $gallery = Gallary::count();
+
         $investor = Investors::count();
-        return view('admin.dashboard.dashboard',['testimonials'=>$testimonials,'gallery'=>$gallery,'investor'=>$investor,'prefix'=>$this->prefix]);
+        return view('admin.dashboard.dashboard',['testimonials'=>$testimonials,'investor'=>$investor,'prefix'=>$this->prefix]);
 
     }
 
