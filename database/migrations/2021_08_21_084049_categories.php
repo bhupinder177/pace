@@ -21,6 +21,9 @@ class Categories extends Migration
           $table->string('banner_image')->nullable();
           $table->integer('displayOrder')->nullable();
           $table->text('description')->nullable();
+          $table->string('meta_title')->nullable();
+          $table->text('meta_description')->nullable();
+          $table->text('meta_keyword')->nullable();
           $table->timestamps();
       });
     }

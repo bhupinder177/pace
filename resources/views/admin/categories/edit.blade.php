@@ -23,7 +23,7 @@
                               @php
                               $getPageType = Helper::categoryTypes();
                               @endphp
-                              <select class="form-control" name="type" id="type">
+                              <select class="form-control" name="category_type" id="type">
                                   <option value="">Select  Type</option>
                                   @foreach($getPageType as $pageType)
                                       <option value="{{$pageType['id']}}" @if($result->category_type == $pageType['id']) selected="selected" @endif  >{{$pageType['status']}}</option>
@@ -42,14 +42,16 @@
                       <div class="col-sm-6">
                           <div class="form-group">
                             <label>Category Thumbnail Image<span class="red">*</span></label>
-      <input type="file"  class="form-control "  name="thumbnail_image"   id="thumbnail_image">
+                            <input type="file"  class="form-control "  name="thumbnail_image"   id="thumbnail_image">
+                            <img src="{{url('storage/categories/thumbnail/'.$result->thumbnail_image)}}" width="150px;" />
                           </div>
                       </div>
 
                       <div class="col-sm-6">
                           <div class="form-group">
                             <label>Category Banner Image<span class="red">*</span></label>
-      <input type="file"  class="form-control " name="banner_image"   id="banner_image">
+                            <input type="file"  class="form-control " name="banner_image"   id="banner_image">
+                            <img src="{{url('storage/categories/banner/'.$result->banner_image)}}" width="150px;" />
                           </div>
                       </div>
                       <div class="col-sm-6">
@@ -65,6 +67,28 @@
                           </div>
                       </div>
 
+
+                        <div class="col-sm-12">
+                              <center><h3>Meta Details</h3></center>
+                         </div>
+                         <div class="col-sm-6">
+                              <div class="form-group">
+                                   <label>Title <span class="red">*</span></label>
+                                   <input type="text"  class="form-control" name="meta_title" id="meta_title" placeholder="Please enter meta title" value="{{$result->meta_title}}">
+                              </div>
+                         </div>
+                         <div class="col-sm-6">
+                              <div class="form-group">
+                                   <label>Description <span class="red">*</span></label>
+                                   <input type="text"  class="form-control" name="meta_description" id="meta_description" placeholder="Please enter meta description" value="{{$result->meta_description}}">
+                              </div>
+                         </div>
+                         <div class="col-sm-6">
+                              <div class="form-group">
+                                   <label>Keyword <span class="red">*</span></label>
+                                   <input type="text"  class="form-control" name="meta_keyword" id="meta_keyword" placeholder="Please enter meta keyword" value="{{$result->meta_keyword}}">
+                              </div>
+                         </div>
 
                     </div>
 
