@@ -56,7 +56,7 @@
                       <div class="col-sm-6">
                           <div class="form-group">
                             <label>Display Order<span class="red">*</span></label>
-      <input type="text"  class="form-control numberonly " name="displayOrder"   id="displayOrder">
+                              <input type="text"  class="form-control numberonly " name="displayOrder"   id="displayOrder" placeholder="Please enter display order">
                           </div>
                       </div>
                       <div class="col-sm-6">
@@ -68,6 +68,27 @@
 
 
 
+                         <div class="col-sm-12">
+                              <center><h3>Meta Details</h3></center>
+                         </div>
+                         <div class="col-sm-6">
+                              <div class="form-group">
+                                   <label>Title <span class="red">*</span></label>
+                                   <input type="text"  class="form-control" name="meta_title" id="meta_title" placeholder="Please enter meta title">
+                              </div>
+                         </div>
+                         <div class="col-sm-6">
+                              <div class="form-group">
+                                   <label>Description <span class="red">*</span></label>
+                                   <input type="text"  class="form-control" name="meta_description" id="meta_description" placeholder="Please enter meta description">
+                              </div>
+                         </div>
+                         <div class="col-sm-6">
+                              <div class="form-group">
+                                   <label>Keyword <span class="red">*</span></label>
+                                   <input type="text"  class="form-control" name="meta_keyword" id="meta_keyword" placeholder="Please enter meta keyword">
+                              </div>
+                         </div>
                     </div>
 
 
