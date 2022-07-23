@@ -144,6 +144,26 @@
               });
            });
     </script>
+
+    @php
+    $showTextEditor = ($showTextEditor) ?? 0;
+    @endphp
+    @if($showTextEditor == 1)
+        <script src="//cdn.ckeditor.com/4.7.2/standard/ckeditor.js"></script>
+        <script type="text/javascript">
+            function ckEditorFn(editorId) {
+                CKEDITOR.replace(editorId, {
+                    toolbar: [
+                        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+                        { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+                        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+                    ]
+                });
+            }
+
+            ckEditorFn('description');
+        </script>
+    @endif
 </body>
 
 
