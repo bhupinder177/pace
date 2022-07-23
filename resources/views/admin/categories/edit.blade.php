@@ -14,7 +14,7 @@
 
           <div class="">
 
-            <form action="{{ url($prefix.'/categories-update') }}" method="post" enctype="multipart/form-data" class="reset" id="addreligions">
+            <form action="{{ url($prefix.'/categories-update') }}" method="post" enctype="multipart/form-data" class="reset general_form" id="addCommonEditor">
 
                     <div class="row">
                       <div class="col-sm-6">
@@ -22,20 +22,20 @@
                               <label>Category Type <span class="red">*</span></label>
                               @php
                               $getPageType = Helper::categoryTypes();
+                              $getSelectedCatType = ($result->getAllCatTypes()->pluck("category_type_id")->toArray()) ?? array();
                               @endphp
-                              <select class="form-control" name="category_type" id="type">
-                                  <option value="">Select  Type</option>
+                              <select class="form-control multiSelect" name="category_type[]" id="type" multiple="multiple">
                                   @foreach($getPageType as $pageType)
-                                      <option value="{{$pageType['id']}}" @if($result->category_type == $pageType['id']) selected="selected" @endif  >{{$pageType['status']}}</option>
+                                      <option value="{{$pageType['id']}}" @if(in_array($pageType['id'], $getSelectedCatType)){{"selected='selected'"}}@endif >{{$pageType['status']}}</option>
                                   @endforeach
                               </select>
                           </div>
                       </div>
                       <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>Category<span class="red">*</span></label>
-      <input type="text" value="{{ $result->name }}" placeholder="Please enter religion" class="form-control " name="name"   id="name">
-                          </div>
+                            <div class="form-group">
+                                <label>Category<span class="red">*</span></label>
+                                <input type="text" value="{{$result->name}}" placeholder="Please enter religion" class="form-control " name="name"   id="name">
+                            </div>
                           <input type="hidden" value="{{Crypt::encrypt($result->id)}}" name="id">
 
                       </div>
@@ -107,6 +107,8 @@
 
 
 
-
+@php
+$showTextEditor = 1;
+@endphp
 
     @include('admin.layouts.footer')

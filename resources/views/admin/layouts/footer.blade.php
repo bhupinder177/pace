@@ -164,6 +164,19 @@
             ckEditorFn('description');
         </script>
     @endif
+
+    @php
+    $showMultiSelect = ($showMultiSelect) ?? 0;
+    @endphp
+    @if($showTextEditor == 1)
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.1/css/bootstrap-multiselect.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.1/js/bootstrap-multiselect.min.js" ></script>
+        <script type="text/javascript">
+            $('.multiSelect').multiselect({
+                includeSelectAllOption: true
+            });
+        </script>
+    @endif
 </body>
 
 

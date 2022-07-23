@@ -333,15 +333,15 @@ class GlobalFunctions {
                                 'status' => 'Composite Laminates'
                             );
         $getData[3] = array(
-                                'id' => 2,
+                                'id' => 3,
                                 'status' => 'Special Laminates'
                             );
         $getData[4] = array(
-                                'id' => 2,
+                                'id' => 4,
                                 'status' => 'Performance Laminates'
                             );
-        $getData[4] = array(
-                                'id' => 2,
+        $getData[5] = array(
+                                'id' => 5,
                                 'status' => 'Plywood and Panels'
                             );
 
@@ -363,7 +363,7 @@ class GlobalFunctions {
                                 'status' => 'Design'
                             );
         $getData[3] = array(
-                                'id' => 2,
+                                'id' => 3,
                                 'status' => 'Species'
                             );
 

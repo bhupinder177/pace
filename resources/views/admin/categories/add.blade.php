@@ -14,7 +14,7 @@
 
           <div class="">
 
-            <form action="{{ url($prefix.'/categoriesSave') }}" method="post" enctype="multipart/form-data" class="reset" id="addreligions">
+            <form action="{{ url($prefix.'/categoriesSave') }}" method="post" enctype="multipart/form-data" class="reset general_form" id="addCommonEditor">
 
                     <div class="row">
 
@@ -24,8 +24,7 @@
                               @php
                               $getCType = Helper::categoryTypes();
                               @endphp
-                              <select class="form-control" name="category_type" id="type">
-                                  <option value="">Select Type</option>
+                              <select class="form-control multiSelect" name="category_type[]" id="type" multiple="multiple">
                                   @foreach($getCType as $pageType)
                                       <option value="{{$pageType['id']}}">{{$pageType['status']}}</option>
                                   @endforeach
@@ -106,6 +105,9 @@
 
 
 
+@php
+$showTextEditor = 1;
+$showMultiSelect = 1;
+@endphp
 
-
-    @include('admin.layouts.footer')
+@include('admin.layouts.footer')

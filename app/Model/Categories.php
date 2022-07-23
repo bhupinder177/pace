@@ -18,5 +18,7 @@ class Categories extends Model
         'meta_keyword',
     ];
 
-
+    public function getAllCatTypes() {
+        return $this->hasmany('App\Model\CategoryRelationType','category_id','id');
+    }
 }

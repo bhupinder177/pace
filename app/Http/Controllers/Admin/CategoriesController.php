@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Categories;
+use App\Model\CategoryRelationType;
 use Illuminate\Http\Request;
 use App\Helpers\GlobalFunctions as CommonHelper;
 use Illuminate\Support\Facades\Auth;
@@ -12,8 +13,6 @@ use DB;
 use Illuminate\Support\Facades\URL;
 use Validator;
 use Illuminate\Support\Facades\Crypt;
-
-
 
 class CategoriesController extends Controller
 {
@@ -66,7 +65,7 @@ class CategoriesController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'name' => 'required|string',
-            'category_type' => 'required|string',
+            // 'category_type' => 'required|string',
             'displayOrder' => 'required',
             'description' => 'required',
             'thumbnail_image' => 'required',
@@ -117,7 +116,7 @@ class CategoriesController extends Controller
             $user = new Categories([
                 'name' => $request->name,
                 'displayOrder' => $request->displayOrder,
-                'category_type' => $request->category_type,
+                // 'category_type' => $request->category_type,
                 'description' => $request->description,
                 'thumbnail_image' => $getThumbnailImage,
                 'banner_image' => $getBannerImage,
@@ -127,6 +126,22 @@ class CategoriesController extends Controller
            ]);
             $res =  $user->save();
             if($res) {
+                if($request->has('category_type')) {
+                    $getCategoryTypes = ($request->category_type) ?? array();
+                    $getCatId = $user->id;
+                    $saveCategoryType = array();
+                    foreach ($getCategoryTypes as $getCategoryType) {
+                        $saveCategoryType[] = array(
+                                                        "category_id" => $getCatId,
+                                                        "category_type_id" => $getCategoryType,
+                                                        "created_at" => Carbon::now(),
+                                                        "updated_at" => Carbon::now(),
+                                                    );
+                    }
+                    if (!empty($saveCategoryType)) {
+                        CategoryRelationType::insert($saveCategoryType);
+                    }
+                }
                 $response['success']         = true;
                 $response['delayTime']       = '3000';
                 $response['success_message'] = 'Categories Added Successfully.';
@@ -145,7 +160,7 @@ class CategoriesController extends Controller
     public function update(Request $request) {
         $validator = Validator::make($request->all(),[
                                                     'name' => 'required|string',
-                                                    'category_type' => 'required|string',
+                                                    // 'category_type' => 'required|string',
                                                     'displayOrder' => 'required',
                                                     'description' => 'required',
                                                     'meta_title' => 'required',
@@ -162,7 +177,7 @@ class CategoriesController extends Controller
             $id = Crypt::decrypt($request['id']);
             $data1['name'] = $request['name'];
             $data1['displayOrder'] = $request['displayOrder'];
-            $data1['category_type'] = $request['category_type'];
+            // $data1['category_type'] = $request['category_type'];
             $data1['description'] = $request['description'];
             $data1['meta_title'] = $request['meta_title'];
             $data1['meta_description'] = $request['meta_description'];
@@ -198,6 +213,23 @@ class CategoriesController extends Controller
 
             $res = Categories::where('id',$id)->update($data1);
             if($res) {
+                if($request->has('category_type')) {
+                    $getCategoryTypes = ($request->category_type) ?? array();
+                    $getCatId = $id;
+                    CategoryRelationType::where('category_id',$getCatId)->delete();
+                    $saveCategoryType = array();
+                    foreach ($getCategoryTypes as $getCategoryType) {
+                        $saveCategoryType[] = array(
+                                                        "category_id" => $getCatId,
+                                                        "category_type_id" => $getCategoryType,
+                                                        "created_at" => Carbon::now(),
+                                                        "updated_at" => Carbon::now(),
+                                                    );
+                    }
+                    if (!empty($saveCategoryType)) {
+                        CategoryRelationType::insert($saveCategoryType);
+                    }
+                }
                 $response['success']         = true;
                 $response['delayTime']       = '3000';
                 $response['success_message'] = 'Category Updated Successfully.';
