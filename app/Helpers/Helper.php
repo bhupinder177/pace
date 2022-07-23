@@ -332,6 +332,18 @@ class GlobalFunctions {
                                 'id' => 2,
                                 'status' => 'Composite Laminates'
                             );
+        $getData[3] = array(
+                                'id' => 2,
+                                'status' => 'Special Laminates'
+                            );
+        $getData[4] = array(
+                                'id' => 2,
+                                'status' => 'Performance Laminates'
+                            );
+        $getData[4] = array(
+                                'id' => 2,
+                                'status' => 'Plywood and Panels'
+                            );
 
 
         if (!empty(trim($pageTypes)) && "" != trim($pageTypes) && is_int($pageTypes)) {
@@ -344,11 +356,15 @@ class GlobalFunctions {
         $getData = array();
         $getData[1] = array(
                                 'id' => 1,
-                                'status' => 'Laminates'
+                                'status' => 'Structure'
                             );
         $getData[2] = array(
                                 'id' => 2,
-                                'status' => 'Composite Laminates'
+                                'status' => 'Design'
+                            );
+        $getData[3] = array(
+                                'id' => 2,
+                                'status' => 'Species'
                             );
 
 
