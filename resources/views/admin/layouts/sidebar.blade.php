@@ -90,6 +90,11 @@
                 <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Resources</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "page" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('page.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Pages</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 

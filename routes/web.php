@@ -171,6 +171,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('resources-update','ResourcesController@update')->name("resources.update");
         Route::post('resources-delete','ResourcesController@delete')->name("resources.delete");
         Route::post('resources-delete-attachment','ResourcesController@resourcesDeleteAttachment')->name("resources.delete.attachment");
+
+        Route::get('page','PageController@index')->name("page.index");
+        Route::get('page-add','PageController@add')->name("page.add");
+        Route::post('page-save','PageController@save')->name("page.save");
+        Route::get('page-edit/{id}','PageController@edit')->name("page.edit");
+        Route::post('page-update','PageController@update')->name("page.update");
+        Route::post('page-delete','PageController@delete')->name("page.delete");
     });
   });
 // ******************************Admin routes**********

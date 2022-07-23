@@ -1312,3 +1312,24 @@ $("#addCommon").validate({
         formSubmit(form);
     }
 });
+
+$("#addCommonEditor").validate({
+    errorClass: "has-error",
+    highlight: function(element, errorClass) {
+        //$(element).parents('.form-group').addClass(errorClass);
+    },
+    unhighlight: function(element, errorClass, validClass) {
+        //  $(element).parents('.form-group').removeClass(errorClass);
+    },
+    submitHandler: function (form) {
+      $(".general_form").trigger();
+        // formSubmit(form);
+    }
+});
+
+$(document).on('submit','.general_form',function(e){
+    e.preventDefault();
+    let form = $(this)[0];
+    formSubmit(form);
+});
+
