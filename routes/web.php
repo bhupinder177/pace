@@ -178,6 +178,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('page-edit/{id}','PageController@edit')->name("page.edit");
         Route::post('page-update','PageController@update')->name("page.update");
         Route::post('page-delete','PageController@delete')->name("page.delete");
+
+        Route::get('blog','BlogController@index')->name("blog.index");
+        Route::get('blog-add','BlogController@add')->name("blog.add");
+        Route::post('blog-save','BlogController@save')->name("blog.save");
+        Route::get('blog-edit/{id}','BlogController@edit')->name("blog.edit");
+        Route::post('blog-update','BlogController@update')->name("blog.update");
+        Route::post('blog-delete','BlogController@delete')->name("blog.delete");
     });
   });
 // ******************************Admin routes**********

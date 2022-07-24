@@ -95,6 +95,11 @@
                 <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Pages</span></span>
             </a>
         </li>
+        <li <?php if(request()->segment(2) == "blog" ){ ?>class="active" <?php } ?>>
+            <a href="{{route('blog.index')}}">
+                <span><i class="fa fa-tasks" aria-hidden="true"></i><span class="lbl">Blogs</span></span>
+            </a>
+        </li>
     </ul>
 </nav>
 

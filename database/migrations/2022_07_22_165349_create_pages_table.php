@@ -21,7 +21,7 @@ class CreatePagesTable extends Migration
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_keyword')->nullable();
-            $table->text('slug')->unique()->nullable();
+            $table->text('slug')->nullable();
             $table->timestamps();
         });
     }
