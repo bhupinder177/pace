@@ -24,7 +24,8 @@
                               @php
                               $getCType = Helper::categoryTypes();
                               @endphp
-                              <select class="form-control multiSelect" name="category_type[]" id="type" multiple="multiple">
+                              <select class="form-control" name="category_type" id="type">
+                                <option value="">Select Category Type</option>
                                   @foreach($getCType as $pageType)
                                       <option value="{{$pageType['id']}}">{{$pageType['status']}}</option>
                                   @endforeach
@@ -102,12 +103,8 @@
   </div>
   </div>
 
-
-
-
 @php
 $showTextEditor = 1;
-$showMultiSelect = 1;
 @endphp
 
 @include('admin.layouts.footer')
