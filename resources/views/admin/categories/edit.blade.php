@@ -22,11 +22,10 @@
                               <label>Category Type <span class="red">*</span></label>
                               @php
                               $getPageType = Helper::categoryTypes();
-                              $getSelectedCatType = ($result->getAllCatTypes()->pluck("category_type_id")->toArray()) ?? array();
                               @endphp
-                              <select class="form-control multiSelect" name="category_type[]" id="type" multiple="multiple">
+                              <select class="form-control multiSelect" name="category_type" id="type">
                                   @foreach($getPageType as $pageType)
-                                      <option value="{{$pageType['id']}}" @if(in_array($pageType['id'], $getSelectedCatType)){{"selected='selected'"}}@endif >{{$pageType['status']}}</option>
+                                      <option value="{{$pageType['id']}}" @if($pageType['id'] == $result->category_type){{"selected='selected'"}}@endif >{{$pageType['status']}}</option>
                                   @endforeach
                               </select>
                           </div>

@@ -19,8 +19,8 @@
                           @php
                           $getCType = Helper::filterTypes();
                           @endphp
-                          <select class="form-control" name="filterType" id="filterType">
-                              <option value="">Select Filter</option>
+                          <select class="form-control multiSelect" name="filterType[]" id="filterType" multiple="multiple">
+                              {{-- <option value="">Select Filter</option> --}}
                               @foreach($getCType as $pageType)
                                   <option value="{{$pageType['id']}}">{{$pageType['status']}}</option>
                               @endforeach
@@ -50,4 +50,7 @@
         </div>
     </div>
 </div>
+@php
+$showMultiSelect = 1;
+@endphp
 @include('admin.layouts.footer')

@@ -11,4 +11,8 @@ class Filter extends Model
         'filterValue',
         'displayOrder',
     ];
+
+    public function getAllFilterTypes() {
+        return $this->hasmany('App\Model\FilterRelationType','filter_id','id');
+    }
 }

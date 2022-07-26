@@ -18,11 +18,12 @@
                           <label>Filter Name <span class="red">*</span></label>
                           @php
                           $getPageType = Helper::filterTypes();
+                          $getSelectedFilterType = ($result->getAllFilterTypes()->pluck("filter_type_id")->toArray()) ?? array();
                           @endphp
-                          <select class="form-control" name="filterType" id="filterType">
-                              <option value="">Select Filter</option>
+                          <select class="form-control multiSelect" name="filterType[]" id="filterType" multiple="multiple">
+                              {{-- <option value="">Select Filter</option> --}}
                               @foreach($getPageType as $pageType)
-                                  <option value="{{$pageType['id']}}" @if($result->filterType == $pageType['id']) selected="selected" @endif  >{{$pageType['status']}}</option>
+                                  <option value="{{$pageType['id']}}" @if(in_array($pageType['id'], $getSelectedFilterType)){{"selected='selected'"}}@endif >{{$pageType['status']}}</option>
                               @endforeach
                           </select>
                       </div>
@@ -50,4 +51,7 @@
         </div>
     </div>
 </div>
+@php
+$showMultiSelect = 1;
+@endphp
 @include('admin.layouts.footer')

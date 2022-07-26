@@ -2,9 +2,11 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Filter;
+use App\Model\FilterRelationType;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Crypt;
+use Carbon\Carbon;
 
 class FilterController extends Controller
 {
@@ -37,7 +39,7 @@ class FilterController extends Controller
 
     public function save(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        'filterType' => 'required',
+                                        // 'filterType' => 'required',
                                         'filterValue' => 'required',
                                         'displayOrder' => 'required',
                                     ]);
@@ -49,19 +51,36 @@ class FilterController extends Controller
             return response($response);
         } else {
             $saveData = array();
-            $saveData['filterType'] = (trim($request->filterType)) ?? "";
+            // $saveData['filterType'] = (trim($request->filterType)) ?? "";
             $saveData['filterValue'] = (trim($request->filterValue)) ?? "";
             $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
             if ($request->has('id')) {
                 $id = Crypt::decrypt($request->id);
+                $getFilterTypeId = $id;
                 $res = Filter::where('id',$id)->update($saveData);
             } else {
                 $user = new Filter($saveData);
                 $res =  $user->save();
+                $getFilterTypeId = $user->id;
             }
 
             if($res) {
+                if($request->has('filterType')) {
+                    $getFilterTypes = ($request->filterType) ?? array();
+                    $saveFilterTypes = array();
+                    foreach ($getFilterTypes as $getFilterType) {
+                        $saveFilterTypes[] = array(
+                                                        "filter_id" => $getFilterTypeId,
+                                                        "filter_type_id" => $getFilterType,
+                                                        "created_at" => Carbon::now(),
+                                                        "updated_at" => Carbon::now(),
+                                                    );
+                    }
+                    if (!empty($saveFilterTypes)) {
+                        FilterRelationType::insert($saveFilterTypes);
+                    }
+                }
                $response['success']         = true;
                $response['delayTime']       = '3000';
                $response['success_message'] = 'Filter Saved Successfully.';
@@ -86,7 +105,7 @@ class FilterController extends Controller
 
    public function update(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        'filterType' => 'required',
+                                        // 'filterType' => 'required',
                                         'filterValue' => 'required',
                                         'displayOrder' => 'required',
                                     ]);
@@ -98,20 +117,39 @@ class FilterController extends Controller
             return response($response);
         } else {
             $saveData = array();
-            $saveData['filterType'] = (trim($request->filterType)) ?? "";
+            // $saveData['filterType'] = (trim($request->filterType)) ?? "";
             $saveData['filterValue'] = (trim($request->filterValue)) ?? "";
             $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
 
             if ($request->has('id')) {
                 $id = Crypt::decrypt($request->id);
+                $getFilterTypeId = $id;
                 $res = Filter::where('id',$id)->update($saveData);
             } else {
                 $user = new Filter($saveData);
                 $res =  $user->save();
+                $getFilterTypeId = $user->id;
             }
 
             if($res) {
+
+                if($request->has('filterType')) {
+                    $getFilterTypes = ($request->filterType) ?? array();
+                    $saveFilterTypes = array();
+                    FilterRelationType::where('filter_id',$getFilterTypeId)->delete();
+                    foreach ($getFilterTypes as $getFilterType) {
+                        $saveFilterTypes[] = array(
+                                                        "filter_id" => $getFilterTypeId,
+                                                        "filter_type_id" => $getFilterType,
+                                                        "created_at" => Carbon::now(),
+                                                        "updated_at" => Carbon::now(),
+                                                    );
+                    }
+                    if (!empty($saveFilterTypes)) {
+                        FilterRelationType::insert($saveFilterTypes);
+                    }
+                }
                $response['success']         = true;
                $response['delayTime']       = '3000';
                $response['success_message'] = 'Filter Updated Successfully.';
