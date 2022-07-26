@@ -28,6 +28,19 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Category Thumbnail Image<span class="red">*</span></label>
+                          <input type="file"  class="form-control "  name="blog_image"   id="blog_image">
+                          <img src="{{url('storage/blog/'.$result->image)}}" width="150px;" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Display Order<span class="red">*</span></label>
+                            <input type="text" value="{{ $result->displayOrder }}"  class="form-control numberonly " name="displayOrder"   id="displayOrder" placeholder="Please enter display order">
+                        </div>
+                    </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label>Description <span class="red">*</span></label>

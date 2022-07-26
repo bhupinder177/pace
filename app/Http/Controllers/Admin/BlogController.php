@@ -40,6 +40,7 @@ class BlogController extends Controller
                                         'title' => 'required',
                                         'status' => 'required',
                                         'description' => 'required',
+                                        'displayOrder' => 'required',
 
                                     ]);
 
@@ -54,6 +55,7 @@ class BlogController extends Controller
             $saveData['title'] = $getTitle;
             $saveData['status'] = (trim($request->status)) ?? "";
             $saveData['description'] = (trim($request->description)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
 
             if($request->hasFile('blog_image')) {
@@ -106,6 +108,7 @@ class BlogController extends Controller
                                         'title' => 'required',
                                         'status' => 'required',
                                         'description' => 'required',
+                                        'displayOrder' => 'required',
 
                                     ]);
 
@@ -120,6 +123,7 @@ class BlogController extends Controller
             $saveData['title'] = $getTitle;
             $saveData['status'] = (trim($request->status)) ?? "";
             $saveData['description'] = (trim($request->description)) ?? "";
+            $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
 
             if($request->hasFile('blog_image')) {

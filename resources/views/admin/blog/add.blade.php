@@ -27,6 +27,18 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Image<span class="red">*</span></label>
+    <input type="file"  class="form-control " name="blog_image"   id="blog_image">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Display Order<span class="red">*</span></label>
+                            <input type="text"  class="form-control numberonly " name="displayOrder"   id="displayOrder" placeholder="Please enter display order">
+                        </div>
+                    </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label>Description <span class="red">*</span></label>
@@ -34,7 +46,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-rounded button-disabled" >Save</button>
