@@ -15,8 +15,19 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
+            $table->string('product_name')->nullable();
+            $table->unsignedInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->integer('filter_type_id')->nullable();
+            $table->string('thumbnail_image')->nullable();
+            $table->string('main_image')->nullable();
+            $table->text('short_description')->nullable();
+            $table->longText('product_features')->nullable();
+            $table->longText('product_long_description')->nullable();
+            $table->integer('display_order')->nullable();
+            $table->text('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keyword')->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->enum('type', ['0','1'])->default('0')->comment("1 = Active, 0 = In-Acive");
             $table->timestamps();

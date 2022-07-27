@@ -147,6 +147,7 @@
 
     @php
     $showTextEditor = ($showTextEditor) ?? 0;
+    $showTextProductEditor = ($showTextProductEditor) ?? 0;
     @endphp
     @if($showTextEditor == 1)
         <script src="//cdn.ckeditor.com/4.7.2/standard/ckeditor.js"></script>
@@ -163,6 +164,11 @@
 
             ckEditorFn('description');
         </script>
+        @if($showTextProductEditor == 1)
+        <script type="text/javascript">
+            ckEditorFn('product_features');
+        </script>
+        @endif
     @endif
 
     @php

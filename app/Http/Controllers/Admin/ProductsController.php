@@ -5,6 +5,7 @@ use App\Model\Products;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Crypt;
+use App\Model\Categories;
 
 class ProductsController extends Controller
 {
@@ -18,31 +19,41 @@ class ProductsController extends Controller
             }
             if(!empty($request->search)) {
                 $search = $request->search;
-                $query->where('name', 'like', '%' . $search . '%');
+                $query->where('product_name', 'like', '%' . $search . '%');
             }
-            $investorData = $query->orderby('id','DESC')->paginate($perpage);
-            $html =  view('admin.investor.investorajax',['prefix'=>$this->prefix,'investorData'=>$investorData,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage])->render();
+            $allData = $query->orderby('id','DESC')->paginate($perpage);
+            $html =  view('admin.product.productajax',['prefix'=>$this->prefix,'allData'=>$allData,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage])->render();
             return response()->json(['html' => $html]);
-        }
-        else {
-            $investorData = $query->orderby('id','DESC')->paginate($perpage);
-            return view('admin.investor.index',['prefix'=>$this->prefix,'investorData'=>$investorData,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage]);
+        } else {
+            $allData = $query->orderby('id','DESC')->paginate($perpage);
+            return view('admin.product.index',['prefix'=>$this->prefix,'allData'=>$allData,'perpage'=>$perpage,'srNo'=>(request()->input('page', 1) - 1) * $perpage]);
         }
     }
 
     public function add() {
         $this->prefix = request()->route()->getPrefix();
-        return view('admin.investor.add',['prefix'=>$this->prefix]);
+        $getCategories = array();
+        $checkCategory = Categories::Query();
+        if ($checkCategory->exists()) {
+            $getCategories = $checkCategory->get();
+        }
+        return view('admin.product.add',['prefix'=>$this->prefix, 'getCategories' => $getCategories]);
     }
 
     public function save(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        'name' => 'required',
-                                        'designation' => 'required',
-                                        'mobile' => 'required',
-                                        'facebook' => 'required',
-                                        'instagram' => 'required',
-                                        'twitter' => 'required',
+                                        'product_name' => 'required',
+                                        'category_id' => 'required',
+                                        'filter_type_id' => 'required',
+                                        'thumbnail_image' => 'required',
+                                        'main_image' => 'required',
+                                        'short_description' => 'required',
+                                        'product_features' => 'required',
+                                        'product_long_description' => 'required',
+                                        'display_order' => 'required',
+                                        'meta_title' => 'required',
+                                        'meta_description' => 'required',
+                                        'meta_keyword' => 'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -52,21 +63,21 @@ class ProductsController extends Controller
             return response($response);
         } else {
             $saveData = array();
-            $saveData['name'] = (trim($request->name)) ?? "";
-            $saveData['designation'] = (trim($request->designation)) ?? "";
-            $saveData['mobile'] = (trim($request->mobile)) ?? "";
-            $saveData['facebook'] = (trim($request->facebook)) ?? "";
-            $saveData['instagram'] = (trim($request->instagram)) ?? "";
-            $saveData['twitter'] = (trim($request->twitter)) ?? "";
+            $saveData['product_name'] = (trim($request->product_name)) ?? "";
+            $saveData['category_id'] = (trim($request->category_id)) ?? "";
+            $saveData['filter_type_id'] = (trim($request->filter_type_id)) ?? "";
+            $saveData['short_description'] = (trim($request->short_description)) ?? "";
+            $saveData['product_features'] = (trim($request->product_features)) ?? "";
+            $saveData['product_long_description'] = (trim($request->product_long_description)) ?? "";
+            $saveData['display_order'] = (trim($request->display_order)) ?? "";
+            $saveData['meta_title'] = (trim($request->meta_title)) ?? "";
+            $saveData['meta_description'] = (trim($request->meta_description)) ?? "";
+            $saveData['meta_keyword'] = (trim($request->meta_keyword)) ?? "";
 
-            if($request->has('type')) {
-                $saveData['type'] = "1";
-            }
-
-            if($request->hasFile('investor_image')) {
+            if($request->hasFile('thumbnail_image')) {
                 $getUniqueNo = time();
                 $saveStorePath = "public/products";
-                $attachmentDoc = $request->file('investor_image');
+                $attachmentDoc = $request->file('thumbnail_image');
                 $attachmentDocFilenameWithExt = $attachmentDoc->getClientOriginalName();
                 $attachmentDocFilename = pathinfo($attachmentDocFilenameWithExt, PATHINFO_FILENAME);
                 $attachmentDocFilename = str_replace(' ', '', $attachmentDocFilename);
@@ -74,7 +85,21 @@ class ProductsController extends Controller
                 $extension = $attachmentDoc->getClientOriginalExtension();
                 $attachmentDocFilenameToStore = $attachmentDocFilename.'_'.$getUniqueNo.'.'.$extension;
                 $attachmentDocPath = $attachmentDoc->storeAs($saveStorePath,$attachmentDocFilenameToStore);
-                $saveData['image'] = $attachmentDocFilenameToStore;
+                $saveData['thumbnail_image'] = $attachmentDocFilenameToStore;
+            }
+
+            if($request->hasFile('main_image')) {
+                $getUniqueNo = time();
+                $saveStorePath = "public/products";
+                $attachmentDoc = $request->file('main_image');
+                $attachmentDocFilenameWithExt = $attachmentDoc->getClientOriginalName();
+                $attachmentDocFilename = pathinfo($attachmentDocFilenameWithExt, PATHINFO_FILENAME);
+                $attachmentDocFilename = str_replace(' ', '', $attachmentDocFilename);
+                $attachmentDocFilename = preg_replace('/[^A-Za-z0-9\-]/', '', $attachmentDocFilename);
+                $extension = $attachmentDoc->getClientOriginalExtension();
+                $attachmentDocFilenameToStore = $attachmentDocFilename.'_'.$getUniqueNo.'.'.$extension;
+                $attachmentDocPath = $attachmentDoc->storeAs($saveStorePath,$attachmentDocFilenameToStore);
+                $saveData['main_image'] = $attachmentDocFilenameToStore;
             }
 
             if ($request->has('id')) {
@@ -88,14 +113,14 @@ class ProductsController extends Controller
             if($res) {
                $response['success']         = true;
                $response['delayTime']       = '3000';
-               $response['success_message'] = 'Investor Saved Successfully.';
-               $response['url'] = route('investor.index');
+               $response['success_message'] = 'Product Saved Successfully.';
+               $response['url'] = route('product.index');
                $response['resetform'] ='true';
                return response($response);
             } else {
                 $response['formErrors'] = true;
                 $response['delayTime']     = '3000';
-                $response['errors'] = 'Investor Not Saved.';
+                $response['errors'] = 'Product Not Saved.';
                 return response($response);
             }
         }
@@ -105,17 +130,28 @@ class ProductsController extends Controller
         $id = Crypt::decrypt($id);
         $this->prefix = request()->route()->getPrefix();
         $result = Products::whereKey($id)->first();
-        return view('admin.investor.edit',['result'=>$result,'prefix'=>$this->prefix]);
+        $getCategories = array();
+        $checkCategory = Categories::Query();
+        if ($checkCategory->exists()) {
+            $getCategories = $checkCategory->get();
+        }
+        return view('admin.product.edit',['result'=>$result,'prefix'=>$this->prefix, 'getCategories' => $getCategories]);
    }
 
    public function update(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        'name' => 'required',
-                                        'designation' => 'required',
-                                        'mobile' => 'required',
-                                        'facebook' => 'required',
-                                        'instagram' => 'required',
-                                        'twitter' => 'required',
+                                        'product_name' => 'required',
+                                        'category_id' => 'required',
+                                        'filter_type_id' => 'required',
+                                        // 'thumbnail_image' => 'required',
+                                        // 'main_image' => 'required',
+                                        'short_description' => 'required',
+                                        'product_features' => 'required',
+                                        'product_long_description' => 'required',
+                                        'display_order' => 'required',
+                                        'meta_title' => 'required',
+                                        'meta_description' => 'required',
+                                        'meta_keyword' => 'required',
                                     ]);
 
         if ($validator->fails()) {
@@ -125,22 +161,21 @@ class ProductsController extends Controller
             return response($response);
         } else {
             $saveData = array();
-            $saveData['name'] = (trim($request->name)) ?? "";
-            $saveData['designation'] = (trim($request->designation)) ?? "";
-            $saveData['mobile'] = (trim($request->mobile)) ?? "";
-            $saveData['facebook'] = (trim($request->facebook)) ?? "";
-            $saveData['instagram'] = (trim($request->instagram)) ?? "";
-            $saveData['twitter'] = (trim($request->twitter)) ?? "";
+            $saveData['product_name'] = (trim($request->product_name)) ?? "";
+            $saveData['category_id'] = (trim($request->category_id)) ?? "";
+            $saveData['filter_type_id'] = (trim($request->filter_type_id)) ?? "";
+            $saveData['short_description'] = (trim($request->short_description)) ?? "";
+            $saveData['product_features'] = (trim($request->product_features)) ?? "";
+            $saveData['product_long_description'] = (trim($request->product_long_description)) ?? "";
+            $saveData['display_order'] = (trim($request->display_order)) ?? "";
+            $saveData['meta_title'] = (trim($request->meta_title)) ?? "";
+            $saveData['meta_description'] = (trim($request->meta_description)) ?? "";
+            $saveData['meta_keyword'] = (trim($request->meta_keyword)) ?? "";
 
-            $saveData['type'] = "0";
-            if($request->has('type')) {
-                $saveData['type'] = "1";
-            }
-
-            if($request->hasFile('investor_image')) {
+            if($request->hasFile('thumbnail_image')) {
                 $getUniqueNo = time();
-                $saveStorePath = "public/Products";
-                $attachmentDoc = $request->file('investor_image');
+                $saveStorePath = "public/products";
+                $attachmentDoc = $request->file('thumbnail_image');
                 $attachmentDocFilenameWithExt = $attachmentDoc->getClientOriginalName();
                 $attachmentDocFilename = pathinfo($attachmentDocFilenameWithExt, PATHINFO_FILENAME);
                 $attachmentDocFilename = str_replace(' ', '', $attachmentDocFilename);
@@ -148,7 +183,21 @@ class ProductsController extends Controller
                 $extension = $attachmentDoc->getClientOriginalExtension();
                 $attachmentDocFilenameToStore = $attachmentDocFilename.'_'.$getUniqueNo.'.'.$extension;
                 $attachmentDocPath = $attachmentDoc->storeAs($saveStorePath,$attachmentDocFilenameToStore);
-                $saveData['image'] = $attachmentDocFilenameToStore;
+                $saveData['thumbnail_image'] = $attachmentDocFilenameToStore;
+            }
+
+            if($request->hasFile('main_image')) {
+                $getUniqueNo = time();
+                $saveStorePath = "public/products";
+                $attachmentDoc = $request->file('main_image');
+                $attachmentDocFilenameWithExt = $attachmentDoc->getClientOriginalName();
+                $attachmentDocFilename = pathinfo($attachmentDocFilenameWithExt, PATHINFO_FILENAME);
+                $attachmentDocFilename = str_replace(' ', '', $attachmentDocFilename);
+                $attachmentDocFilename = preg_replace('/[^A-Za-z0-9\-]/', '', $attachmentDocFilename);
+                $extension = $attachmentDoc->getClientOriginalExtension();
+                $attachmentDocFilenameToStore = $attachmentDocFilename.'_'.$getUniqueNo.'.'.$extension;
+                $attachmentDocPath = $attachmentDoc->storeAs($saveStorePath,$attachmentDocFilenameToStore);
+                $saveData['main_image'] = $attachmentDocFilenameToStore;
             }
 
             if ($request->has('id')) {
@@ -162,14 +211,14 @@ class ProductsController extends Controller
             if($res) {
                $response['success']         = true;
                $response['delayTime']       = '3000';
-               $response['success_message'] = 'Investor Updated Successfully.';
-               $response['url'] = route('investor.index');
+               $response['success_message'] = 'Product Updated Successfully.';
+               $response['url'] = route('product.index');
                $response['resetform'] ='true';
                return response($response);
             } else {
                 $response['formErrors'] = true;
                 $response['delayTime']     = '3000';
-                $response['errors'] = 'Investor Not Saved.';
+                $response['errors'] = 'Product Not Saved.';
                 return response($response);
             }
         }
@@ -180,12 +229,12 @@ class ProductsController extends Controller
         if($res) {
             $response['success']         = true;
             $response['delayTime']       = '2000';
-            $response['success_message'] = 'Investor Deleted successfully.';
+            $response['success_message'] = 'Product Deleted successfully.';
             return response($response);
         } else {
             $response['formErrors'] = true;
             $response['delayTime']     = '2000';
-            $response['errors'] = 'Investor Not Deleted.';
+            $response['errors'] = 'Product Not Deleted.';
             return response($response);
         }
     }
