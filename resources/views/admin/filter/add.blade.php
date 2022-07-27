@@ -19,8 +19,8 @@
                           @php
                           $getCType = Helper::filterTypes();
                           @endphp
-                          <select class="form-control multiSelect" name="filterType[]" id="filterType" multiple="multiple">
-                              {{-- <option value="">Select Filter</option> --}}
+                          <select class="form-control" name="filterType" id="filterType">
+                              <option value="">Select Filter</option>
                               @foreach($getCType as $pageType)
                                   <option value="{{$pageType['id']}}">{{$pageType['status']}}</option>
                               @endforeach
@@ -37,7 +37,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Display Order <span class="red">*</span></label>
-                            <input type="text" class="form-control" name="displayOrder" id="displayOrder">
+                            <input type="text" class="form-control numberonly" name="displayOrder" id="displayOrder">
                         </div>
                     </div>
 

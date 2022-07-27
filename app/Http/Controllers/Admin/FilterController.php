@@ -39,7 +39,7 @@ class FilterController extends Controller
 
     public function save(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        // 'filterType' => 'required',
+                                        'filterType' => 'required',
                                         'filterValue' => 'required',
                                         'displayOrder' => 'required',
                                     ]);
@@ -51,7 +51,7 @@ class FilterController extends Controller
             return response($response);
         } else {
             $saveData = array();
-            // $saveData['filterType'] = (trim($request->filterType)) ?? "";
+            $saveData['filterType'] = (trim($request->filterType)) ?? "";
             $saveData['filterValue'] = (trim($request->filterValue)) ?? "";
             $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
@@ -66,21 +66,21 @@ class FilterController extends Controller
             }
 
             if($res) {
-                if($request->has('filterType')) {
-                    $getFilterTypes = ($request->filterType) ?? array();
-                    $saveFilterTypes = array();
-                    foreach ($getFilterTypes as $getFilterType) {
-                        $saveFilterTypes[] = array(
-                                                        "filter_id" => $getFilterTypeId,
-                                                        "filter_type_id" => $getFilterType,
-                                                        "created_at" => Carbon::now(),
-                                                        "updated_at" => Carbon::now(),
-                                                    );
-                    }
-                    if (!empty($saveFilterTypes)) {
-                        FilterRelationType::insert($saveFilterTypes);
-                    }
-                }
+                // if($request->has('filterType')) {
+                //     $getFilterTypes = ($request->filterType) ?? array();
+                //     $saveFilterTypes = array();
+                //     foreach ($getFilterTypes as $getFilterType) {
+                //         $saveFilterTypes[] = array(
+                //                                         "filter_id" => $getFilterTypeId,
+                //                                         "filter_type_id" => $getFilterType,
+                //                                         "created_at" => Carbon::now(),
+                //                                         "updated_at" => Carbon::now(),
+                //                                     );
+                //     }
+                //     if (!empty($saveFilterTypes)) {
+                //         FilterRelationType::insert($saveFilterTypes);
+                //     }
+                // }
                $response['success']         = true;
                $response['delayTime']       = '3000';
                $response['success_message'] = 'Filter Saved Successfully.';
@@ -105,7 +105,7 @@ class FilterController extends Controller
 
    public function update(Request $request) {
         $validator = Validator::make($request->all(),[
-                                        // 'filterType' => 'required',
+                                        'filterType' => 'required',
                                         'filterValue' => 'required',
                                         'displayOrder' => 'required',
                                     ]);
@@ -117,7 +117,7 @@ class FilterController extends Controller
             return response($response);
         } else {
             $saveData = array();
-            // $saveData['filterType'] = (trim($request->filterType)) ?? "";
+            $saveData['filterType'] = (trim($request->filterType)) ?? "";
             $saveData['filterValue'] = (trim($request->filterValue)) ?? "";
             $saveData['displayOrder'] = (trim($request->displayOrder)) ?? "";
 
@@ -134,22 +134,22 @@ class FilterController extends Controller
 
             if($res) {
 
-                if($request->has('filterType')) {
-                    $getFilterTypes = ($request->filterType) ?? array();
-                    $saveFilterTypes = array();
-                    FilterRelationType::where('filter_id',$getFilterTypeId)->delete();
-                    foreach ($getFilterTypes as $getFilterType) {
-                        $saveFilterTypes[] = array(
-                                                        "filter_id" => $getFilterTypeId,
-                                                        "filter_type_id" => $getFilterType,
-                                                        "created_at" => Carbon::now(),
-                                                        "updated_at" => Carbon::now(),
-                                                    );
-                    }
-                    if (!empty($saveFilterTypes)) {
-                        FilterRelationType::insert($saveFilterTypes);
-                    }
-                }
+                // if($request->has('filterType')) {
+                //     $getFilterTypes = ($request->filterType) ?? array();
+                //     $saveFilterTypes = array();
+                //     FilterRelationType::where('filter_id',$getFilterTypeId)->delete();
+                //     foreach ($getFilterTypes as $getFilterType) {
+                //         $saveFilterTypes[] = array(
+                //                                         "filter_id" => $getFilterTypeId,
+                //                                         "filter_type_id" => $getFilterType,
+                //                                         "created_at" => Carbon::now(),
+                //                                         "updated_at" => Carbon::now(),
+                //                                     );
+                //     }
+                //     if (!empty($saveFilterTypes)) {
+                //         FilterRelationType::insert($saveFilterTypes);
+                //     }
+                // }
                $response['success']         = true;
                $response['delayTime']       = '3000';
                $response['success_message'] = 'Filter Updated Successfully.';

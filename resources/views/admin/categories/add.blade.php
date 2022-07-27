@@ -35,6 +35,21 @@
 
                       <div class="col-sm-6">
                           <div class="form-group">
+                              <label>Filter Name <span class="red">*</span></label>
+                              @php
+                              $getCType = Helper::filterTypes();
+                              @endphp
+                              <select class="form-control multiSelect" multiple="multiple" name="filterType[]" id="filterType">
+                                  <option value="">Select Filter</option>
+                                  @foreach($getCType as $pageType)
+                                      <option value="{{$pageType['id']}}">{{$pageType['status']}}</option>
+                                  @endforeach
+                              </select>
+                          </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                          <div class="form-group">
                             <label>Category <span class="red">*</span></label>
       <input type="text" placeholder="Please enter category" class="form-control " name="name"   id="name">
                           </div>
@@ -105,6 +120,7 @@
 
 @php
 $showTextEditor = 1;
+$showMultiSelect = 1;
 @endphp
 
 @include('admin.layouts.footer')

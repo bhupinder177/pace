@@ -18,12 +18,12 @@
                           <label>Filter Name <span class="red">*</span></label>
                           @php
                           $getPageType = Helper::filterTypes();
-                          $getSelectedFilterType = ($result->getAllFilterTypes()->pluck("filter_type_id")->toArray()) ?? array();
+                          // $getSelectedFilterType = ($result->getAllFilterTypes()->pluck("filter_type_id")->toArray()) ?? array();
                           @endphp
-                          <select class="form-control multiSelect" name="filterType[]" id="filterType" multiple="multiple">
-                              {{-- <option value="">Select Filter</option> --}}
+                          <select class="form-control" name="filterType" id="filterType" >
+                              <option value="">Select Filter</option>
                               @foreach($getPageType as $pageType)
-                                  <option value="{{$pageType['id']}}" @if(in_array($pageType['id'], $getSelectedFilterType)){{"selected='selected'"}}@endif >{{$pageType['status']}}</option>
+                                  <option value="{{$pageType['id']}}" @if($pageType['id'] == $result->filterType){{"selected='selected'"}}@endif >{{$pageType['status']}}</option>
                               @endforeach
                           </select>
                       </div>
@@ -37,7 +37,7 @@
                   <div class="col-sm-6">
                       <div class="form-group">
                           <label>Display Order <span class="red">*</span></label>
-                          <input type="text" value="{{($result->displayOrder) ?? ''}}" class="form-control" name="displayOrder" id="displayOrder">
+                          <input type="text" value="{{($result->displayOrder) ?? ''}}" class="form-control numberonly" name="displayOrder" id="displayOrder">
                       </div>
                   </div>
 
