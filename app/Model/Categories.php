@@ -21,4 +21,8 @@ class Categories extends Model
     // public function getAllCatTypes() {
     //     return $this->hasmany('App\Model\CategoryRelationType','category_id','id');
     // }
+
+    public function getCatRelFilterTypes() {
+        return $this->hasmany('App\Model\CategoryRelationFilterType','category_id','id');
+    }
 }

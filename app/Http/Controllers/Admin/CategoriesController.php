@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Categories;
-// use App\Model\CategoryRelationType;
+use App\Model\CategoryRelationFilterType;
 use Illuminate\Http\Request;
 use App\Helpers\GlobalFunctions as CommonHelper;
 use Illuminate\Support\Facades\Auth;
@@ -126,22 +126,22 @@ class CategoriesController extends Controller
            ]);
             $res =  $user->save();
             if($res) {
-                /* if($request->has('category_type')) {
-                    $getCategoryTypes = ($request->category_type) ?? array();
+                if($request->has('filter_type')) {
+                    $getCategoryFilters = ($request->filter_type) ?? array();
                     $getCatId = $user->id;
-                    $saveCategoryType = array();
-                    foreach ($getCategoryTypes as $getCategoryType) {
-                        $saveCategoryType[] = array(
+                    $saveCategoryFilter = array();
+                    foreach ($getCategoryFilters as $getCategoryFilter) {
+                        $saveCategoryFilter[] = array(
                                                         "category_id" => $getCatId,
-                                                        "category_type_id" => $getCategoryType,
+                                                        "filter_type_id" => $getCategoryFilter,
                                                         "created_at" => Carbon::now(),
                                                         "updated_at" => Carbon::now(),
                                                     );
                     }
-                    if (!empty($saveCategoryType)) {
-                        CategoryRelationType::insert($saveCategoryType);
+                    if (!empty($saveCategoryFilter)) {
+                        CategoryRelationFilterType::insert($saveCategoryFilter);
                     }
-                } */
+                }
                 $response['success']         = true;
                 $response['delayTime']       = '3000';
                 $response['success_message'] = 'Categories Added Successfully.';
@@ -213,23 +213,23 @@ class CategoriesController extends Controller
 
             $res = Categories::where('id',$id)->update($data1);
             if($res) {
-                /* if($request->has('category_type')) {
-                    $getCategoryTypes = ($request->category_type) ?? array();
+                if($request->has('filter_type')) {
+                    $getCategoryFilters = ($request->filter_type) ?? array();
                     $getCatId = $id;
-                    CategoryRelationType::where('category_id',$getCatId)->delete();
-                    $saveCategoryType = array();
-                    foreach ($getCategoryTypes as $getCategoryType) {
-                        $saveCategoryType[] = array(
+                    CategoryRelationFilterType::where('category_id',$getCatId)->delete();
+                    $saveCategoryFilter = array();
+                    foreach ($getCategoryFilters as $getCategoryFilter) {
+                        $saveCategoryFilter[] = array(
                                                         "category_id" => $getCatId,
-                                                        "category_type_id" => $getCategoryType,
+                                                        "filter_type_id" => $getCategoryFilter,
                                                         "created_at" => Carbon::now(),
                                                         "updated_at" => Carbon::now(),
                                                     );
                     }
-                    if (!empty($saveCategoryType)) {
-                        CategoryRelationType::insert($saveCategoryType);
+                    if (!empty($saveCategoryFilter)) {
+                        CategoryRelationFilterType::insert($saveCategoryFilter);
                     }
-                } */
+                }
                 $response['success']         = true;
                 $response['delayTime']       = '3000';
                 $response['success_message'] = 'Category Updated Successfully.';

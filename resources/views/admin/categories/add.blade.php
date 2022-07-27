@@ -39,8 +39,8 @@
                               @php
                               $getCType = Helper::filterTypes();
                               @endphp
-                              <select class="form-control multiSelect" multiple="multiple" name="filterType[]" id="filterType">
-                                  <option value="">Select Filter</option>
+                              <select class="form-control multiSelect" multiple="multiple" name="filter_type[]" id="filterType">
+                                  {{-- <option value="">Select Filter</option> --}}
                                   @foreach($getCType as $pageType)
                                       <option value="{{$pageType['id']}}">{{$pageType['status']}}</option>
                                   @endforeach

@@ -23,13 +23,29 @@
                               @php
                               $getPageType = Helper::categoryTypes();
                               @endphp
-                              <select class="form-control multiSelect" name="category_type" id="type">
+                              <select class="form-control" name="category_type" id="type">
+                                  <option value="">Select Category Type</option>
                                   @foreach($getPageType as $pageType)
                                       <option value="{{$pageType['id']}}" @if($pageType['id'] == $result->category_type){{"selected='selected'"}}@endif >{{$pageType['status']}}</option>
                                   @endforeach
                               </select>
                           </div>
                       </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Filter Name <span class="red">*</span></label>
+                            @php
+                            $getPageType = Helper::filterTypes();
+                            $getSelectedFilterType = ($result->getCatRelFilterTypes()->pluck("filter_type_id")->toArray()) ?? array();
+                            @endphp
+                            <select class="form-control multiSelect" name="filter_type[]" id="filterType" multiple="multiple">
+                                {{-- <option value="">Select Filter</option> --}}
+                                @foreach($getPageType as $pageType)
+                                    <option value="{{$pageType['id']}}" @if(in_array($pageType['id'], $getSelectedFilterType)){{"selected='selected'"}}@endif >{{$pageType['status']}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                       <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Category<span class="red">*</span></label>
@@ -108,6 +124,7 @@
 
 @php
 $showTextEditor = 1;
+$showMultiSelect = 1;
 @endphp
 
     @include('admin.layouts.footer')
