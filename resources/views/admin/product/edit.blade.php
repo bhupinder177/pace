@@ -25,7 +25,10 @@
                                 <option value="">Select Category</option>
                                 @if(!empty($getCategories))
                                     @foreach($getCategories as $getCategory)
-                                        <option value="{{$getCategory->id}}" @if($result->category_id == $getCategory->id) selected="selected" @endif>{{$getCategory->name}}</option>
+                                        @php
+                                        $getCType = Helper::categoryTypes($getCategory->category_type);
+                                        @endphp
+                                        <option value="{{$getCategory->id}}" @if($result->category_id == $getCategory->id) selected="selected" @endif>{{$getCategory->name}} - {{($getCType['status']) ?? ""}}</option>
                                     @endforeach
                                 @endif
                             </select>
