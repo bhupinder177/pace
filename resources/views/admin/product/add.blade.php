@@ -36,14 +36,14 @@
                     <div class="col-sm-6">
                           <div class="form-group">
                               <label>Filter Name <span class="red">*</span></label>
-                              @php
-                              $getCType = Helper::filterTypes();
-                              @endphp
+
                               <select class="form-control" name="filter_type_id" id="filterType">
                                   <option value="">Select Filter</option>
-                                  @foreach($getCType as $pageType)
-                                      <option value="{{$pageType['id']}}">{{$pageType['status']}}</option>
+                                  @if(!empty($getFilter))
+                                  @foreach($getFilter as $pageType)
+                                      <option value="{{$pageType->id}}">{{$pageType->filterValue }}</option>
                                   @endforeach
+                                  @endif
                               </select>
                           </div>
                       </div>
@@ -80,7 +80,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Display Order <span class="red">*</span></label>
-                            <input type="text" class="form-control" name="display_order" id="display_order">
+                            <input type="text" class="form-control numberonly" name="display_order" id="display_order">
                         </div>
                     </div>
 

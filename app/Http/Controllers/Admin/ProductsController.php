@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Crypt;
 use App\Model\Categories;
+use App\Model\Filter;
 
 class ProductsController extends Controller
 {
@@ -33,11 +34,16 @@ class ProductsController extends Controller
     public function add() {
         $this->prefix = request()->route()->getPrefix();
         $getCategories = array();
+        $getFilter = array();
         $checkCategory = Categories::Query();
+        $checkFilter = Filter::Query();
         if ($checkCategory->exists()) {
             $getCategories = $checkCategory->get();
         }
-        return view('admin.product.add',['prefix'=>$this->prefix, 'getCategories' => $getCategories]);
+        if ($checkFilter->exists()) {
+            $getFilter = $checkFilter->get();
+        }
+        return view('admin.product.add',['prefix'=>$this->prefix,'getFilter'=>$getFilter,'getCategories' => $getCategories]);
     }
 
     public function save(Request $request) {
@@ -131,11 +137,16 @@ class ProductsController extends Controller
         $this->prefix = request()->route()->getPrefix();
         $result = Products::whereKey($id)->first();
         $getCategories = array();
+        $getFilter = array();
         $checkCategory = Categories::Query();
+        $checkFilter = Filter::Query();
         if ($checkCategory->exists()) {
             $getCategories = $checkCategory->get();
         }
-        return view('admin.product.edit',['result'=>$result,'prefix'=>$this->prefix, 'getCategories' => $getCategories]);
+        if ($checkFilter->exists()) {
+            $getFilter = $checkFilter->get();
+        }
+        return view('admin.product.edit',['result'=>$result,'prefix'=>$this->prefix,'getFilter'=>$getFilter,'getCategories' => $getCategories]);
    }
 
    public function update(Request $request) {
