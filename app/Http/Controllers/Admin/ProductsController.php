@@ -7,6 +7,8 @@ use Validator;
 use Illuminate\Support\Facades\Crypt;
 use App\Model\Categories;
 use App\Model\Filter;
+use App\Model\ProRelFilTy;
+use Carbon\Carbon;
 
 class ProductsController extends Controller
 {
@@ -51,7 +53,7 @@ class ProductsController extends Controller
                                         'product_name' => 'required',
                                         'category_id' => 'required',
                                         'filter_type_id' => 'required',
-                                        'thumbnail_image' => 'required',
+                                        // 'thumbnail_image' => 'required',
                                         'main_image' => 'required',
                                         'short_description' => 'required',
                                         'product_features' => 'required',
@@ -71,7 +73,7 @@ class ProductsController extends Controller
             $saveData = array();
             $saveData['product_name'] = (trim($request->product_name)) ?? "";
             $saveData['category_id'] = (trim($request->category_id)) ?? "";
-            $saveData['filter_type_id'] = (trim($request->filter_type_id)) ?? "";
+            // $saveData['filter_type_id'] = (trim($request->filter_type_id)) ?? "";
             $saveData['short_description'] = (trim($request->short_description)) ?? "";
             $saveData['product_features'] = (trim($request->product_features)) ?? "";
             $saveData['product_long_description'] = (trim($request->product_long_description)) ?? "";
@@ -113,16 +115,34 @@ class ProductsController extends Controller
                 $res = Products::where('id',$id)->update($saveData);
             } else {
                 $user = new Products($saveData);
-                $res =  $user->save();
+                $res = $user->save();
+                $id = $user->id;
             }
 
             if($res) {
-               $response['success']         = true;
-               $response['delayTime']       = '3000';
-               $response['success_message'] = 'Product Saved Successfully.';
-               $response['url'] = route('product.index');
-               $response['resetform'] ='true';
-               return response($response);
+
+                if($request->has('filter_type_id')) {
+                    $getProductFilters = ($request->filter_type_id) ?? array();
+                    $saveProductFilter = array();
+                    foreach ($getProductFilters as $getProductFilter) {
+                        $saveProductFilter[] = array(
+                                                        "pro_id" => $id,
+                                                        "fil_id" => $getProductFilter,
+                                                        "created_at" => Carbon::now(),
+                                                        "updated_at" => Carbon::now(),
+                                                    );
+                    }
+                    if (!empty($saveProductFilter)) {
+                        ProRelFilTy::insert($saveProductFilter);
+                    }
+                }
+
+                $response['success']         = true;
+                $response['delayTime']       = '3000';
+                $response['success_message'] = 'Product Saved Successfully.';
+                $response['url'] = route('product.index');
+                $response['resetform'] ='true';
+                return response($response);
             } else {
                 $response['formErrors'] = true;
                 $response['delayTime']     = '3000';
@@ -153,7 +173,7 @@ class ProductsController extends Controller
         $validator = Validator::make($request->all(),[
                                         'product_name' => 'required',
                                         'category_id' => 'required',
-                                        'filter_type_id' => 'required',
+                                        // 'filter_type_id' => 'required',
                                         // 'thumbnail_image' => 'required',
                                         // 'main_image' => 'required',
                                         'short_description' => 'required',
@@ -174,7 +194,7 @@ class ProductsController extends Controller
             $saveData = array();
             $saveData['product_name'] = (trim($request->product_name)) ?? "";
             $saveData['category_id'] = (trim($request->category_id)) ?? "";
-            $saveData['filter_type_id'] = (trim($request->filter_type_id)) ?? "";
+            // $saveData['filter_type_id'] = (trim($request->filter_type_id)) ?? "";
             $saveData['short_description'] = (trim($request->short_description)) ?? "";
             $saveData['product_features'] = (trim($request->product_features)) ?? "";
             $saveData['product_long_description'] = (trim($request->product_long_description)) ?? "";
@@ -216,10 +236,29 @@ class ProductsController extends Controller
                 $res = Products::where('id',$id)->update($saveData);
             } else {
                 $user = new Products($saveData);
-                $res =  $user->save();
+                $res = $user->save();
+                $id = $user->id;
             }
 
             if($res) {
+
+                if($request->has('filter_type_id')) {
+                    $getProductFilters = ($request->filter_type_id) ?? array();
+                    $saveProductFilter = array();
+                    ProRelFilTy::where('pro_id',$id)->delete();
+                    foreach ($getProductFilters as $getProductFilter) {
+                        $saveProductFilter[] = array(
+                                                        "pro_id" => $id,
+                                                        "fil_id" => $getProductFilter,
+                                                        "created_at" => Carbon::now(),
+                                                        "updated_at" => Carbon::now(),
+                                                    );
+                    }
+                    if (!empty($saveProductFilter)) {
+                        ProRelFilTy::insert($saveProductFilter);
+                    }
+                }
+
                $response['success']         = true;
                $response['delayTime']       = '3000';
                $response['success_message'] = 'Product Updated Successfully.';

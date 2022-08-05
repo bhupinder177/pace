@@ -36,13 +36,15 @@
                     <div class="col-sm-6">
                           <div class="form-group">
                               <label>Filter Name <span class="red">*</span></label>
-
-                              <select class="form-control" name="filter_type_id" id="filterType">
-                                  <option value="">Select Filter</option>
+                              <select class="form-control multiSelect" multiple="multiple" name="filter_type_id[]" id="filterType">
+                                  {{-- <option value="">Select Filter</option> --}}
                                   @if(!empty($getFilter))
-                                  @foreach($getFilter as $pageType)
-                                      <option value="{{$pageType->id}}">{{$pageType->filterValue }}</option>
-                                  @endforeach
+                                      @foreach($getFilter as $pageType)
+                                            @php
+                                            $getFilterName = Helper::filterTypes((int)$pageType->filterType);
+                                            @endphp
+                                          <option value="{{$pageType->id}}">{{$pageType->filterValue}} - {{($getFilterName['status']) ?? ""}}</option>
+                                      @endforeach
                                   @endif
                               </select>
                           </div>
@@ -127,5 +129,6 @@
 @php
 $showTextEditor = 1;
 $showTextProductEditor = 1;
+$showMultiSelect = 1;
 @endphp
 @include('admin.layouts.footer')

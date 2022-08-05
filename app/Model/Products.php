@@ -20,4 +20,8 @@ class Products extends Model
         'meta_description',
         'meta_keyword',
     ];
+
+    public function getAllFilters() {
+        return $this->hasmany('App\Model\ProRelFilTy','pro_id','id');
+    }
 }
