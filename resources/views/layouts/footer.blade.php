@@ -44,6 +44,9 @@
   </div>
 </div>
 </div>
+
+</div>
+
 <!--===End Footer Section===-->
 
 <!--===Start Bottom Footer Section===-->
@@ -56,7 +59,6 @@
 </div>
 <!--===Start Bottom Footer Section===-->
 
-</div>
 <!--=== End Main wraapper ===-->
 
 <!--=== Optional JavaScript ===-->

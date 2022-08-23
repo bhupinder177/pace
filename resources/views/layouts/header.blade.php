@@ -439,7 +439,6 @@
 
 													</li>
 
-													<li><a href="{{URL::to('/blog')}}">Blog</a></li>
 
 													<li><a href="{{URL::to('/export')}}">Export</a></li>
 
@@ -458,6 +457,8 @@
 															<li><a href="#">Tech</a></li>
 
 															<li><a href="#">Care & Maintenance</a></li>
+															<li><a href="#">Blog</a></li>
+
 															<li><a href="{{URL::to('/careers')}}">Career</a></li>
 
 															<li><a href="{{URL::to('/contact-us')}}">Contact</a></li>

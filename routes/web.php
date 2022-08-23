@@ -34,6 +34,7 @@ Route::get('/resource','HomeController@resource');
 Route::get('/visualizers','HomeController@visualizers');
 Route::get('/investors','HomeController@investors');
 Route::get('/where-to-buy','HomeController@whereToBuy');
+Route::get('/blog','HomeController@blog');
 Route::get('/contact-us','ContactController@index');
 Route::post('/contactSave','ContactController@contactSave');
 

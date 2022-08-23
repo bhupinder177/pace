@@ -11,7 +11,7 @@
       <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-0">
         <div class="int_home_crumbs">
           <ul>
-            <li><a href="index.html">Home // </a><span> About us</span></li>
+            <li><a href="{{URL::to('/')}}">Home // </a><span> About us</span></li>
           </ul>
         </div>
       </div>
