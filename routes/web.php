@@ -21,6 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about-us','ContactController@about');
+Route::get('/infrastructure','HomeController@infrastructure');
+Route::get('/download','HomeController@download');
+
+Route::get('/export','HomeController@export');
 Route::get('/media-center','ContactController@mediaCenter');
 Route::get('/testimonials','ContactController@testimonials');
 Route::get('/careers','ContactController@careers');

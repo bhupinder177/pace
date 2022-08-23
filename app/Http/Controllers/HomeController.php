@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Home;
+use App\Model\Certification;
 
 class HomeController extends Controller
 {
@@ -24,15 +25,29 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $result = Home::first();
+        $certifications = Certification::where('status','1')->orderby('displayOrder','ASC')->get();
 
-      $result = Home::first();
-
-        return view('front.home.home',['home'=>$result]);
+        return view('front.home.home',['home'=>$result,'certifications'=>$certifications]);
     }
 
     public function insipirations()
     {
         return view('front.insipiration.insipiration');
+    }
+
+    public function infrastructure()
+    {
+        return view('front.infrastructure.infrastructure');
+    }
+
+    public function export()
+    {
+        return view('front.export.export');
+    }
+    public function download()
+    {
+        return view('front.download.download');
     }
 
     public function resource()

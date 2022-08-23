@@ -138,7 +138,7 @@
 
 															<li><a href="{{URL::to('/investors')}}">Investors</a></li>
 
-															<li><a href="infrastructure.html">Infrastructure</a></li>
+															<li><a href="{{URL::to('/infrastructure')}}">Infrastructure</a></li>
 
 															<li><a href="#">CSR</a></li>
 
@@ -441,7 +441,7 @@
 
 													<li><a href="{{URL::to('/blog')}}">Blog</a></li>
 
-													<li><a href="export.html">Export</a></li>
+													<li><a href="{{URL::to('/export')}}">Export</a></li>
 
 													<li class="int_home_dropdown">
 
@@ -449,17 +449,19 @@
 
 														<ul>
 
-															<li><a href="{{URL::to('/contact-us')}}">Contact</a></li>
 
-															<li><a href="{{URL::to('/careers')}}">Career</a></li>
 
-															<li><a href="download.html">Ecatalog</a></li>
+															<li><a href="{{URL::to('/download')}}">Ecatalog</a></li>
 
 															<li><a href="{{URL::to('/media-center')}}">Video</a></li>
 
 															<li><a href="#">Tech</a></li>
 
 															<li><a href="#">Care & Maintenance</a></li>
+															<li><a href="{{URL::to('/careers')}}">Career</a></li>
+
+															<li><a href="{{URL::to('/contact-us')}}">Contact</a></li>
+
 
 														</ul>
 

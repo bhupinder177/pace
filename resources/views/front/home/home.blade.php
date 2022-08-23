@@ -165,49 +165,7 @@
 </div>
 <!--===End Start Service Section===-->
 
-<!--===Start About Section===-->
-<div class="int_about_wrapper">
-<div class="container">
-  <div class="about_box_wrapper">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12 order-last">
-        <div class="about_contentbox">
-          <div class="about_content">
-            <div class="int_heading">
-              <h4>About US</h4>
-              <h2>Why Airolam?</h2>
-            </div>
-            <p class="about_deatils">Airolam is a young and growing company with commendable 12+
-              years of experience in the laminates industry. Established in 2008, today
-              Airolam and its products reach over 18 countries all around the world. On the
-              domestic front it has 10+ company depots, 100+ authorized distributors and 5000+
-              dealers. </p>
-            <p class="about_deatils">Airolam has two state of the art manufacturing facilities
-              dedicated to
-              the production of laminates. With 4 presses, the annual combined capacity of
-              these facilities in 19 million sq. meter in addition, Airolam also boasts of a
-              highly advanced plywood manufacturing facility.</p>
-            <a href="#" class="int_btn">Know more <span class="btn_caret"><i
-                  class="fas fa-caret-right"></i></span></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <div class="about_imgbox">
-          <div class="about_img">
-            <img src="{{ asset('front/images/int_about01.jpg')}}" class="img-fluid parent_img" alt="image">
-            <div class="child_imgbox">
-              <img src="{{ asset('front/images/int_about02.jpg')}}" class="img-fluid child_img"
-                alt="image">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<!--===End Start About Section===-->
+
 
 <!--===Start Project Section===-->
 <div class="int_project_wrapper">
@@ -340,163 +298,149 @@
 </div>
 <!--===End Start Project Section===-->
 
-<!--===Start progress bar Section===-->
-<div class="int_progresbar_wrapper">
-<div class="container-fluid">
-  <div class="row align-items-center">
-    <div class="col-lg-5 col-md-12 p-0">
-      <div class="progress_leftbox">
-      </div>
-    </div>
-    <div class="col-lg-7 col-md-12 p-lg-0">
-      <div class="progress_rightbox">
-        <div class="row">
-          <div class="col-xl-8 col-lg-12">
-            <div class="int_heading text-start">
-              <h4>Design your space</h4>
-              <h2>Visualizer Tool</h2>
-            </div>
-            <p>The function of the art is to satisfy the artist, play with choices of
-              laminate
-              designs, and select the one you feel connected to. Airolam is happy to
-              launch
-              the Visualizer, a digital tool to aid your choice.</p>
-            <a href="#" class="int_btn">Know more <span class="btn_caret"><i
-                  class="fas fa-caret-right"></i></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<!--===End Progress bar Section===-->
 
-<!--===Start Testimonial Section===-->
-<div class="int_testimonial_wrapper">
-<div class="container">
-  <div class="int_heading">
-    <h4>Our Testimonial</h4>
-    <h2>What client Says</h2>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="testimonial_box_wrapper text-center">
-        <!--=== Swiper ===-->
-        <div class="swiper-container gallery-thumbs">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="swi_user">
-                <img src="{{ asset('front/images/int_v1_testimonial01.jpg')}}" class="img-fluid"
-                  alt="images" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="39px" height="26px">
-                  <path fill-rule="evenodd" fill="#1F86C7"
-                    d="M39.000,-0.004 C28.170,6.341 22.203,18.207 20.000,23.422 L20.000,25.997 C20.000,25.997 19.834,25.500 19.500,24.647 C19.166,25.500 19.000,25.997 19.000,25.997 L19.000,23.422 C16.797,18.207 10.830,6.341 -0.000,-0.004 L19.500,2.922 L39.000,-0.004 Z" />
-                </svg>
+
+<div class="int_premium ">
+			<div class="container">
+
+				<div class="int_all_service2">
+					<div class="row justify-content-center">
+						<div class="col-12">
+							<div class="int_heading">
+								<h2>Tactile Aesthetics</h2>
+								<p>More than 60 years of experience in creating the perfect combination between decor, colour, design and texture.
+									Thanks to continuous innovation, Arpa’s finishes interpret in a unique way the material dimension of high pressure laminates.
+								</p>
+									<a href="#" class="int_btn">Discover our premium finishes</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+    <div class="int_pro_finish ">
+			<div class="container">
+				<div class="int_heading">
+					<h2>Products by Finish</h2>
+				</div>
+				<div class="int_all_service2">
+					<div class="row justify-content-center">
+						<div class=" col-md-4 col-sm-4 col-6">
+							<div class="int_pro_box">
+								<div class="int_pro">
+									<a href="#"><img src="{{ asset('front/images/int_about02.jpg')}}"></a>
+								</div>
+								<div class="bottom_content">
+									<h4>Stones</h4>
+								</div>
+							</div>
+						</div>
+						<div class=" col-md-4 col-sm-4 col-6">
+							<div class="int_pro_box">
+								<div class="int_pro">
+									<a href="#"><img src="{{ asset('front/images/int_about02.jpg')}}"></a>
+								</div>
+								<div class="bottom_content">
+									<h4>Fabric</h4>
+								</div>
+							</div>
+						</div>
+						<div class=" col-md-4 col-sm-4 col-6">
+							<div class="int_pro_box">
+								<div class="int_pro">
+									<a href="#"><img src="{{ asset('front/images/int_about02.jpg')}}"></a>
+								</div>
+								<div class="bottom_content">
+									<h4>Wood</h4>
+								</div>
+							</div>
+						</div>
+						<div class=" col-md-4 col-sm-4 col-6">
+							<div class="int_pro_box">
+								<div class="int_pro">
+									<a href="#"><img src="{{ asset('front/images/int_about02.jpg')}}"></a>
+								</div>
+								<div class="bottom_content">
+									<h4>Absorbent / Patterns</h4>
+								</div>
+							</div>
+						</div>
+						<div class=" col-md-4 col-sm-4 col-6">
+							<div class="int_pro_box">
+								<div class="int_pro">
+									<a href="#"><img src="{{ asset('front/images/int_about02.jpg')}}"></a>
+								</div>
+								<div class="bottom_content">
+									<h4>Plain</h4>
+								</div>
+							</div>
+						</div>
+						<div class=" col-md-4 col-sm-4 col-6">
+							<div class="int_pro_box">
+								<div class="int_pro">
+									<a href="#"><img src="{{ asset('front/images/int_about02.jpg')}}"></a>
+								</div>
+								<div class="bottom_content">
+									<h4>Pastels</h4>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+    <!--===Start About Section===-->
+    <div class="int_about_wrapper">
+    <div class="container">
+      <div class="about_box_wrapper">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 order-last">
+            <div class="about_contentbox">
+              <div class="about_content">
+                <div class="int_heading">
+                  <h4>About US</h4>
+                  <h2>Why Airolam?</h2>
+                </div>
+                <p class="about_deatils">Airolam is a young and growing company with commendable 12+
+                  years of experience in the laminates industry. Established in 2008, today
+                  Airolam and its products reach over 18 countries all around the world. On the
+                  domestic front it has 10+ company depots, 100+ authorized distributors and 5000+
+                  dealers. </p>
+                <p class="about_deatils">Airolam has two state of the art manufacturing facilities
+                  dedicated to
+                  the production of laminates. With 4 presses, the annual combined capacity of
+                  these facilities in 19 million sq. meter in addition, Airolam also boasts of a
+                  highly advanced plywood manufacturing facility.</p>
+                <a href="#" class="int_btn">Know more <span class="btn_caret"><i
+                      class="fas fa-caret-right"></i></span></a>
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="swi_user">
-                <img src="{{ asset('front/images/int_v1_testimonial02.jpg')}}" class="img-fluid"
-                  alt="images" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="39px" height="26px">
-                  <path fill-rule="evenodd" fill="#1F86C7"
-                    d="M39.000,-0.004 C28.170,6.341 22.203,18.207 20.000,23.422 L20.000,25.997 C20.000,25.997 19.834,25.500 19.500,24.647 C19.166,25.500 19.000,25.997 19.000,25.997 L19.000,23.422 C16.797,18.207 10.830,6.341 -0.000,-0.004 L19.500,2.922 L39.000,-0.004 Z" />
-                </svg>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swi_user">
-                <img src="{{ asset('front/images/int_v1_testimonial03.jpg')}}" class="img-fluid"
-                  alt="images" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="39px" height="26px">
-                  <path fill-rule="evenodd" fill="#1F86C7"
-                    d="M39.000,-0.004 C28.170,6.341 22.203,18.207 20.000,23.422 L20.000,25.997 C20.000,25.997 19.834,25.500 19.500,24.647 C19.166,25.500 19.000,25.997 19.000,25.997 L19.000,23.422 C16.797,18.207 10.830,6.341 -0.000,-0.004 L19.500,2.922 L39.000,-0.004 Z" />
-                </svg>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swi_user">
-                <img src="{{ asset('front/images/int_v1_testimonial01.jpg')}}" class="img-fluid"
-                  alt="images" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="39px" height="26px">
-                  <path fill-rule="evenodd" fill="#1F86C7"
-                    d="M39.000,-0.004 C28.170,6.341 22.203,18.207 20.000,23.422 L20.000,25.997 C20.000,25.997 19.834,25.500 19.500,24.647 C19.166,25.500 19.000,25.997 19.000,25.997 L19.000,23.422 C16.797,18.207 10.830,6.341 -0.000,-0.004 L19.500,2.922 L39.000,-0.004 Z" />
-                </svg>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="about_imgbox">
+              <div class="about_img">
+                <img src="{{ asset('front/images/int_about01.jpg')}}" class="img-fluid parent_img" alt="image">
+                <div class="child_imgbox">
+                  <img src="{{ asset('front/images/int_about02.jpg')}}" class="img-fluid child_img"
+                    alt="image">
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="swiper-container gallery-top">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="swi_contentbox">
-                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                  labore
-                  et dolore magna aliqua. Utenim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                </p>
-                <h3>Harry Paul - Assts. Manager</h3>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swi_contentbox">
-                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                  labore
-                  et dolore magna aliqua. Utenim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                </p>
-                <h3>Harry Paul - Assts. Manager</h3>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swi_contentbox">
-                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                  labore
-                  et dolore magna aliqua. Utenim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                </p>
-                <h3>Harry Paul - Assts. Manager</h3>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="swi_contentbox">
-                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                  labore
-                  et dolore magna aliqua. Utenim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                </p>
-                <h3>Harry Paul - Assts. Manager</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--=== Add Pagination ===-->
-      <div class="v1_testi_nav">
-        <div class="swiper-pagination"></div>
       </div>
     </div>
-  </div>
-</div>
+    </div>
+    <!--===End Start About Section===-->
+
+
 </div>
 <!--===End Start Testimonial Section===-->
+@if(!empty($certifications))
 <div class="int_dark_client_section">
 <div class="container">
   <div class="int_heading">
@@ -504,15 +448,13 @@
   </div>
   <div class="int_client_logo_section_style2">
     <ul>
-      <li><img src="{{ asset('front/images/nema-1-1.png')}}" class="img-fluid" alt="image"></li>
-      <li><img src="{{ asset('front/images/iso-1.png')}}" class="img-fluid" alt="image"></li>
-      <li><img src="{{ asset('front/images/fsc-1.png')}}" class="img-fluid" alt="image"></li>
-      <li><img src="{{ asset('front/images/nema-1-1.png')}}" class="img-fluid" alt="image"></li>
-      <li><img src="{{ asset('front/images/iso-1.png')}}" class="img-fluid" alt="image"></li>
-      <li><img src="{{ asset('front/images/fsc-1.png')}}" class="img-fluid" alt="image"></li>
+      @foreach($certifications as $certification)
+      <li><img src="{{url('storage/certification/'.$certification->image)}}" class="img-fluid" alt="image"></li>
+      @endforeach
     </ul>
   </div>
 </div>
 </div>
+@endif
 
 @include('layouts.footer')
