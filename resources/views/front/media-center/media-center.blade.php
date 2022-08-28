@@ -33,39 +33,23 @@
     </div>
     <div class="blog_box_wrapper">
       <div class="row">
+        @if($media)
+        @foreach($media as $m)
         <div class="col-lg-4 col-md-4 col-sm-12">
           <div class="blog_box">
             <div class="blog_img">
               <a href="#">
-                <img src="{{ asset('front/images/news1.jpg')}}" class="img-fluid" alt="image">
+                <img src="{{url('storage/media/'.$m->image)}}" class="img-fluid" alt="image">
               </a>
             </div>
-            <span class="blog_date">29, july 2022</span>
-            <h1><a href="#" class="blog_heading">Capturing the Essence of Home in Ultra Modern Living</a></h1>
+            <span class="blog_date">{{ date("d, M, Y", strtotime($m->created_at))  }}</span>
+            <h1><a href="#" class="blog_heading">{{ $m->title }}</a></h1>
           </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <div class="blog_box">
-            <div class="blog_img">
-              <a href="#">
-              <img src="{{asset('front/images/news2.jpg')}}" class="img-fluid" alt="image">
-              </a>
-            </div>
-            <span class="blog_date">29, july 2022</span>
-            <h1><a href="#" class="blog_heading">The World's Tallest Wooden Sky scraper for Vancouver</a></h1>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <div class="blog_box">
-            <div class="blog_img">
-              <a href="#">
-              <img src="{{ asset('front/images/news3.jpg')}}" class="img-fluid" alt="image">
-              </a>
-            </div>
-            <span class="blog_date">29, july 2022</span>
-            <h1><a href="#" class="blog_heading">Historic Courtyards and Gardens in Quito Tower</a></h1>
-          </div>
-        </div>
+        @endforeach
+        @endif
+
+
       </div>
     </div>
   </div>

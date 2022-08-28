@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Home;
 use App\Model\Certification;
+use App\Model\Commitees;
 
 class HomeController extends Controller
 {
@@ -62,7 +63,9 @@ class HomeController extends Controller
 
     public function investors()
     {
-        return view('front.investors.investors');
+      $bob = Commitees::where('type',1)->orderby('displayOrder','ASC')->get();
+      $commitee = Commitees::where('type',2)->orderby('displayOrder','ASC')->get();
+        return view('front.investors.investors',['bob'=>$bob,'commitee'=>$commitee]);
     }
 
     public function whereToBuy()

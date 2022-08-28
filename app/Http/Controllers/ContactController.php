@@ -11,6 +11,9 @@ use Crypt;
 use Auth;
 use DateTime;
 use App\Helpers\GlobalFunctions as CommonHelper;
+use App\Model\Media;
+use App\Model\Career;
+use App\Model\Settings;
 
 
 class ContactController extends Controller
@@ -29,7 +32,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('front.contact.contact');
+        $setting =  Settings::first();
+        return view('front.contact.contact',['setting'=>$setting]);
     }
 
     public function contactSave(Request $request)
@@ -58,7 +62,8 @@ class ContactController extends Controller
 
     public function mediaCenter()
     {
-        return view('front.media-center.media-center');
+        $media = Media::where('type',1)->orderby('displayOrder','ASC')->get();
+        return view('front.media-center.media-center',['media'=>$media]);
     }
 
     public function testimonials()
@@ -68,7 +73,8 @@ class ContactController extends Controller
 
     public function careers()
     {
-        return view('front.career.career');
+        $career = Career::orderby('displayOrder','ASC')->get();
+        return view('front.career.career',['career'=>$career]);
     }
 
 

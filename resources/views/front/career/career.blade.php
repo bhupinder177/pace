@@ -86,34 +86,25 @@
       </div>
     </div>
     <div class="row">
+      @if(!empty($career))
+      @foreach($career as $c)
       <div class="col-lg-6">
         <div class="careerblock">
-          <h3>Business Manager Sales</h3>
+          <h3>{{ $c->title }}</h3>
           <p>
-            <strong><i class="fas fa-history"></i>Experience:</strong>5-8 years
+            <strong><i class="fas fa-history"></i>Experience:</strong>{{ $c->experience }} Years
           </p>
-          <p>
+          <!-- <p>
             <strong><i class="fas fa-map-marker-alt"></i>Location:</strong>Pune
-          </p>
+          </p> -->
           <p>
-            <strong><i class="far fa-calendar-alt"></i>Posted on:</strong>Aug 08 2022
+            <strong><i class="far fa-calendar-alt"></i>Posted on:</strong>{{ date("d, M, Y", strtotime($c->created_at))  }}
           </p>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="careerblock">
-          <h3>Business Manager Sales</h3>
-          <p>
-            <strong><i class="fas fa-history"></i>Experience:</strong>5-8 years
-          </p>
-          <p>
-            <strong><i class="fas fa-map-marker-alt"></i>Location:</strong>Pune
-          </p>
-          <p>
-            <strong><i class="far fa-calendar-alt"></i>Posted on:</strong>Aug 08 2022
-          </p>
-        </div>
-      </div>
+      @endforeach
+      @endif
+
     </div>
   </div>
 </div>

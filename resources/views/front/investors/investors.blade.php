@@ -30,54 +30,22 @@
             <div class="col-md-12">
                 <div class="team_box_wrapper text-center">
                     <div class="row">
+                      @if(!empty($bob))
+                       @foreach($bob as $b)
                         <div class="col-sm-6 col-lg-4">
                             <div class="team_box">
                                 <div class="team_content">
-                                    <h4><a href="javascript:;">Pravinbhai Nathabhai Patel</a></h4>
-                                    <p>Chairman & Managing Director</p>
+                                    <h4><a href="javascript:;">{{ $b->name }}</a></h4>
+                                    <p>{{ $b->designation }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Sureshbhai Hansrajbhai Patel</a></h4>
-                                    <p>Whole-time Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Hardikkumar Prafulbhai Patel</a></h4>
-                                    <p>Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Mamtaben Premanshu Patel</a></h4>
-                                    <p>Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Manilal Kanjibhai Patel</a></h4>
-                                    <p>Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Mehulkumar Jayantilal Patel</a></h4>
-                                    <p>Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -93,114 +61,21 @@
             <div class="col-md-12">
                 <div class="team_box_wrapper text-center">
                     <div class="row">
+                      @if(!empty($commitee))
+                       @foreach($commitee as $c)
                         <div class="col-sm-6 col-lg-4">
                             <div class="team_box">
                                 <div class="team_content">
-                                    <h4><a href="javascript:;">Mamtaben Premanshu Patel</a></h4>
-                                    <h5>Audit Committee</h5>
-                                    <p>Chairman, Independent Director</p>
+                                    <h4><a href="javascript:;">{{ $c->name }}</a></h4>
+                                    <h5>{{ $c->department }}</h5>
+                                    <p>{{ $c->designation}} </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Mehulbhai Patel</a></h4>
-                                    <h5>Audit Committee</h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Manilal Kanjibhai Patel</a></h4>
-                                    <h5>Audit Committee</h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Manilal Kanjibhai Patel</a></h4>
-                                    <h5>Audit Committee</h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Manilal Kanjibhai Patel</a></h4>
-                                    <h5>Audit Committee</h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Manilal Kanjibhai Patel</a></h4>
-                                    <h5>Audit Committee</h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Mamtaben Premanshu Patel</a></h4>
-                                    <h5>Nomination and Remuneration Committee </h5>
-                                    <p>Chairman, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Mehulbhai Patel</a></h4>
-                                    <h5>Nomination and Remuneration Committee </h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Manilal Kanjibhai Patel</a></h4>
-                                    <h5>Nomination and Remuneration Committee </h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Mamtaben Premanshu Patel</a></h4>
-                                    <h5>Stakeholder’s Relationship Committee</h5>
-                                    <p>Chairman, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Mehulbhai Patel</a></h4>
-                                    <h5>Stakeholder’s Relationship Committee</h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="team_box">
-                                <div class="team_content">
-                                    <h4><a href="javascript:;">Manilal Kanjibhai Patel</a></h4>
-                                    <h5>Stakeholder’s Relationship Committee </h5>
-                                    <p>Member, Independent Director</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
+
+
                     </div>
                 </div>
             </div>
