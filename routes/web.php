@@ -35,8 +35,10 @@ Route::get('/visualizers','HomeController@visualizers');
 Route::get('/investors','HomeController@investors');
 Route::get('/where-to-buy','HomeController@whereToBuy');
 Route::get('/blog','HomeController@blog');
-Route::get('/contact-us','ContactController@index');
+Route::get('/contact-us','ContactController@index')->name('contact.us.index');
 Route::post('/contactSave','ContactController@contactSave');
+
+Route::post('/send-contact-us','ContactController@sendContactUs')->name('send.contact.us');
 
 
 

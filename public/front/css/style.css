@@ -12628,3 +12628,22 @@ select {
     .aboutwhiteleft:before{display: none;}
     .aboutwhiteleft .leftbox,.aboutwhiteright .rightbox{background-color: #fff;}
 }
+
+.has-error
+{
+    color:red;
+    font-size:13px;
+}
+
+.loader_panel {
+    position: fixed;
+    right: 0;
+    left: 0;
+    text-align: center;
+    top: 0;
+    z-index: 99;
+    height: 100%;
+    padding: 14% 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 99999999;
+}

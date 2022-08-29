@@ -71,6 +71,10 @@
 <script src="{{ asset('front/js/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{ asset('front/js/plugin/countto/jquery.appear.js')}}"></script>
 <script src="{{ asset('front/js/plugin/countto/jquery.countTo.js')}}"></script>
+
+<script src="{{ asset('admin/js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('admin/js/jquery.toast.js') }}"></script>
+
 <script src="{{ asset('front/js/custom.js')}}"></script>
 <!--=== Optional JavaScript ===-->
 </body>

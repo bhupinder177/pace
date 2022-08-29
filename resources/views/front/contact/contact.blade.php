@@ -66,51 +66,47 @@
 
 <!--======Start Contact Us Form Section======-->
 <div class="int_contact_form_box">
-  <div class="int_map_wrapper">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.525183517651!2d72.93255931429219!3d23.513606003699167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395dc6520c2223bb%3A0x6b9e018558844b06!2sAIROLAM%20LIMITED!5e0!3m2!1sen!2sin!4v1656146848094!5m2!1sen!2sin"
-      width="100%" height="600" style="border:0;" allowfullscreen=""></iframe>
-  </div>
-  <div class="int_contact_white_form">
-    <h1>Get In Touch</h1>
-    <h6>Please fill out the quick form and we will be in touch with lightening speed.</h6>
-    <form>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form_block">
-            <input type="text" placeholder="First Name" name="full_name" id="full_name"
-              class="require form_field" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form_block">
-            <input type="text" placeholder="Last Name" name="last_name" id="last_name"
-              class="require form_field" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form_block">
-            <input type="text" placeholder="Email Address" name="email" id="email"
-              class="require form_field" data-valid="email" data-error="Email should be valid." />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form_block">
-            <input type="text" placeholder="Subject" name="Subject" id="Subject"
-              class="require form_field" />
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="form_block">
-            <textarea placeholder="Message" name="message" id="message"
-              class="require form_field"></textarea>
-          </div>
-        </div>
-      </div>
-      <button type="button" class="int_btn int_btn_two submitForm">Submit</button>
-      <div class="response"></div>
-    </form>
-  </div>
+    <div class="int_map_wrapper">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.525183517651!2d72.93255931429219!3d23.513606003699167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395dc6520c2223bb%3A0x6b9e018558844b06!2sAIROLAM%20LIMITED!5e0!3m2!1sen!2sin!4v1656146848094!5m2!1sen!2sin"
+            width="100%" height="600" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+    <div class="int_contact_white_form">
+        <h1>Get In Touch</h1>
+        <h6>Please fill out the quick form and we will be in touch with lightening speed.</h6>
+        <form action="{{route('send.contact.us')}}" method="post" enctype="multipart/form-data" class="reset" id="addCommon">
+            @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form_block">
+                        <input type="text" placeholder="First Name" name="full_name" id="full_name" class="require form_field" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form_block">
+                        <input type="text" placeholder="Last Name" name="last_name" id="last_name" class="require form_field" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form_block">
+                        <input type="text" placeholder="Email Address" name="email" id="email" class="require form_field" data-valid="email" data-error="Email should be valid." />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form_block">
+                        <input type="text" placeholder="Subject" name="subject" id="subject" class="require form_field" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form_block">
+                        <textarea placeholder="Message" name="message" id="message" class="require form_field"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="int_btn int_btn_two button-disabled">Submit</button>
+            <div class="response"></div>
+        </form>
+    </div>
 </div>
 <!--======End Contact Us Form Section======-->
 

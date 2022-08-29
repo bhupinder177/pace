@@ -18,6 +18,7 @@
 			<link rel="stylesheet" href="{{ asset('front/css/swiper.min.css')}}">
 			<link rel="stylesheet" href="{{ asset('front/css/animate.css')}}">
 			<link rel="stylesheet" href="{{ asset('front/css/magnific-popup.css')}}">
+			<link rel="stylesheet" href="{{ asset('admin/css/jquery.toast.css') }}">
 			<link rel="stylesheet" href="{{ asset('front/css/style.css')}}">
 			<link rel="shortcut icon" type="image/ico" href="{{ asset('front/images/fav.jpg')}}" />
 			<!--=== custom css ===-->
@@ -25,7 +26,9 @@
 		</head>
 
 		<body>
-
+			<div class="loader_panel" style="display: none;">
+			    <img src="{{ asset('admin/images/preloader.gif') }}">
+		  	</div>
 				<div class="search_input_box">
 
 					<input type="text" placeholder="Search here..." />

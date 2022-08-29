@@ -29,32 +29,25 @@ class GlobalFunctions {
     }
 
     //function to send mail
-    public static function sendmail($from,$fromname,$to,$toname,$subject,$data,$mailview,$cc=null,$attachment=null)
-        {
-
-            $response = Mail::send($mailview, $data, function($message) use ($from,$fromname,$to,$toname,$subject,$attachment,$cc)
-            {
-                $message->from($from,$fromname);
-                $message->to($to,$toname);
-                if($cc)
-                {
-                    $message->cc($cc);
-                }
-                $message->bcc('ben@greenleafairquotes.com');
-                $message->subject($subject);
-              if($attachment != '')
-                $message->attach($attachment);
-            });
-            if(Mail::failures())
-            {
-                $response = 0;
-            }
-            else
-          {
-              $response = 1;
-            }
-                return $response;
-      }
+    public static function sendmail($from,$fromname,$to,$toname,$subject,$data,$mailview,$cc=null,$attachment=null) {
+        $response = Mail::send($mailview, $data, function($message) use ($from,$fromname,$to,$toname,$subject,$attachment,$cc) {
+                        $message->from($from,$fromname);
+                        $message->to($to,$toname);
+                        if($cc) {
+                            $message->cc($cc);
+                        }
+                        // $message->bcc('ben@greenleafairquotes.com');
+                        $message->subject($subject);
+                        if($attachment != '')
+                            $message->attach($attachment);
+                    });
+        if(Mail::failures()) {
+            $response = 0;
+        } else {
+            $response = 1;
+        }
+        return $response;
+    }
 
       public static function sendNotification($token,$msgtext)
       {
