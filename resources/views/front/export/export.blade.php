@@ -95,49 +95,44 @@
 <!--===Index2 About us page Service Section end===-->
 <!--======Start Contact Us Form Section======-->
 <div class="int_export_form_box">
-  <div class="container">
-    <div class="int_contact_white_form">
-      <h1>Get In Touch</h1>
-      <h6>Please fill out the quick form and we will be in touch with lightening speed.</h6>
-      <form>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form_block">
-              <input type="text" placeholder="First Name" name="full_name" id="full_name"
-                class="require form_field" />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form_block">
-              <input type="text" placeholder="Last Name" name="last_name" id="last_name"
-                class="require form_field" />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form_block">
-              <input type="text" placeholder="Email Address" name="email" id="email"
-                class="require form_field" data-valid="email"
-                data-error="Email should be valid." />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form_block">
-              <input type="text" placeholder="Subject" name="Subject" id="Subject"
-                class="require form_field" />
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form_block">
-              <textarea placeholder="Message" name="message" id="message"
-                class="require form_field"></textarea>
-            </div>
-          </div>
+    <div class="container">
+        <div class="int_contact_white_form">
+            <h1>Get In Touch</h1>
+            <h6>Please fill out the quick form and we will be in touch with lightening speed.</h6>
+            <form action="{{route('send.contact.us')}}" method="post" enctype="multipart/form-data" class="reset" id="addCommon">
+                @csrf
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form_block">
+                            <input type="text" placeholder="First Name" name="full_name" id="full_name" class="require form_field" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form_block">
+                            <input type="text" placeholder="Last Name" name="last_name" id="last_name" class="require form_field" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form_block">
+                            <input type="text" placeholder="Email Address" name="email" id="email" class="require form_field" data-valid="email" data-error="Email should be valid." />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form_block">
+                            <input type="text" placeholder="Subject" name="subject" id="subject" class="require form_field" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form_block">
+                            <textarea placeholder="Message" name="message" id="message" class="require form_field"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="int_btn int_btn_two button-disabled">Submit</button>
+                <div class="response"></div>
+            </form>
         </div>
-        <button type="button" class="int_btn int_btn_two submitForm">Submit</button>
-        <div class="response"></div>
-      </form>
     </div>
-  </div>
 </div>
 <!--======End Contact Us Form Section======-->
 
