@@ -8,10 +8,7 @@ use Session;
 use Redirect;
 use App\Estimation;
 use PDF;
-use App\Model\Notification;
-use App\Model\Message;
-use App\Model\MessageRoom;
-use App\Model\UserImages;
+use App\Model\Settings;
 
 
 class GlobalFunctions {
@@ -88,9 +85,12 @@ class GlobalFunctions {
 
 
 
-      public static function unreadmessage($id,$roomId)
+
+
+      public static function getAddress()
       {
-        return $unread = Message::where(array('roomId'=>$roomId,'userId'=>$id,"is_read"=>0))->count();
+        return $data = Settings::first();
+
       }
 
 

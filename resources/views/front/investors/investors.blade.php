@@ -88,445 +88,47 @@
             <h2>Resources</h2>
         </div>
         <div class="accordion" id="accordionExample">
+
+          @if(!empty($resource))
+          @foreach($resource as $r)
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Shareholding Pattern
+                        {{ $r->title }}
                     </button>
                 </h2>
+                @if(!empty($r->resourceAllAttachments))
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <div class="row">
+                          @foreach($r->resourceAllAttachments as $attachement)
                             <div class="col-md-6 col-lg-4">
                                 <div class="resbox">
-                                    <a href="#">
+                                    <a target="_blank" href="{{url('storage/resources/'.$attachement->image)}}">
                                         <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
+                                        <p>{{ $attachement->image }}</p>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Financial
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Annual Reports
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Announcements
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        Notices
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                        Prospectus
-                    </button>
-                </h2>
-                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
-                        Attendance Slip
-                    </button>
-                </h2>
-                <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                        Announcements
-                    </button>
-                </h2>
-                <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
-                        Annual Return
-                    </button>
-                </h2>
-                <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
-                        Corporate Governance Report
-                    </button>
-                </h2>
-                <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of 14th AGM</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Notice of Postal Ballot</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="resbox">
-                                    <a href="#">
-                                        <img src="{{ asset('front/images/pdf.png')}}" />
-                                        <p>Postal Ballot Form</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
-                        Disclosure under Regulation 46 of SEBI (LODR) Regulations
-                    </button>
-                </h2>
-                <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                     <ul class="alphaul">
-                        <li>
-                            <a href="#">Details of its Business</a>
-                        </li>
-                        <li>
-                            <a href="#">Terms and Conditions of Appointment of Independent Directors</a>
-                        </li>
-                        <li>
-                            <a href="#">Composition of various Committees of Board of Directors</a>
-                        </li>
-                        <li>
-                            <a href="#">Code of Conduct of Board of Directors</a>
-                        </li>
-                        <li>
-                            <a href="#">Code of Conduct of Senior Management Personnel</a>
-                        </li>
-                        <li>
-                            <a href="#">Details of establishment of Vigil Mechanism / Whistle Blower Policy</a>
-                        </li>
-                        <li>
-                            <a href="#">Criteria of making payments to Non-Executive Directors, if the same has not been disclosed in Annual Report</a>
-                        </li>
-                        <li>
-                            <a href="#">All credit ratings obtained by the entity for all its outstanding instruments, updated immediately as and when there is any revision in any of the ratings. – <span class="text-danger">Not Applicable</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Newspaper Advertisement for Financial Results</a>
-                        </li>
-                        <li>
-                            <a href="#"> Complete copy of the annual report including balance sheet, profit and loss account, directors report, corporate governance report etc;</a>
-                        </li>
-                        <li>
-                            <a href="#"> Financial results, on conclusion of the meeting of the board of directors where the financial results were approved;</a>
-                        </li>
+                            @endforeach
 
-                     </ul>
+                        </div>
                     </div>
                 </div>
+                @endif
             </div>
+            @endforeach
+            @endif
+
+
+
+
+
+
+
+
         </div>
 
     </div>

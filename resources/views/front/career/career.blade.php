@@ -113,70 +113,70 @@
     <div class="int_contact_white_form">
       <h1>Apply Online</h1>
       <h6>You may apply by filling up the form provided herewith OR Mail to hr@airolam.com</h6>
-      <form>
+      <form action="{{route('send.career')}}" method="post" enctype="multipart/form-data" class="reset" id="addCommon">
         <div class="row">
           <div class="col-md-6">
+              <div class="form_block">
+                  <input type="text" placeholder="First Name" name="full_name" id="full_name" class="require form_field" />
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form_block">
+                  <input type="text" placeholder="Last Name" name="last_name" id="last_name" class="require form_field" />
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form_block">
+                  <input type="text" placeholder="Email Address" name="email" id="email" class="require form_field" data-valid="email" data-error="Email should be valid." />
+              </div>
+          </div>
+          <div class="col-md-6">
             <div class="form_block">
-              <input type="text" placeholder="First Name" class="require form_field">
+              <input type="text" placeholder="Phone Number" name="phone" id="phone" class="require form_field" data-valid="phone"  >
             </div>
           </div>
           <div class="col-md-6">
             <div class="form_block">
-              <input type="text" placeholder="Last Name" class="require form_field">
+              <input type="text" placeholder="Location Preferred" id="location" name="location"  class="require form_field">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form_block">
-              <input type="text" placeholder="Email Address" class="require form_field">
+              <input type="text" placeholder="Qualification" id="Qualification" name="Qualification" class="require form_field">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form_block">
-              <input type="text" placeholder="Phone Number" class="require form_field">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form_block">
-              <input type="text" placeholder="Location Preferred" class="require form_field">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form_block">
-              <input type="text" placeholder="Qualification" class="require form_field">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form_block">
-              <select class="require form_field">
-                <option>Post Applied For</option>
-                <option>Project Engineer</option>
-                <option>HR/Admin</option>
+              <select class="require form_field" id="post" name="post">
+                <option value="">Post Applied For</option>
+                <option value="Project Manager">Project Engineer</option>
+                <option value="HR/Admin">HR/Admin</option>
               </select>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form_block">
-              <select class="require form_field">
-                <option>Work Experience</option>
-                <option>0 to 2 Years</option>
-                <option>2 to 3 Years</option>
-                <option>3 to 4 Years</option>
-                <option>4 to 5 Years</option>
+              <select name="experience" id="experience" class="require form_field">
+                <option value="">Work Experience</option>
+                <option value="0 to 2 years">0 to 2 Years</option>
+                <option value="2 to 3 years">2 to 3 Years</option>
+                <option value="3 to 4 years">3 to 4 Years</option>
+                <option value="4 to 5 years">4 to 5 Years</option>
               </select>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form_block">
-              <input type="text" placeholder="Current CTC(per month)" class="require form_field">
+              <input type="text" id="ctc" name="ctc" placeholder="Current CTC(per month)" class="require form_field">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form_block">
-              <input type="text" placeholder="Expected CTC(per month)" class="require form_field">
+              <input type="text" id="expectedCtc" name="expectedCtc" placeholder="Expected CTC(per month)" class="require form_field">
             </div>
           </div>
         </div>
-        <button type="button" class="int_btn int_btn_two submitForm">Submit</button>
+        <button type="submit" class="int_btn int_btn_two submitForm">Submit</button>
         <div class="response"></div>
       </form>
     </div>

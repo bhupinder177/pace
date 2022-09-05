@@ -1,4 +1,7 @@
 <!--===Start Footer Section===-->
+@php
+$footerAddress = Helper::getAddress();
+@endphp
 <div class="int_footer_wrapper">
 <div class="container">
   <div class="footer_box_wrapper">
@@ -15,9 +18,7 @@
         <div class="footer_box">
           <div class="footer_hours">
             <img src="{{asset('front/images/Icon material-location-on.svg')}}" />
-            <p> Dalpur Village, Nananpur Approach Road,
-              <br /> Ta. : Prantij, Dist. : S.K.,<br />
-              Gujarat + 383120, India.
+            <p> {{ $footerAddress->address }}
             </p>
           </div>
         </div>
@@ -26,9 +27,9 @@
         <div class="footer_box">
           <div class="footer_hours">
             <img src="{{ asset('front/images/Icon ionic-ios-call.svg')}}" />
-            <p>Phone : <a href="tel:+91 2770-240572/73">+91 2770-240572/73</a> </p>
-            <p>Fax : +91 2770 240574 </p>
-            <p>Mobile : <a href="tel:+91 99099 54411">+91 99099 54411</a></p>
+            <p>Phone : <a href="tel:+91 2770-240572/73">{{ $footerAddress->phone }}</a> </p>
+            <p>Fax : {{ $footerAddress->fax }} </p>
+            <p>Mobile : <a href="tel:{{ $footerAddress->mobile }}">{{ $footerAddress->mobile }}</a></p>
           </div>
         </div>
       </div>
@@ -36,7 +37,7 @@
         <div class="footer_box">
           <div class="footer_hours">
             <img src="{{asset('front/images/Icon material-email-1.svg')}}" />
-            <a href="mailto:marketing@airolam.com">marketing@airolam.com</a>
+            <a href="mailto:{{ $footerAddress->email }}">{{ $footerAddress->email }}</a>
           </div>
         </div>
       </div>
@@ -53,7 +54,7 @@
 <div class="int_bottom_footer_wrapper">
 <div class="container">
   <div class="bottom_footer_box_wrapper">
-    <p>© 2022 Airolam decorative laminates. All Rights Reserved.</p>
+    <p>{{ $footerAddress->copy_right }}</p>
   </div>
 </div>
 </div>

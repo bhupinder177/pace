@@ -35,10 +35,16 @@
 															         <br/>
 															         <p><b>Name: </b>{{ $data['name'] }}</p>
 															         <p><b>Email: </b>{{ $data['email'] }}</p>
-															         <p><b>Comment: </b>{{ $data['message'] }}</p><br>
+															         <p><b>Phone: </b>{{ $data['phone'] }}</p><br>
+															         <p><b>Location: </b>{{ $data['location'] }}</p><br>
+															         <p><b>Qualification: </b>{{ $data['qualification'] }}</p><br>
+															         <p><b>Post Applied For: </b>{{ $data['post'] }}</p><br>
+															         <p><b>Experience: </b>{{ $data['experience'] }}</p><br>
+															         <p><b>CTC: </b>{{ $data['ctc'] }}</p><br>
+															         <p><b>Expected CTC: </b>{{ $data['expectedCtc'] }}</p><br>
 
 															        <br/>Thank You,<br/>
-																			
+
 															         <br/><br/>
                                     </td>
 																	</tr>

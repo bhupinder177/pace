@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Home;
 use App\Model\Certification;
 use App\Model\Commitees;
+use App\Model\Resources;
 
 class HomeController extends Controller
 {
@@ -65,7 +66,9 @@ class HomeController extends Controller
     {
       $bob = Commitees::where('type',1)->orderby('displayOrder','ASC')->get();
       $commitee = Commitees::where('type',2)->orderby('displayOrder','ASC')->get();
-        return view('front.investors.investors',['bob'=>$bob,'commitee'=>$commitee]);
+      $resource = Resources::with('resourceAllAttachments')->where('status','1')->orderby('display_order','ASC')->get();
+      
+      return view('front.investors.investors',['bob'=>$bob,'commitee'=>$commitee,'resource'=>$resource]);
     }
 
     public function whereToBuy()

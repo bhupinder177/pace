@@ -113,4 +113,46 @@ class ContactController extends Controller
         }
     }
 
+
+    public function sendCarrier(Request $request) {
+        $validator = Validator::make($request->all(),[
+                                        'full_name' => 'required',
+                                        'last_name' => 'required',
+                                        'email' => 'required|email',
+                                        'phone' => 'required',
+                                        'location' => 'required',
+                                        'qualification' => 'required',
+                                        'post' => 'required',
+                                        'experience' => 'required',
+                                        'ctc' => 'required',
+                                        'expectedCtc' => 'required',
+                                    ]);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            $response['validation']  = false;
+            $response['errors']      = $errors;
+            return response($response);
+        } else {
+            $getFullName = $request->full_name." ".$request->last_name;
+            $getSubject = "Carrer";
+            $toEmail = "project87458@yopmail.com";
+            $toName = "Project Data";
+            $mailData = array('email' => $request->email, 'name'=> $getFullName, 'phone' => $request->phone,'location'=>$request->location,'qualification'=>$request->qualification,'ctc'=>$request->ctc,'expectedCtc'=>$request->expectedCtc,'experience'=>$request->experience);
+            $res = CommonHelper::sendmail($toEmail, $toName, $toEmail, $toName, $getSubject , ['data'=>$mailData], 'emails.career','',$attachment=null);
+            if($res) {
+                $response['success']         = true;
+                $response['delayTime']       = '3000';
+                $response['success_message'] = "Career Form Submitted Successfully";
+                $response['resetform'] ='true';
+                return response($response);
+            } else {
+                $response['formErrors'] = true;
+                $response['delayTime'] = '3000';
+                $response['errors'] = "Career form not send";
+                return response($response);
+            }
+        }
+    }
+
 }

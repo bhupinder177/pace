@@ -39,6 +39,7 @@ Route::get('/contact-us','ContactController@index')->name('contact.us.index');
 Route::post('/contactSave','ContactController@contactSave');
 
 Route::post('/send-contact-us','ContactController@sendContactUs')->name('send.contact.us');
+Route::post('/send-career','ContactController@sendCareer')->name('send.career');
 
 
 
