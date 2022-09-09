@@ -138,7 +138,7 @@ class ContactController extends Controller
             $getSubject = "Carrer";
             $toEmail = "project87458@yopmail.com";
             $toName = "Project Data";
-            $mailData = array('email' => $request->email, 'name'=> $getFullName, 'phone' => $request->phone,'location'=>$request->location,'qualification'=>$request->qualification,'ctc'=>$request->ctc,'expectedCtc'=>$request->expectedCtc,'experience'=>$request->experience);
+            $mailData = array('email' => $request->email, 'name'=> $getFullName, 'phone' => $request->phone,'location'=>$request->location,'qualification'=>$request->qualification,'ctc'=>$request->ctc,'expectedCtc'=>$request->expectedCtc,'experience'=>$request->experience,'post'=>$request->post);
             $res = CommonHelper::sendmail($toEmail, $toName, $toEmail, $toName, $getSubject , ['data'=>$mailData], 'emails.career','',$attachment=null);
             if($res) {
                 $response['success']         = true;

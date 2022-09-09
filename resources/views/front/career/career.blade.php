@@ -114,6 +114,7 @@
       <h1>Apply Online</h1>
       <h6>You may apply by filling up the form provided herewith OR Mail to hr@airolam.com</h6>
       <form action="{{route('send.career')}}" method="post" enctype="multipart/form-data" class="reset" id="addCommon">
+        @csrf
         <div class="row">
           <div class="col-md-6">
               <div class="form_block">
@@ -142,7 +143,7 @@
           </div>
           <div class="col-md-6">
             <div class="form_block">
-              <input type="text" placeholder="Qualification" id="Qualification" name="Qualification" class="require form_field">
+              <input type="text" placeholder="Qualification" id="Qualification" name="qualification" class="require form_field">
             </div>
           </div>
           <div class="col-md-6">
