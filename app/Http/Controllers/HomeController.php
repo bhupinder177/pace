@@ -67,13 +67,19 @@ class HomeController extends Controller
       $bob = Commitees::where('type',1)->orderby('displayOrder','ASC')->get();
       $commitee = Commitees::where('type',2)->orderby('displayOrder','ASC')->get();
       $resource = Resources::with('resourceAllAttachments')->where('status','1')->orderby('display_order','ASC')->get();
-      
+
       return view('front.investors.investors',['bob'=>$bob,'commitee'=>$commitee,'resource'=>$resource]);
     }
 
     public function whereToBuy()
     {
         return view('front.where-to-buy.where-to-buy');
+    }
+
+    public function healthcare()
+    {
+      return view('front.healthcare.healthcare');
+
     }
 
 }

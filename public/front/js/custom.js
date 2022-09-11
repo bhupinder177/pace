@@ -124,6 +124,11 @@ Assigned to: Theme Forest
 				$('.int_signup_model').on('click', function(){
 					$('.int_modal_signup').addClass('open_signup_model');
 				});
+
+				$('.blog_box a').on('click', function(){
+					$('.int_modal_signup').addClass('open_signup_model');
+				});
+
 				$('.close_login').on('click', function(){
 					$('.int_modal_signup').removeClass('open_signup_model');
 				});
@@ -927,193 +932,13 @@ $(".submitForm").on('click', function() {
 	}
 });
 
+$(window).scroll(function() {
+	if ($(this).scrollTop() > 1){  
+		$('.int_header_wrapper ').addClass("sticky");
+	  }
+	  else{
+		$('.int_header_wrapper ').removeClass("sticky");
+	  }
+	});
 
-
-function formSubmit(form)
-{
-
-  $.ajax({
-    url         : form.action,
-    type        : form.method,
-    data        : new FormData(form),
-    enctype : 'multipart/form-data',
-    contentType : false,
-    cache       : false,
-    headers     : {
-     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-    processData : false,
-    dataType    : "json",
-    beforeSend  : function () {
-      $(".button-disabled").attr("disabled", "disabled");
-      $(".loader_panel").css('display','block');
-    },
-    complete: function () {
-      $(".loader_panel").css('display','none');
-        $(".button-disabled").attr("disabled",false);
-    },
-    success: function (response) {
-
-      if(response.url)
-      {
-        if(response.delayTime)
-        setTimeout(function() { window.location.href=response.url;}, response.delayTime);
-        else
-        window.location.href=response.url;
-      }
-      $.toast().reset('all');
-      var delayTime = 3000;
-      if(response.delayTime)
-      delayTime = response.delayTime;
-      if (response.success)
-      {
-        $.toast({
-          heading             : 'Success',
-          text                : response.success_message,
-          loader              : true,
-          loaderBg            : '#fff',
-          showHideTransition  : 'fade',
-          icon                : 'success',
-          hideAfter           : delayTime,
-          position            : 'top-right'
-        });
-
-            if (response.modelhide) {
-
-            if (response.delay)
-            {
-
-            setTimeout(function (){ $(response.modelhide).modal('hide') },response.delay);
-            }
-             else
-             {
-
-            $(response.modelhide).modal('hide');
-              }
-            }
-      }
-      else
-      {
-
-        $(".button-disabled").removeAttr("disabled");
-        if( response.formErrors)
-        {
-          $.toast({
-            heading             : 'Error',
-            text                : response.errors,
-            loader              : true,
-            loaderBg            : '#fff',
-            showHideTransition  : 'fade',
-            icon                : 'error',
-            hideAfter           : delayTime,
-            position            : 'top-right'
-          });
-        }
-        // else
-        // {
-        //   $.toast({
-        //     heading             : 'Error',
-        //     text                : response.error_message,
-        //     loader              : true,
-        //     loaderBg            : '#fff',
-        //     showHideTransition  : 'fade',
-        //     icon                : 'error',
-        //     hideAfter           : delayTime,
-        //     position            : 'top-right'
-        //   });
-        // }
-      }
-
-      if(response.validation == false)
-      {
-          var i = 0;
-          $.each(response.errors, function( index, value )
-          {
-          if (i == 0) {
-          $("input[name='"+index+"']").focus();
-          }
-          var str=value.toString();
-          if (str.indexOf('edit') != -1) {
-          // will not be triggered because str has _..
-          value=str.toString().replace('edit', '');
-          }
-
-
-          // $("input[name='"+index+"']").parents('.form-group').addClass('has-error');
-          $("input[name='"+index+"']").after('<label id="'+index+'-error" class="has-error" for="'+index+'">'+value+'</label>');
-
-          // $("textarea[name='"+index+"']").parents('.form-group').addClass('has-error');
-          $("textarea[name='"+index+"']").after('<label id="'+index+'-error" class="has-error" for="'+index+'">'+value+'</label>');
-
-          // $("select[name='"+index+"']").parents('.form-group').addClass('has-error');
-          $("select[name='"+index+"']").after('<label id="'+index+'-error" class="has-error" for="'+index+'">'+value+'</label>');
-          i++;
-          });
-          $("input[type=submit]").removeAttr("disabled");
-          $("button[type=submit]").removeAttr("disabled");
-      }
-
-      if(response.ajaxPageCallBack)
-      {
-        response.formid = form.id;
-        ajaxPageCallBack(response);
-      }
-      if(response.resetform)
-        {
-         //$('.reset').resetForm();
-         $('.reset')[0].reset();
-         }
-      if(response.url)
-      {
-        if(response.delayTime)
-        setTimeout(function() { window.location.href=response.url;}, response.delayTime);
-        else
-        window.location.href=response.url;
-      }
-      if (response.modelhide)
-      {
-         if (response.delay)
-         setTimeout(function (){ $(response.modelhide).modal('hide') },response.delay);
-         else
-         $(response.modelhide).modal('hide');
-      }
-      if(response.html){
-          $(response.target).html(response.html);
-      }
-      if (response.reload)
-      {
-         if(response.delayTime)
-         setTimeout(function(){  location.reload(); }, response.delayTime)
-         else
-         location.reload();
-      }
-    },
-    error:function(response){
-        $.toast({
-          heading             : 'Error',
-          text                : "Server Error",
-          loader              : true,
-          loaderBg            : '#fff',
-          showHideTransition  : 'fade',
-          icon                : 'error',
-          hideAfter           : 4000,
-          position            : 'top-right'
-        });
-
-    }
-  });
-}
-
-
-$("#addCommon").validate({
-    errorClass: "has-error",
-    highlight: function(element, errorClass) {
-        //$(element).parents('.form-group').addClass(errorClass);
-    },
-    unhighlight: function(element, errorClass, validClass) {
-        //  $(element).parents('.form-group').removeClass(errorClass);
-    },
-    submitHandler: function (form) {
-        formSubmit(form);
-    }
-});
+	

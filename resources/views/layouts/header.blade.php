@@ -136,18 +136,30 @@
 																class="fas fa-caret-down toggle_caret"></i></a>
 
 														<ul>
-
-															<li><a href="{{URL::to('/about-us')}}">Corporate Profile</a></li>
-
-															<li><a href="{{URL::to('/investors')}}">Investors</a></li>
-
 															<li><a href="{{URL::to('/infrastructure')}}">Infrastructure</a></li>
+
+
+															<li><a href="{{URL::to('/about-us')}}">Directors</a></li>
+
+
 
 															<li><a href="#">CSR</a></li>
 
 														</ul>
 
 													</li>
+													<li><a href="{{URL::to('/investors')}}">Investors</a></li>
+													<li class="int_home_dropdown">
+											<a href="#">Sectors<i class="fas fa-caret-down toggle_caret"></i></a>
+											<ul>
+												<li><a href="{{URL::to('/healthcare')}}">Healthcare</a></li>
+												<li><a href="#">Hospitality</a></li>
+												<li><a href="#">Retail</a></li>
+												<li><a href="#">Education</a></li>
+												<li><a href="#">Commercial</a></li>
+												<li><a href="#">Residences</a></li>
+											</ul>
+										</li>
 
 													<li class="int_home_dropdown megamenu"><a href="#">Products<i
 																class="fas fa-caret-down toggle_caret"></i></a>
@@ -446,6 +458,15 @@
 													<li><a href="{{URL::to('/export')}}">Export</a></li>
 
 													<li class="int_home_dropdown">
+											<a href="#">Resources<i class="fas fa-caret-down toggle_caret"></i></a>
+											<ul>
+												<li><a href="{{URL::to('/download')}}">Ecatalog</a></li>
+												<li><a href="#">Documentation(Tech)</a></li>
+												<li><a href="{{URL::to('/media-center')}}">Videos</a></li>
+											</ul>
+										</li>
+
+													<li class="int_home_dropdown">
 
 														<a href="#">More<i class="fas fa-caret-down toggle_caret"></i></a>
 
@@ -453,11 +474,7 @@
 
 
 
-															<li><a href="{{URL::to('/download')}}">Ecatalog</a></li>
 
-															<li><a href="{{URL::to('/media-center')}}">Video</a></li>
-
-															<li><a href="#">Tech</a></li>
 
 															<li><a href="#">Care & Maintenance</a></li>
 															<li><a href="#">Blog</a></li>

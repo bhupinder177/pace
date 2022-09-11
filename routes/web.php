@@ -20,6 +20,7 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/healthcare', 'HomeController@healthcare')->name('healthcare');
 Route::get('/about-us','ContactController@about');
 Route::get('/infrastructure','HomeController@infrastructure');
 Route::get('/download','HomeController@download');

@@ -6,42 +6,56 @@ $footerAddress = Helper::getAddress();
 <div class="container">
   <div class="footer_box_wrapper">
     <div class="row">
-      <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="footer_box">
-          <div class="int_logo">
-            <a href="#"><img src="{{asset('front/images/logo.png')}}" class="img-fluid"
-                alt="logo" /></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="footer_box">
-          <div class="footer_hours">
-            <img src="{{asset('front/images/Icon material-location-on.svg')}}" />
-            <p> {{ $footerAddress->address }}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="footer_box">
-          <div class="footer_hours">
-            <img src="{{ asset('front/images/Icon ionic-ios-call.svg')}}" />
-            <p>Phone : <a href="tel:+91 2770-240572/73">{{ $footerAddress->phone }}</a> </p>
-            <p>Fax : {{ $footerAddress->fax }} </p>
-            <p>Mobile : <a href="tel:{{ $footerAddress->mobile }}">{{ $footerAddress->mobile }}</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-md-6 col-sm-6 col-12">
-        <div class="footer_box">
-          <div class="footer_hours">
-            <img src="{{asset('front/images/Icon material-email-1.svg')}}" />
-            <a href="mailto:{{ $footerAddress->email }}">{{ $footerAddress->email }}</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    						<div class="col-lg-2 col-md-6 col-sm-6 col-12">
+    							<div class="footer_box">
+    								<h3 class="footer_heading">Useful Links</h3>
+    								<div class="footer_linkbox">
+    									<ul class="footer_support_link">
+    										<li><a href="{{URL::to('/')}}">Home </a></li>
+    										<li><a href="{{URL::to('/about-us')}}">About Us</a></li>
+    										<li><a href="{{URL::to('/careers')}}">Careers </a></li>
+    										<li><a href="{{URL::to('/where-to-buy')}}">Where to buy</a></li>
+    										<li><a href="{{URL::to('/contact-us')}}">Contact</a></li>
+    									</ul>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    							<div class="footer_box">
+    								<h3 class="footer_heading">Products</h3>
+    								<div class="footer_linkbox">
+    									<ul class="footer_support_link">
+    										<li><a href="{{URL::to('/media-center')}}">Laminates</a></li>
+    										<li><a href="{{URL::to('/media-center')}}">Compact Laminates </a></li>
+    										<li><a href="{{URL::to('/media-center')}}">Speciality Laminates </a></li>
+    										<li><a href="{{URL::to('/media-center')}}">Performance Laminates </a></li>
+    										<li><a href="{{URL::to('/media-center')}}">Plywood</a></li>
+    										<li><a href="{{URL::to('/media-center')}}">Panel</a></li>
+    									</ul>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    							<div class="footer_box">
+    								<h3 class="footer_heading">Contact Info</h3>
+    								<div class="footer_hours"> <img src="{{ asset('front/images/Icon ionic-ios-call.svg')}}">
+    									<p>Phone : <a href="tel:{{ $footerAddress->phone }}">{{ $footerAddress->phone }}</a> </p>
+    									<p>Fax : {{ $footerAddress->fax }} </p>
+    									<p>Mobile : <a href="tel:{{ $footerAddress->mobile }}">{{ $footerAddress->mobile }}</a></p>
+    								</div>
+    								<div class="footer_hours"> <img src="{{asset('front/images/Icon material-email-1.svg')}}"> <a href="mailto:{{ $footerAddress->email }}">{{ $footerAddress->email }}</a> </div>
+    							</div>
+    						</div>
+    						<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+    							<div class="footer_box">
+    								<h3 class="footer_heading">Subscribe to us</h3>
+    								<div class="int_textbox_subscribe4">
+    									<div class="int_search_wrapper"> <input type="text" placeholder="Email Address..." id="searchInput"> <a class="index4_btn" id="searchInputBtn"><i class="fa fa-paper-plane"></i></a> </div>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+
   </div>
 </div>
 </div>
