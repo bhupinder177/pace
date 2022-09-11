@@ -50,7 +50,7 @@ Assigned to: Theme Forest
 			this.Quantity();
 			this.Sign_slider();
 			this.date_picker();
-			this.niceselect();
+			// this.niceselect();
 			this.Mouse_wheel();
 			
 		},
@@ -799,11 +799,11 @@ Assigned to: Theme Forest
 		// datepicker js 
 		
 		/*Nice Select*/
-		niceselect:function(){
+		/*niceselect:function(){
 			if($('select').length > 0){
 				$('select').niceSelect();	
 			}
-		},
+		},*/
 		/*Nice Select*/
 		
 		/*Mouse_wheel*/
